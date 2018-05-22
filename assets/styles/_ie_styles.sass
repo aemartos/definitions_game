@@ -1,0 +1,132 @@
+
+@import partials/mixins
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none), (-ms-ime-align:auto) //IE 10 & 11
+
+	body
+		cursor: auto !important
+
+	.password_feedback
+		opacity: 1
+		display: block
+		&.hide_op
+			opacity: 1
+			display: none
+
+	.main_box
+		+transform (translateY(0))
+		&.with_feedback
+			+transform (translateY(0))
+
+	.control_bar
+		.start_game
+			.control
+				cursor: pointer
+		.credits
+			cursor: pointer
+		.controls_menu
+			.control
+				cursor: pointer
+	
+	.form_pass
+		.input_box
+			.input_case
+				.eye_box
+					cursor: pointer
+			.check_box
+				cursor: pointer
+
+	.dark-opacity
+		cursor: pointer
+
+	.modal_position
+		.modal
+			.modal-box
+				.close-modal-cross
+					cursor: pointer
+				.control
+					&.control_cross
+						cursor: pointer
+				.modal-content
+					.modal-text
+						.task-list
+							.list-title
+								cursor: pointer
+							.control
+								cursor: pointer
+							.individual_task
+								.individual_task_text
+									cursor: pointer
+								.task-icons
+									.control
+										cursor: default
+					.logos
+						.logo
+							cursor: pointer
+							&.incibe_logo
+								height: 3em
+
+					.modal-actions
+						.btn
+							cursor: pointer
+
+
+
+@supports (-ms-ime-align:auto) //EDGE
+	
+	body
+		cursor: auto !important
+
+	.control_bar
+		.start_game
+			.control
+				cursor: pointer
+		.credits
+			cursor: pointer
+		.controls_menu
+			.control
+				cursor: pointer
+	
+	.form_pass
+		.input_box
+			.input_case
+				.eye_box
+					cursor: pointer
+			.check_box
+				cursor: pointer
+
+	.dark-opacity
+		cursor: pointer
+
+	.modal_position
+		.modal
+			.modal-box
+				.close-modal-cross
+					cursor: pointer
+				.control
+					&.control_cross
+						cursor: pointer
+				.modal-content
+					.modal-text
+						.task-list
+							.list-title
+								cursor: pointer
+							.control
+								cursor: pointer
+							.individual_task
+								.individual_task_text
+									cursor: pointer
+								.task-icons
+									.control
+										cursor: default
+					.logos
+						.logo
+							cursor: pointer
+							&.incibe_logo
+								height: 3em
+
+					.modal-actions
+						.btn
+							cursor: pointer
+
+

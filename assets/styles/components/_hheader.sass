@@ -1,0 +1,62 @@
+
+
+//----------- HEADER ----------------
+
+.main_header
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-items: center
+  padding: 1em 2em
+  .definitions_logo
+    width: 9.5em
+    //+hand_cursor
+  .elab
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    .text_elab
+      font-weight: lighter
+      margin-right: .8em
+      padding-top: .3em
+    .elab_logo
+      width: 4em
+      +hand_cursor
+
+
+
+@media (max-width: $media6) and (orientation: landscape) 
+
+  .main_header
+    padding: .7em
+    .definitions_logo
+      width: 6em
+    .elab
+      .text_elab
+        font-size: .6em
+      .elab_logo
+        width: 2em
+
+@media (max-width: $media9) and (orientation: landscape)
+
+  .main_header
+    padding: .7em
+
+
+@media (max-width: $media9) 
+  
+  .main_header
+    padding: 1em
+    .definitions_logo
+      width: 6em
+    .elab
+      .text_elab
+        font-size: .5em
+        margin: 0 1em 0 0
+        padding-top: .5em
+      .elab_logo
+        width: 2em
+     
+
+

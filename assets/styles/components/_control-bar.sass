@@ -1,0 +1,264 @@
+
+
+//----------- CONTROL BAR ------------
+
+.control_box
+  @include flex
+  justify-content: space-between
+  font-weight: bold
+  color: $maincolor
+  font-size: calc(.75vh + .75vw + .3em)
+  background-color: rgba(255,255,255,.15)
+  padding: 0 1.2em
+  height: 5em
+  .control_bar
+    width: 100%
+    .control_main_text
+      color: white
+    .control_text
+      @include flex
+      justify-content: space-between
+
+    //----------- CONTROLS ------------
+
+    .start_game
+      @include flex
+      justify-content: flex-start
+      @include hand_cursor
+      padding-top: .3em
+      .start_game_text
+        margin-right: .5em
+      .control
+        &.control_start
+          &:hover
+            @include hover_scale
+    .credits
+      @include hand_cursor
+      @include transition (all 300ms cubic-bezier(0.4, 0, 0.2, 1))
+      &:hover
+        @include hover_opacity
+
+    .controls_menu
+      padding-top: .3em
+      @include flex
+      justify-content: flex-start
+      height: 1.5em
+      .control
+        fill: $secondarycolor
+        margin-right: .2em
+        @include hand_cursor
+        &:hover
+          line-height: 0
+          @include hover_font-size
+
+    .controls_menu_mob
+      display: none
+      .control
+        fill: $secondarycolor
+        margin-right: .2em
+
+  .progress_score
+    width: 100%
+    color: white
+    @include flex
+    justify-content: flex-end
+    align-items: baseline
+    text-align: center
+    .number_progress
+      font-size: 1.5em
+    .text_progress
+      font-size: .5em
+      margin-top: -.3em
+
+    .time_elapsed
+      
+    .questions_answered
+      margin-left: .7em
+      width: 10%
+      .number_answered
+      .progress_bar
+        margin: 0 auto
+        width: 60%
+        height: .35em
+        border: .1em solid white
+        border-radius: 5em
+        margin-top: .04em
+        .progress_fill
+          width: 0
+          height: .25em
+          margin-left: -.1em
+          margin-top: -.05em
+          background-color: white
+          border-radius: .1em
+          //border-bottom-right-radius: .1em
+
+    .user_score
+      margin-left: .7em
+
+  .feedback_revision
+    color: white
+    font-size: 1.2em
+     
+
+
+//----------- ICONS GENERAL ------------
+
+.svg-button
+  display: inline-block
+  @include transition (all 300ms cubic-bezier(0.4, 0, 0.2, 1))
+  &.control
+    fill: $maincolor
+    width: 1.2em
+    height: 1.2em
+    svg
+      width: 1.2em
+      height: 1.2em
+      path
+        //width: 100%
+        //height: 100%
+    &.control_start
+    &.control_info
+    &.control_progress
+    &.control_stop
+
+
+@media (max-width: $media1)
+
+  .control_bar
+    .controls_menu
+      font-size: 1.3em
+
+
+@media (max-width: $media5) 
+
+  //----------- CONTROL BAR ------------
+  
+  .control_box
+    .progress_score
+      .questions_answered
+        width: 20%
+
+
+@media (max-width: $media6) and (orientation: landscape) 
+  
+  //----------- CONTROL BAR ------------
+  
+  .control_bar
+    padding: 0
+    margin-top: 0
+
+
+@media (max-width: $media7) and (orientation: landscape) 
+  
+  //----------- CONTROL BAR ------------
+  
+  .control_bar
+    height: 3em
+    font-size: 1em
+    .progress_score
+      .questions_answered
+        .progress_bar
+          border: .09em solid white
+
+
+@media (max-width: $media7)
+  
+  .control_box
+    .control_bar
+      width: 150%
+      .controls_menu
+        font-size: 1.5em
+
+
+@media (max-width: $media8) 
+
+  //----------- CONTROL BAR ------------
+  
+  .control_bar
+    .progress_score
+      width: 10%
+      margin-left: 2.5em
+      .questions_answered
+        width: auto
+        .progress_bar
+          width: 100%
+    
+
+@media (max-width: $media9) and (orientation: landscape)
+
+  .control_bar
+    height: 3em
+    .progress_score
+      width: 6%
+
+
+@media (max-width: $media9) 
+
+  //----------- CONTROL BAR ------------
+  .control_box
+    .control_bar
+      font-size: 1em
+      padding: 0
+      margin-top: 0
+      .controls_menu
+        font-size: 1.5em
+      
+      .progress_score
+        margin-left: 0
+        .questions_answered
+          display: none
+          .progress_bar
+            border: .09em solid white
+      
+
+
+  //----------- CONTROLS ------------
+
+  .start_game
+    .start_game_text
+    .svg-button
+      width: 1.3em
+      height: 1.3em
+      &.control
+        svg
+          width: 1.3em
+          height: 1.3em
+
+
+@media (max-width: $media10) 
+
+  .control_box
+    .progress_score
+      .questions_answered
+        width: 25%
+
+
+@media (max-width: $media11) 
+
+  .control_box
+    .control_bar
+      width: 180%
+
+
+@media (max-width: $media12) 
+
+  .control_box
+    .control_bar
+      margin: 0
+      padding: 0
+      font-size: 1.3em
+      .control_main_text
+        display: none
+      .control_text
+        .start_game
+          font-size: 1.3em
+          padding: 0
+
+    .progress_score
+      font-size: 1.2em
+      .questions_answered
+          width: 100%
+
+
+
+
