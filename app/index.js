@@ -12,7 +12,7 @@ import Translator from './translator';
 // START YOUR APP HERE
 // ================================
 
-var trans = new Translator("ru");
+var trans = new Translator("en");
 
 
 //Example of simple jquery code working

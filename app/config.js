@@ -1,4 +1,4 @@
-let STATE = {
+export let STATE = {
   game_started: false,
   game_ended: false,
   time: "60:00",
@@ -11,7 +11,7 @@ let STATE = {
 };
 
 
-const UI = {
+export const UI = {
   with_reset_button: false,
   with_fullscreen: true,
   name:"",

@@ -1,5 +1,5 @@
 
-const MASTER = {
+export const MASTER = {
   countdown: true,
   time: "60:00",
   letter_limit: 25,
