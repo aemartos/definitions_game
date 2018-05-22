@@ -1,4 +1,4 @@
-Degfinitions Game 
+Definitions Game 
 ===========
 
 ## Based on Webpack 4 Boilerplate
