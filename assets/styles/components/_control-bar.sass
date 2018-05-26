@@ -102,15 +102,19 @@
 
 
 //----------- ICONS GENERAL ------------
-
 .control
   +transition_default
   width: 1.2em
   height: 1.2em
+  path
+    fill: $maincolor
   &.control_start
   &.control_info
   &.control_progress
   &.control_stop
+  &:hover
+    +hover_scale
+    +transition_default
 
 
 @media (max-width: $media1)

@@ -3,3 +3,128 @@
 
 .main_box
   .main_game
+    position: relative
+    +flex
+    .word-wall
+      +flex
+      justify-content: center
+      width: 40%
+      height: calc(100vh - 14.5em)
+      background-color: $background2
+      .letter-wall
+        display: flex
+        flex-flow: row wrap
+        justify-content: center
+        align-items: center
+        width: 90%
+        margin: auto auto
+        .letter
+          +flex
+          justify-content: center
+          font-size: calc(3vw + 1em)
+          line-height: 0
+          color: $maincolor
+          background-color: $basic
+          width: 5vw
+          height: 5vw
+          margin-right: .3em
+          margin-bottom: .3em
+          +hand_cursor
+          +transition_default
+          &:hover
+            +hover_scale
+            +transition_default
+          &:nth-child(5n)
+            margin-right: 0
+          &:nth-child(21), &:nth-child(22), &:nth-child(23), &:nth-child(24), &:nth-child(25)
+            margin-bottom: 0
+          &.active
+            background-color: $background
+          &.wrong
+            background-color: $wrong
+          &.right
+            background-color: $right
+    .word-def
+      width: 50%
+      margin: auto 4em
+      .wildcards
+        position: absolute
+        top: 3em
+        right: 3em
+        +flex
+        text-align: right
+        justify-content: flex-end
+        .w_wild
+          position: relative
+          +transition_default
+          .w_times
+            +flex
+            justify-content: center
+            position: absolute
+            top: -.5em
+            right: -.5em
+            font-size: .8em
+            width: 1.5em
+            height: 1.5em
+            border-radius: 1em
+            background-color: $secondarycolor
+          .wildcard
+            margin-left: .8em
+            width: 3em
+            height: 3em
+            +hand_cursor
+            path
+              fill: $background
+          &:hover
+            +hover_opacity
+            +transition_default
+
+      .word_definition_box
+        color: $background
+        .title_word
+          font-size: calc(3.8vw + 1em)
+        .word_definition
+          font-size: calc(1vw + 1em)
+          margin-top: 1em
+          font-family: $HelveticaRegular
+        .enter_answer
+          +flex
+          justify-content: center
+          margin-top: 2em
+          height: 5em
+          .answer_input
+            +flex
+            justify-content: center
+            width: 90% 
+            height: inherit
+            background-color: $secondarycolor
+            margin-right: .5em
+            .main_input
+              +flex
+              width: 85% 
+              color: white
+              font-family: $HelveticaBolder
+              border: none
+              background-color: transparent
+              font-size: calc(2.5vw + 1em)
+              padding: .2em .5em 
+            .control_check
+              width: 3em
+              height: 3em
+              +hand_cursor
+          .check_box
+            +flex
+            justify-content: center
+            width: 10%
+            height: inherit
+            background-color: $secondarycolor
+            .control_next
+              width: 3em
+              height: 3em
+              +hand_cursor
+
+
+
+
+
+

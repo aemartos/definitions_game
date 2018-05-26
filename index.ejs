@@ -49,33 +49,33 @@
                 <div class="control_text">
                     <div class="start_game">
                       <span class="start_game_text"></span>
-                      <img class="control control_start" src="/assets/images/icons/start.svg"/>
+                      <img class="control control_start svg" src="/assets/images/icons/start.svg"/>
                     </div>
                   <div class="credits"></div>
                 </div>
 
                 <div class="controls_menu hide">
-                    <span class="control control_info"><img src="/assets/images/icons/info.svg"/></span>
-                    <span class="control control_progress"><img src="/assets/images/icons/progress.svg"/></span>
-                    <span class="control control_reset"><img src="/assets/images/icons/reset.svg"/></span>
-                    <span class="control control_stop"><img src="/assets/images/icons/stop.svg"/></span>
-                    <span class="control control_fullscreen"><img src="/assets/images/icons/full_screen.svg"/></span>
-                    <span class="control control_nofullscreen"><img src="/assets/images/icons/no_full_screen.svg"/></span>
+                    <span class="control control_info"><img class="svg" src="/assets/images/icons/info.svg"/></span>
+                    <span class="control control_progress"><img class="svg" src="/assets/images/icons/progress.svg"/></span>
+                    <span class="control control_reset"><img class="svg" src="/assets/images/icons/reset.svg"/></span>
+                    <span class="control control_stop"><img class="svg" src="/assets/images/icons/stop.svg"/></span>
+                    <span class="control control_fullscreen"><img class="svg" src="/assets/images/icons/full_screen.svg"/></span>
+                    <span class="control control_nofullscreen"><img class="svg" src="/assets/images/icons/no_full_screen.svg"/></span>
                 </div>
 
 
               <div class="controls_menu_mob">
                 <div class="control_main">
-                    <span class="control control_burger"><img src="/assets/images/icons/burger.svg"/></span>
-                    <span class="control control_stop"><img src="/assets/images/icons/stop_fill.svg"/></span>
+                    <span class="control control_burger"><img class="svg" src="/assets/images/icons/burger.svg"/></span>
+                    <span class="control control_stop"><img class="svg" src="/assets/images/icons/stop_fill.svg"/></span>
                 </div>
                 <div class="controls_int">
-                    <span class="control control_info"><img src="/assets/images/icons/info_fill.svg"/></span>
-                    <span class="control control_progress"><img src="/assets/images/icons/progress_fill.svg"/></span>
-                    <span class="control control_reset"><img src="/assets/images/icons/reset_fill.svg"/></span>
-                    <span class="control control_stop"><img src="/assets/images/icons/stop_fill.svg"/></span>
-                    <span class="control control_fullscreen"><img src="/assets/images/icons/full_screen_fill.svg"/></span>
-                    <span class="control control_nofullscreen"><img src="/assets/images/icons/no_full_screen_fill.svg"/></span>
+                    <span class="control control_info"><img class="svg" src="/assets/images/icons/info_fill.svg"/></span>
+                    <span class="control control_progress"><img class="svg" src="/assets/images/icons/progress_fill.svg"/></span>
+                    <span class="control control_reset"><img class="svg" src="/assets/images/icons/reset_fill.svg"/></span>
+                    <span class="control control_stop"><img class="svg" src="/assets/images/icons/stop_fill.svg"/></span>
+                    <span class="control control_fullscreen"><img class="svg" src="/assets/images/icons/full_screen_fill.svg"/></span>
+                    <span class="control control_nofullscreen"><img class="svg" src="/assets/images/icons/no_full_screen_fill.svg"/></span>
                 </div>
               </div>
                 
@@ -102,9 +102,75 @@
           <p class="main_text hide"></p>
 
           <div class="main_game">
+            <div class="word-wall">
+                <div class="letter-wall">
+                    <div class="letter">a</div>
+                    <div class="letter">b</div>
+                    <div class="letter">c</div>
+                    <div class="letter">c</div>
+                    <div class="letter">d</div>
+                    <div class="letter">e</div>
+                    <div class="letter">f</div>
+                    <div class="letter">f</div>
+                    <div class="letter">h</div>
+                    <div class="letter">i</div>
+                    <div class="letter">j</div>
+                    <div class="letter">l</div>
+                    <div class="letter">l</div>
+                    <div class="letter">m</div>
+                    <div class="letter">n</div>
+                    <div class="letter">o</div>
+                    <div class="letter">p</div>
+                    <div class="letter">p</div>
+                    <div class="letter">q</div>
+                    <div class="letter">r</div>
+                    <div class="letter">s</div>
+                    <div class="letter">t</div>
+                    <div class="letter">u</div>
+                    <div class="letter">w</div>
+                    <div class="letter">y</div>
+                </div>
+            </div>
+
+            <div class="word-def">
+
+                <div class="wildcards">
+                    <div class="w_wild w_tip">
+                        <span class="w_times w_t_tip">1</span>
+                        <img class="svg wildcard" src="/assets/images/icons/tip_w.svg"/>
+                    </div>
+                    <div class="w_wild w_two_tries">
+                        <span class="w_times w_t_tries">2</span>
+                        <img class="svg wildcard" src="/assets/images/icons/two_tries_w.svg"/>
+                    </div>
+                    <div class="w_wild w_number">
+                        <span class="w_times w_t_number">1</span>
+                        <img class="svg wildcard" src="/assets/images/icons/number_w.svg"/>
+                    </div>
+                    <div class="w_wild w_letter">
+                        <span class="w_times w_t_letter">2</span>
+                        <img class="svg wildcard" src="/assets/images/icons/letter_w.svg"/>
+                    </div>
+                </div>
+
+                <div class="word_definition_box">
+                    <div class="title_word">empieza por la a</div>
+                    <div class="word_definition">apodo o pseudónimo utilizado en las redes. nombre usualmente corto y fácil de recordar</div>
+                    <div class="enter_answer">
+                        <div class="answer_input">
+                            <input class="main_input" type="text" spellCheck="false" autoComplete="off">
+                            <div class="control control_check"><img class="svg" src="/assets/images/icons/check_fill.svg"/></div>
+                        </div>
+                        <div class="check_box"><img class="svg control control_next" src="/assets/images/icons/right_arrow_fill.svg"/></div>
+                    </div>
+
+                </div>
+                
+
+            </div>
               
           </div>
-          
+
         </div>
 
     </div>
