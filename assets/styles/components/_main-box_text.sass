@@ -1,4 +1,4 @@
-//----------- MAIN BOX ----------------
+//----------- MAIN BOX TEXT----------------
 
 .main_box
   height: calc(100vh - 14.5em)
@@ -11,46 +11,6 @@
     font-weight: bold
     padding: .7em 6em 1em 1em
     margin: 0
-  .nav_box
-    position: fixed
-    width: 95%
-    &.with_feedback
-      margin-top: 3.9em
-    .nav_position
-      position: relative
-      .nav_image
-        width: 100%
-        display: block
-      .nav_url
-        color: black
-        font-size: .75vw
-        position: absolute
-        top: 65%
-        max-width: 89.3%
-        white-space: nowrap
-        text-overflow: ellipsis
-        overflow: hidden
-  .image_box
-    text-align: center
-    width: 100%
-    .iframeparent
-      width: 100%
-    .eduiframe
-      width: 100%
-      height: 300vh
-      pointer-events: none
-      display: block
-      border: none
-      margin: 0
-      padding: 0
-      overflow: hidden
-      overflow-x: hidden
-  .quiz_image
-    width: 100%
-    display: block
-    margin: 0 auto
-    &.with_margins
-      width: 70%
   &.main_box_finished
     height: calc(100vh - 7.7em)
     .main_text
@@ -67,10 +27,6 @@
     .main_text
       font-size: calc(5vh + 2.3em)
       padding: 1em 3em 1em 1em
-    .nav_box
-      .nav_position
-        .nav_url
-          top: 65%
     &.main_box_finished
       .main_text
         font-size: calc(4vh + 1.4em)
@@ -83,10 +39,6 @@
     .main_text
       font-size: calc(4vh + 2em)
       padding: 1em 2em 1em 1em
-    .nav_box
-      .nav_position
-        .nav_url
-          top: 65%
 
 
 
@@ -96,32 +48,16 @@
     .main_text
       font-size: calc(4vh + 2em)
       padding: 1em 2em 1em 1em
-    .nav_box
-      &.with_feedback
-        margin-top: 3.1em
-      .nav_position
-        .nav_url
-          top: 65%
 
 
 @media (max-width: $media4) 
   
   .main_box
-    .nav_box
-      &.with_feedback
-        margin-top: 3.1em
     &.main_box_finished
       .main_text
         font-size: calc(3vh + 1.6em)
         padding: .7em 1em 1em 1em
 
-
-@media (max-width: $media5)
-
-  .main_box
-    .nav_box
-      &.with_feedback
-        margin-top: 3.1em
 
 
 @media (max-width: $media6) and (orientation: landscape)
@@ -131,15 +67,6 @@
     .main_text
       font-size: calc(2vh + 2em)
       padding: .8em 3em .8em 1em
-    .nav_box
-      &.with_feedback
-        margin-top: 1.7em
-      .nav_position
-        .nav_url
-          top: 63%
-    .quiz_image
-      &.with_margins
-        width: 80%
     &.main_box_finished
       height: calc(100vh - 4.7em)
 
@@ -159,16 +86,6 @@
     .main_text
       font-size: calc(3vh + 2em)
       padding: 1em 2em 1em 1em
-    .nav_box
-      &.with_feedback
-        margin-top: 3.1em
-      .nav_position
-        .nav_url
-          top: 66%
-    .image_box
-      .quiz_image
-        &.with_margins
-          width: 80%
     &.main_box_finished
       .main_text
         font-size: calc(2.35vh + 1.6em)
@@ -178,15 +95,6 @@
 
   .main_box
     height: calc(100vh - 9em)
-    .nav_box
-      &.with_feedback
-        margin-top: 1.7em
-      .nav_position
-        .nav_url
-          top: 67%
-    .quiz_image
-      &.with_margins
-        width: 95%
     &.main_box_finished
       height: calc(100vh - 4.1em)
 
@@ -199,25 +107,9 @@
     .main_text
       font-size: calc(2.5vh + 1.7em)
       padding: .7em 2.5em .7em 1em
-    .nav_box
-      .nav_position
-        .nav_url
-          top: 66%
-    .image_box
-      .quiz_image
-        &.with_margins
-          width: 80%
     &.main_box_finished
       height: calc(100vh - 4.7em)
 
-
-@media (max-width: 670px) and (orientation: landscape)
-
-  .main_box
-    .nav_box
-      .nav_position
-        .nav_url
-          top: 64%
 
 
 @media (max-width: $media10) and (orientation: landscape)
@@ -253,10 +145,5 @@
     .main_text
       font-size: calc(3vh + 1em)
       padding: .7em 2em .7em 1em
-    .nav_box
-      .nav_position
-        .nav_url
-          top: 68%
-
 
           

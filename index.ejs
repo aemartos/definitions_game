@@ -29,33 +29,82 @@
 
     </div> -->
 
-
-
     <div id="container">
 
         <div class="main_header">
-          <img class="definitions_logo" src="/assets/images/logos/wordwall_logo.svg"/>
-          <div class="elab">
-            <p class="text_elab">una aplicación de</p>
-            <img class="elab_logo" src="/assets/images/logos/elab_logo_white.svg"/>
-          </div>
+            <div class="app_logo">
+              <img class="definitions_logo" src="/assets/images/logos/wordwall_logo.svg"/>
+              <img class="type_logo" src="/assets/images/logos/internet.svg"/>
+            </div>
+            <div class="elab">
+                <p class="text_elab"></p>
+                <img class="elab_logo" src="/assets/images/logos/elab_logo_white.svg"/>
+            </div>
         </div>
 
         
         <div class="control_box">
-          <div class="control_bar">
-            <div class="control_main_text"></div>
-            <div class="control_text">
-                <div class="start_game">
-                  <span class="start_game_text">empezar prueba</span>
+            <div class="control_bar">
+
+                <div class="control_text">
+                    <div class="start_game">
+                      <span class="start_game_text"></span>
+                      <img class="control control_start" src="/assets/images/icons/start.svg"/>
+                    </div>
+                  <div class="credits"></div>
                 </div>
-              <div class="credits">créditos</div>
+
+                <div class="controls_menu hide">
+                    <span class="control control_info"><img src="/assets/images/icons/info.svg"/></span>
+                    <span class="control control_progress"><img src="/assets/images/icons/progress.svg"/></span>
+                    <span class="control control_reset"><img src="/assets/images/icons/reset.svg"/></span>
+                    <span class="control control_stop"><img src="/assets/images/icons/stop.svg"/></span>
+                    <span class="control control_fullscreen"><img src="/assets/images/icons/full_screen.svg"/></span>
+                    <span class="control control_nofullscreen"><img src="/assets/images/icons/no_full_screen.svg"/></span>
+                </div>
+
+
+              <div class="controls_menu_mob">
+                <div class="control_main">
+                    <span class="control control_burger"><img src="/assets/images/icons/burger.svg"/></span>
+                    <span class="control control_stop"><img src="/assets/images/icons/stop_fill.svg"/></span>
+                </div>
+                <div class="controls_int">
+                    <span class="control control_info"><img src="/assets/images/icons/info_fill.svg"/></span>
+                    <span class="control control_progress"><img src="/assets/images/icons/progress_fill.svg"/></span>
+                    <span class="control control_reset"><img src="/assets/images/icons/reset_fill.svg"/></span>
+                    <span class="control control_stop"><img src="/assets/images/icons/stop_fill.svg"/></span>
+                    <span class="control control_fullscreen"><img src="/assets/images/icons/full_screen_fill.svg"/></span>
+                    <span class="control control_nofullscreen"><img src="/assets/images/icons/no_full_screen_fill.svg"/></span>
+                </div>
+              </div>
+                
+
+                <div class="progress_score hide">
+                    <div class="time_elapsed">
+                      <div class="number_progress number_time">60:00</div>
+                      <div class="text_progress time_text"></div>
+                    </div>
+                    <div class="questions_answered">
+                      <div class="number_progress number_answered">0/25</div>
+                      <div class="progress_bar"><div class="progress_fill"></div></div>
+                    </div>
+                    <div class="user_score">
+                      <div class="number_progress score_number">100</div>
+                      <div class="text_progress score_text"></div>
+                    </div>
+                </div>
+
             </div>
           </div>
-        </div>
           
         <div class="main_box">
-          <p class="main_text">texto inicial</p>
+          <p class="main_text hide"></p>
+
+          <div class="main_game">
+              
+          </div>
+          
         </div>
 
     </div>
