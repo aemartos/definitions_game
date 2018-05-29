@@ -49,7 +49,7 @@
                 <div class="control_text">
                     <div class="start_game">
                       <span class="start_game_text"></span>
-                      <img class="control control_start svg" src="/assets/images/icons/start.svg"/>
+                      <img class="control control_start svg" id="start_button" src="/assets/images/icons/start.svg"/>
                     </div>
                   <div class="credits"></div>
                 </div>
@@ -99,11 +99,11 @@
           </div>
           
         <div class="main_box">
-          <p class="main_text hide"></p>
+          <p class="main_text"></p>
 
-          <div class="main_game">
+          <div class="main_game hide">
             <div class="word-wall">
-                <div class="letter-wall">
+                <div class="letter-wall owl-carousel owl-theme">
                     <div class="letter">a</div>
                     <div class="letter">b</div>
                     <div class="letter">c</div>
@@ -159,9 +159,9 @@
                     <div class="enter_answer">
                         <div class="answer_input">
                             <input class="main_input" type="text" spellCheck="false" autoComplete="off">
-                            <div class="control control_check"><img class="svg" src="/assets/images/icons/check_fill.svg"/></div>
+                            <div class="check_box"><img class="svg control control_check" src="/assets/images/icons/check_fill.svg"/></div>
                         </div>
-                        <div class="check_box"><img class="svg control control_next" src="/assets/images/icons/right_arrow_fill.svg"/></div>
+                        <div class="next_box"><img class="svg control control_next" src="/assets/images/icons/right_arrow_fill.svg"/></div>
                     </div>
 
                 </div>
@@ -174,20 +174,6 @@
         </div>
 
     </div>
-
-          
-          
-
-          
-<!--<script src="js/vendor/isotope.pkgd.min.js"></script>
-    <script src="js/vendor/popmotion.global.min.js"></script>
-    <script src="js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="js/vendor/jquery-ui.min.js"></script>
-
-    <script src="js/locals.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/definitions.js"></script>
-    <script src="js/main.js"></script> -->
 
 </body>
 </html>

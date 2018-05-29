@@ -31,7 +31,8 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
           $: 'jquery',
-          jQuery: 'jquery'
+          jQuery: 'jquery',
+          "window.jQuery": "jquery"
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'index.ejs'),

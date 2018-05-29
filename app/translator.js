@@ -5,6 +5,9 @@ export default class Translator{
     constructor(lang){
         this.lang = lang;
     }
+    changeLocale(lang){
+      this.lang = lang;
+    }
     t(txt){
       if(this.lang==="es"){
         return txt;
