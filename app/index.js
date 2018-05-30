@@ -1,6 +1,4 @@
-/**
- * Application entry point
- */
+
 
 // Load application styles
 import 'styles/index.sass';
@@ -12,10 +10,6 @@ import './vendor/popmotion.global.min';
 import svgs_inline from './svgmanager';
 import TranslatorManager from './translatormanager';
 import init_events from './eventmanager';
-// ================================
-// START YOUR APP HERE
-// ================================
-
 
 
 //------------------------------------------

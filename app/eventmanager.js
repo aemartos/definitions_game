@@ -7,6 +7,7 @@ export default function init_events(){
 	var initial_text = $('.main_text');
 	var initial_controls = $('.control_text');
 	var game_controls = $('.controls_menu');
+	var game_controls_mob = $('.controls_menu_mob');
 	var game_score = $('.progress_score');
 
 
@@ -15,6 +16,7 @@ export default function init_events(){
 		game.removeClass('hide');
 		initial_controls.addClass('hide');
 		game_controls.removeClass('hide');
+		game_controls_mob.removeClass('hide');
 		game_score.removeClass('hide');
 	};
 

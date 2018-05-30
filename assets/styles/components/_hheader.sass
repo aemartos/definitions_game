@@ -8,6 +8,7 @@
   justify-content: space-between
   align-items: center
   padding: .6em 2em
+  height: 5.5em
   .app_logo
     display: flex
     flex-flow: row nowrap
@@ -22,7 +23,6 @@
     flex-flow: row nowrap
     justify-content: space-between
     align-items: center
-    //height: 3.4em
     .text_elab
       font-weight: lighter
       margin-right: .8em
@@ -37,26 +37,31 @@
 
   .main_header
     padding: .7em
-    .definitions_logo
-      width: 6em
+    height: 3em
+    .app_logo
+      .definitions_logo
+        width: 6em
+      .type_logo
+        width: 4em
+        margin-left: .5em
     .elab
       .text_elab
         font-size: .6em
       .elab_logo
         width: 2em
 
-@media (max-width: $media9) and (orientation: landscape)
-
-  .main_header
-    padding: .7em
-
 
 @media (max-width: $media9) 
   
   .main_header
     padding: 1em
-    .definitions_logo
-      width: 6em
+    height: 3em
+    .app_logo
+      .definitions_logo
+        width: 4em
+      .type_logo
+        width: 3em
+        margin-left: .5em
     .elab
       .text_elab
         font-size: .5em

@@ -37,17 +37,26 @@
 
   .main_box
     .main_text
-      font-size: calc(4vh + 2em)
-      padding: 1em 2em 1em 1em
+      font-size: calc(5.6vh + 2em)
+      padding: 1em
 
 
 
 @media (max-width: $media4) and (orientation: landscape)
 
   .main_box
+    height: calc(100vh - 13em)
     .main_text
-      font-size: calc(4vh + 2em)
-      padding: 1em 2em 1em 1em
+      font-size: calc(4.7vh + 2em)
+      padding: .8em
+
+
+@media (max-width: $media4) and (orientation: portrait)
+  
+  .main_box
+    .main_text
+      font-size: calc(4.6vh + 2em)
+      padding: 1em
 
 
 @media (max-width: $media4) 
@@ -63,6 +72,7 @@
 @media (max-width: $media6) and (orientation: landscape)
 
   .main_box
+    margin-top: 1em
     height: calc(100vh - 8.3em)
     .main_text
       font-size: calc(2vh + 2em)
@@ -72,9 +82,21 @@
 
 
 
-@media (max-width: $media7) and (orientation: landscape) //iPhoneX
+@media (max-width: $media7) 
 
   .main_box
+    margin-top: 1em
+    height: calc(100vh - 13em)
+    .main_text
+      font-size: calc(4vh + 2em)
+      padding: .8em
+
+
+
+@media (max-width: $media7) and (orientation: landscape)
+
+  .main_box
+    height: calc(100vh - 8.5em)
     &.main_box_finished
       height: calc(100vh - 4.7em)
 
@@ -83,9 +105,10 @@
 @media (max-width: $media8)
 
   .main_box
+    height: calc(100vh - 12.5em)
     .main_text
-      font-size: calc(3vh + 2em)
-      padding: 1em 2em 1em 1em
+      font-size: calc(3.8vh + 2em)
+      padding: 1em
     &.main_box_finished
       .main_text
         font-size: calc(2.35vh + 1.6em)
@@ -105,8 +128,8 @@
   .main_box
     height: calc(100vh - 8em)
     .main_text
-      font-size: calc(2.5vh + 1.7em)
-      padding: .7em 2.5em .7em 1em
+      font-size: calc(3vh + 1.7em)
+      padding: .7em
     &.main_box_finished
       height: calc(100vh - 4.7em)
 
@@ -116,8 +139,16 @@
 
   .main_box
     .main_text
-      font-size: calc(2vh + 1.5em)
-      padding: .8em 3em .8em 1em
+      font-size: calc(3vh + 1.5em)
+      padding: .8em 
+
+
+@media (max-width: $media11)
+
+  .main_box
+    .main_text
+      font-size: calc(4vh + 1.5em)
+      padding: .8em
 
 
 @media (max-width: $media12)
@@ -125,7 +156,7 @@
   .main_box
     .main_text
       font-size: calc(3vh + 1.2em)
-      padding: .8em 2.2em .8em 1em
+      padding: .8em 
     &.main_box_finished
       .main_text
         font-size: calc(2vh + .9em)
@@ -134,16 +165,19 @@
 @media (max-width: $media13)
 
   .main_box
+    height: calc(100vh - 8.7em)
     .main_text
       font-size: calc(3vh + 1.2em)
-      padding: .8em 1.2em .8em 1em
+      padding: .8em 
 
 
 @media (max-width: $media14)
 
   .main_box
+    margin-top: .7em
+    height: calc(100vh - 7.5em)
     .main_text
-      font-size: calc(3vh + 1em)
-      padding: .7em 2em .7em 1em
+      font-size: calc(3.5vh + 1em)
+      padding: .7em 
 
           
