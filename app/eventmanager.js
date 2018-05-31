@@ -64,7 +64,9 @@ function togglefullscreen() {
           document.documentElement.mozRequestFullScreen();
       } else if (document.documentElement.webkitRequestFullScreen) {
           document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-      }
+      } else if(document.documentElement.msRequestFullscreen) {
+      	document.documentElement.msRequestFullscreen();
+    	}
   } else {
       if (document.cancelFullScreen) {
           document.cancelFullScreen();
@@ -72,6 +74,8 @@ function togglefullscreen() {
           document.mozCancelFullScreen();
       } else if (document.webkitCancelFullScreen) {
           document.webkitCancelFullScreen();
+      } else if (document.msCancelFullScreen) {
+          document.msCancelFullScreen();
       }
   }
 
@@ -96,6 +100,104 @@ var exitfullScreenButton = $('#exitfullscreen');
 
 enterfullScreenButton.on('click', togglefullscreen);
 exitfullScreenButton.on('click', togglefullscreen);
+
+
+
+//-------------------- MODALS ----------------------
+
+
+
+const { styler, timeline, listen, easing } = window.popmotion;
+
+const openModalButton = document.querySelector('.control.control_info');
+const cancelModalButton = document.querySelector('.control.control_cross');
+//const okModalButton = document.querySelector('.modal-ok');
+
+const modalShade = styler(document.querySelector('.dark-opacity'));
+const modalContainer = styler(document.querySelector('.modal-content'));
+const modal = styler(document.querySelector('.modal'));
+//const modalSections = Array.from(document.querySelector('.modal').children).map(styler);
+//const sectionLabels = modalSections.map((s, i) => 'section' + i);
+
+const tweenUp = (track, duration = 500, yFrom = 100) => ({
+  track,
+  duration,
+  from: { y: yFrom, opacity: 0 },
+  to: { y: 0, opacity: 1 },
+  ease: { y: easing.backOut, opacity: easing.linear }
+});
+
+const setStylers = (v) => {
+  if (v.shade !== undefined) modalShade.set('opacity', v.shade);
+  if (v.modal !== undefined) modal.set(v.modal);
+  /*sectionLabels.forEach((label, i) => {
+    if (v[label] !== undefined) modalSections[i].set(v[label])
+  });*/
+};
+
+const showContainers = () => {
+  modalShade.set('display', 'block');
+  modalContainer.set('display', 'block');
+};
+
+const hideContainers = () => {
+  modalShade.set('display', 'none');
+  modalContainer.set('display', 'none');
+};
+
+const openModal = () => {
+  showContainers();
+  
+  timeline([
+    { track: 'shade', from: 0, to: 1, ease: easing.linear },
+    '-100',
+    tweenUp('modal'),
+    '-200'
+    //[...modalSections.map((s, i) => tweenUp(sectionLabels[i], 300, 50)), 50]
+  ]).start(setStylers);
+}
+
+const cancelModal = () => {
+  timeline([
+    {
+      track: 'modal',
+      duration: 200,
+      from: { y: 0, opacity: 1 },
+      to: { y: 100, opacity: 0 },
+      ease: { y: easing.easeIn, opacity: easing.linear }
+    },
+    '-100',
+    { track: 'shade', from: 1, to: 0, ease: easing.linear, duration: 200 }
+  ]).start({
+    update: setStylers,
+    complete: hideContainers
+  });
+}
+
+/*const okModal = () => {
+  timeline([
+    {
+      track: 'modal',
+      duration: 200,
+      from: { y: 0, opacity: 1 },
+      to: { y: -200, opacity: 0 },
+      ease: { y: easing.easeOut, opacity: easing.linear }
+    },
+    '-100',
+    { track: 'shade', from: 1, to: 0, ease: easing.linear, duration: 300 }
+  ]).start({
+    update: setStylers,
+    complete: hideContainers
+  });
+}*/
+
+listen(openModalButton, 'click').start(openModal);
+listen(cancelModalButton, 'click').start(cancelModal);
+listen(modalShade, 'click').start(cancelModal);
+//listen(okModalButton, 'click').start(okModal);
+
+
+
 
 
 };

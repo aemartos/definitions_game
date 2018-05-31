@@ -1,32 +1,30 @@
 
 .dark-opacity
+  opacity: 0
+  display: none
   position: fixed
   width: 100vw
   height: 100vh
   top: 0
   left: 0
   background-color: rgba(0,0,0,0.5)
-  z-index: 1
+  z-index: 2
   +hand_cursor
-  &.fade-enter
-    opacity: 0.01
-    &.fade-enter-active
-      opacity: 1
-      +transition (opacity 500ms ease-in)
-  &.fade-exit
-    opacity: 1
-    &.fade-exit-active
-      opacity: 0.01
-      +transition (opacity 500ms ease-in)
 
 .modal_position
+  font-family: $HelveticaRegular
   left: 50%
   top: 50%
   width: 60%
   +transform (translate(-50%, -50%))
   position: fixed
-  z-index: 2
+  z-index: 3
+  p
+    margin: 1em 0
   .modal
+    opacity: 0
+    +transform(translateY(100px)) 
+    +transform(translateZ(0px))
     color: black
     width: 100%
     background-color: white
@@ -55,19 +53,21 @@
       .close-modal-cross
         +flex
         justify-content: flex-end
-      .control
-        fill: black
-        font-size: 1em
+      .control 
+        path
+          fill: black
+          font-size: .8em
         &.control_cross
           font-size: .6em
           +hand_cursor
           &:hover
             +hover_scale_rotation
-            fill: $red
+            path
+              fill: $red
       .modal-content
         margin: .3em 1.5em 1.5em
         .modal-title
-          font-weight: bold
+          font-family: $HelveticaBolder
           &.modal-title-end
             font-size: 2em
             text-align: center
@@ -75,7 +75,7 @@
           .task-list
             margin-bottom: 1em
             .list-title
-              font-weight: bold
+              font-family: $HelveticaBolder
               +flex
               justify-content: flex-start
               +hand_cursor
