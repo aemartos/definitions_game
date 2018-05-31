@@ -18,6 +18,7 @@ export default function init_events(){
 		game_controls.removeClass('hide');
 		game_controls_mob.removeClass('hide');
 		game_score.removeClass('hide');
+		$("#main_input").focus();
 	};
 
 
@@ -103,13 +104,15 @@ exitfullScreenButton.on('click', togglefullscreen);
 
 
 
+
+
 //-------------------- MODALS ----------------------
 
 
 
 const { styler, timeline, listen, easing } = window.popmotion;
 
-const openModalButton = document.querySelector('.control.control_info');
+const openModalButton = document.querySelector('.credits');
 const cancelModalButton = document.querySelector('.control.control_cross');
 //const okModalButton = document.querySelector('.modal-ok');
 

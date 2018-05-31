@@ -23,6 +23,7 @@
     margin: 1em 0
   .modal
     opacity: 0
+    user-select: none
     +transform(translateY(100px)) 
     +transform(translateZ(0px))
     color: black
@@ -65,6 +66,7 @@
             path
               fill: $red
       .modal-content
+        display: none
         margin: .3em 1.5em 1.5em
         .modal-title
           font-family: $HelveticaBolder

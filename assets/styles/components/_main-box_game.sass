@@ -40,6 +40,7 @@
             margin-bottom: 0
           &.active
             background-color: $background
+            +transform(scale(1.3,1.3))
           &.wrong
             background-color: $wrong
           &.right
@@ -120,10 +121,169 @@
             height: inherit
             background-color: $secondarycolor
             .control_next
+              margin: 0
               width: 3em
               height: 3em
               +hand_cursor
 
+
+
+//-------------- OWL-CAROUSEL------------------
+
+.owl-theme .owl-nav, .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next, .owl-carousel button.owl-dot
+  margin: 0
+
+.owl-theme .owl-nav.disabled + .owl-dots
+  margin-top: -.5em
+
+.owl-theme .owl-nav [class*='owl-']:hover, .owl-theme .owl-nav [class*='owl-']
+  background: transparent
+
+div.owl-prev, div.owl-next
+  opacity: .4
+  z-index: 100
+  margin: 0
+
+
+@media (max-width: $media4)
+  
+  .main_box
+    .main_game
+      .word-wall
+        height: calc(100vh - 13em)
+      .word-def
+        .wildcards
+        .word_definition_box
+          .enter_answer
+            .answer_input
+              width: 85%
+              .check_box
+                .control_check
+            .next_box
+              width: 15%
+              .control_next
+                margin: 0
+
+
+
+@media (max-width: $media4) and (orientation: portrait)
+  
+  .main_box
+    .main_game
+      +column-flex
+      .word-wall
+        margin-top: 13em
+        width: 100%
+        height: auto
+        background-color: transparent
+        .letter-wall
+          width: 85%
+          font-size: calc(4vw + 1.5em)
+          .letter
+            width: 13vw
+            height: 13vw
+      .word-def
+        width: 70%
+        margin-top: 4em
+        .wildcards
+          font-size: calc(.5vw + 1em)
+        .word_definition_box
+          font-size: calc(1.5vw + 1em)
+          .enter_answer
+            height: 4em
+            .answer_input
+              width: 80%
+              .check_box
+                .control_check
+                  font-size: .9em
+            .next_box
+              width: 20%
+              .control_next
+                margin: 0
+                font-size: .9em
+
+
+
+
+@media (max-width: $media7) and (orientation: portrait)
+  
+  .main_box
+    .main_game
+      margin-top: 3em
+      .word-wall
+        margin-top: 10em
+        height: auto
+        .letter-wall
+          width: 85%
+          font-size: calc(4vw + 1.5em)
+          .letter
+            width: 16vw
+            height: 16vw
+      .word-def
+        width: 80%
+        margin-top: 2em
+        .wildcards
+          font-size: calc(.5vw + .8em)
+        .word_definition_box
+          font-size: calc(1.5vw + 1em)
+          .enter_answer
+            height: 3.5em
+            .answer_input
+              .check_box
+                .control_check
+                  font-size: .8em
+                  margin-right: .6em
+            .next_box
+              .control_next
+                font-size: .8em
+
+
+
+@media (max-width: $media8)
+  
+  .main_box
+    .main_game
+      margin-top: 0
+
+
+@media (max-width: $media12) and (orientation: portrait)
+
+  .main_box
+    .main_game
+      margin-top: 0
+      .word-wall
+        margin-top: 6em
+        height: auto
+        .letter-wall
+          width: 45%
+          font-size: calc(4vw + 1.5em)
+          .letter
+            margin-bottom: 0 
+            width: 40vw
+            height: 40vw
+      .word-def
+        width: 80%
+        margin-top: .8em
+        .wildcards
+          top: 2em
+          right: 2em
+          font-size: 1.5vh
+        .word_definition_box
+          font-size: calc(1vw + .8em)
+          .title_word, .word_definition
+            text-align: center
+          .enter_answer
+            height: 3.2em
+            .answer_input
+              width: 85%
+              .check_box
+                .control_check
+                  font-size: .7em
+                  margin-right: .8em
+            .next_box
+              width: 15%
+              .control_next
+                font-size: .7em
 
 
 

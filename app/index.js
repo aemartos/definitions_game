@@ -82,16 +82,20 @@ function handleOrientationChange(mediaquery) {
 		$('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
-    dots: false,
-    nav: true,
-		navText: ["<div class='owl-prev'>prev</div><div class='owl-next'>next</div>"],
+    dots: true,
+    //dots: false,
+    //nav: true,
+		navText: ["<div class='owl-prev'><img class='control control_left_arrow svg'src='/assets/images/icons/left_arrow_fill.svg'/></div><div class='owl-next'><img class='control control_right_arrow svg'src='/assets/images/icons/right_arrow_fill.svg'/></div>"],
     responsiveClass: true,
     responsive:{
         0:{
-            items:1
+            items:1,
+            nav:true,
+            dots: false
         },
         500:{
-            items:3
+            items:4,
+            nav:false
         },
         1000:{
             items:5,
@@ -110,7 +114,7 @@ mediaquery2.addListener(handleOrientationChange);
 
 
 
-
+//----------- CURSOR FOCUS ---------------
 
 
 
