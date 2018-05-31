@@ -30,7 +30,6 @@ document.getElementById('output').innerHTML = `${peter.despidete()} ${city}, ${c
 
 function init_app(){
 	let promises_array = svgs_inline("img.svg");
-	console.log("LEN " + promises_array.length);
 	$.when.apply($, promises_array).then(init_events);
 	var tm = new TranslatorManager("es");
 	tm.update();
@@ -45,24 +44,77 @@ init_app();
 
 
 
-//---------------- OWL CAROUSEL ----------------
+// -------- REMOVE HOVER ONTOUCH -----------
+ 
 
-
-/*$('.owl-carousel').owlCarousel({
-  loop:true,
-  margin:10,
-  nav:true,
-  responsive:{
-      0:{
-          items:1
-      },
-      600:{
-          items:3
-      },
-      1000:{
-          items:5
-      }
+  function hasTouch() {
+    return 'ontouchstart' in document.documentElement
+      || navigator.maxTouchPoints > 0
+      || navigator.msMaxTouchPoints > 0;
   }
-});*/
+
+  if (hasTouch()) { // remove all :hover stylesheets
+    try { // prevent exception on browsers not supporting DOM styleSheets properly
+      for (var si in document.styleSheets) {
+        var styleSheet = document.styleSheets[si];
+        if (!styleSheet.rules) continue;
+
+        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+          if (!styleSheet.rules[ri].selectorText) continue;
+
+          if (styleSheet.rules[ri].selectorText.match(':hover')) {
+              styleSheet.deleteRule(ri);
+          }
+        }
+      }
+    } catch (ex) {}
+  }
+
+
+// ------------ OWL CROUSEL MEDIA ----------------
+
+var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
+var mediaquery2 = matchMedia("(max-width: 980px)");
+
+function handleOrientationChange(mediaquery) {
+  if (mediaquery1.matches || mediaquery2.matches) {
+
+		$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    dots: false,
+    nav: true,
+		navText: ["<div class='owl-prev'>prev</div><div class='owl-next'>next</div>"],
+    responsiveClass: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        500:{
+            items:3
+        },
+        1000:{
+            items:5,
+            loop:false
+        }
+	    }
+		});
+
+  } else {
+  	 $('.owl-carousel').owlCarousel('destroy');
+  }
+}
+
+mediaquery1.addListener(handleOrientationChange);
+mediaquery2.addListener(handleOrientationChange);
+
+
+
+
+
+
+
+
+
 
 

@@ -46,7 +46,7 @@
       height: 1.5em
       .control
         fill: $secondarycolor
-        margin-right: .2em
+        //margin-right: .2em
         +hand_cursor
         &:hover
           line-height: 0
@@ -106,8 +106,12 @@
 //----------- ICONS GENERAL ------------
 .control
   +transition_default
-  width: 1.2em
-  height: 1.2em
+  width: 1.5em
+  height: 1.5em
+  margin-right: .3em
+  svg
+    width: 1.5em
+    height: 1.5em
   path
     fill: $maincolor
   &.control_start
@@ -144,6 +148,16 @@
   .control_bar
     padding: 0
     margin-top: 0
+
+
+@media (max-width: $media6) 
+  
+  .control_bar
+    .controls_menu
+      .control
+        &.control_fullscreen, &.control_nofullscreen
+          display: none
+
 
 
 @media (max-width: $media7) and (orientation: landscape) 
@@ -186,6 +200,7 @@
 
   .control_bar
     height: 3em
+    .controls_menu
     .progress_score
       width: 35%
       font-size: .8em
@@ -201,7 +216,13 @@
       padding: 1em
       margin-top: 0
       .controls_menu
-        font-size: 1.2em
+        padding: 0
+        .control
+          width: 1em
+          height: 1em
+          svg
+            width: 1em
+            height: 1em
       
       .progress_score
         margin-left: 0
@@ -231,15 +252,26 @@
       .controls_menu
         display: none
       .controls_menu_mob
-        display: block
-        font-size: 1em
+        z-index: 10
+        display: inline-block
+        position: relative
+        font-size: 1.9em
         .control_main
-          position: relative
         .controls_int
           position: absolute
-          .control
-            svg
-              margin-bottom: .2em
+          opacity: 1
+          max-height: 0
+          overflow: hidden
+          +transition_default
+          &.closed
+            opacity: 0
+            +transition_default
+        .control
+          width: .9em
+          height: .9em
+          svg
+            width: .9em
+            height: .9em
 
 
 
