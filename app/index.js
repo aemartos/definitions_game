@@ -85,7 +85,7 @@ function handleOrientationChange(mediaquery) {
     dots: true,
     //dots: false,
     //nav: true,
-		navText: ["<div class='owl-prev'><img class='control control_left_arrow svg'src='/assets/images/icons/left_arrow_fill.svg'/></div><div class='owl-next'><img class='control control_right_arrow svg'src='/assets/images/icons/right_arrow_fill.svg'/></div>"],
+		navText: ["<div class='owl-prev'><img class='control control_left_arrow svg'src='/assets/images/icons/left_arrow_fill.svg'/></div>","<div class='owl-next'><img class='control control_right_arrow svg'src='/assets/images/icons/right_arrow_fill.svg'/></div>"],
     responsiveClass: true,
     /*responsive: {
     	'(max-width: 412px) and (orientation: portrait)': {
@@ -108,7 +108,11 @@ function handleOrientationChange(mediaquery) {
             nav:true,
             dots: false
         },
-        500:{
+        /*500:{
+            items:4,
+            nav:false
+        },*/
+        750:{
             items:4,
             nav:false
         },

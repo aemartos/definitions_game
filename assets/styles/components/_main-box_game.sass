@@ -73,7 +73,7 @@
               z-index: 2
               .triangle
                 position: absolute
-                top: -.5em
+                top: -.4em
                 left: 3em
                 +transform (rotate(45deg))
                 border-top: 1em solid $secondarycolor
@@ -174,6 +174,11 @@ div.owl-prev, div.owl-next
         height: calc(100vh - 13em)
       .word-def
         .wildcards
+          .w_wild
+            &.w_tip 
+              .tip_explanation
+                left: -.5em
+                top: 5.5em
         .word_definition_box
           .enter_answer
             .answer_input
@@ -208,6 +213,13 @@ div.owl-prev, div.owl-next
         margin-top: 4em
         .wildcards
           font-size: calc(.5vw + 1em)
+          .w_wild
+            &.w_tip 
+              .tip_explanation
+                top: 4.5em
+                left: -1.3em
+                width: 16em
+                font-size: calc(1vw + .5vh + .2em)
         .word_definition_box
           font-size: calc(1.5vw + 1em)
           .enter_answer
@@ -224,13 +236,87 @@ div.owl-prev, div.owl-next
                 font-size: .9em
 
 
+@media (max-width: $media5) and (orientation: landscape)
+  
+  .main_box
+    .main_game
+      height: 65vh
+      .word-wall
+        background-color: transparent
+        .letter-wall
+          margin: 0
+          .letter
+            //width: 10vw
+            //height: 10vw
+      .word-def
+        margin: auto 2em
+        .wildcards
+          top: 1.5em
+          right: 1.5em
+          font-size: calc(.5vw + .5em)
+        .word_definition_box
+          margin-top: 3em
+          font-size: calc(1vw + .5em)
+          .title_word
+            font-size: calc(2vw + 1em)
+          .word_definition
+            margin-top: .8em
+            font-size: calc(1vw + 1em)
+          .enter_answer
+            margin-top: 1.2em
+            height: 3.5em
+            .answer_input
+              .check_box
+                .control_check
+                  font-size: .9em
+            .next_box
+              .control_next
+                font-size: .9em
+
+
+
+@media (max-width: $media6) and (orientation: landscape)
+  
+  .main_box
+    .main_game
+      height: 67vh
+      .word-wall
+        background-color: transparent
+        .letter-wall
+          .letter
+            width: 10vw
+            height: 10vw
+      .word-def
+        margin: auto 2em
+        .wildcards
+          top: 1em
+          right: 1em
+          .w_wild
+            &.w_tip 
+              .tip_explanation
+                top: 4em
+                left: -1.3em
+                width: 16em
+                font-size: calc(1vw + .5vh + .2em)
+        .word_definition_box
+          margin-top: 3em
+          font-size: calc(.5vw + .5em)
+          .title_word
+          .word_definition
+          .enter_answer
+            height: 4em
+            .answer_input
+              .check_box
+                .control_check
+            .next_box
+              .control_next
+                
 
 
 @media (max-width: $media7) and (orientation: portrait)
   
   .main_box
     .main_game
-      margin-top: 3em
       .word-wall
         margin-top: 10em
         height: auto
@@ -259,12 +345,51 @@ div.owl-prev, div.owl-next
                 font-size: .8em
 
 
+
+@media (max-width: $media7)
+  @media (max-height: 375px)
+  
+    .main_box
+      .main_game
+        height: 63vh
+
+
+
+@media (max-width: 800px) and (orientation: portrait)
+  
+  .main_box
+    .main_game
+      .word-wall
+        margin-top: 13em
+
+
+
 @media (max-width: $media8)
   
   .main_box
     .main_game
       margin-top: 0
 
+
+@media (max-width: $media8) and (orientation: landscape)
+  
+  .main_box
+    .main_game
+      height: 65vh
+
+
+@media (max-width: $media8) and (orientation: portrait)
+
+  .main_box
+    .main_game
+      .word-wall
+        margin-top: 10em
+      .word-def
+        .wildcards
+          .w_wild
+            &.w_tip 
+              .tip_explanation
+                left: -1.2em
 
 // @media (max-width: $media8) and (orientation: portrait)
   
@@ -293,6 +418,76 @@ div.owl-prev, div.owl-next
 //               .control_next
     
 
+@media (max-width: $media9) and (orientation: landscape)
+  
+  .owl-theme .owl-nav
+    margin-top: -.5em
+
+  .main_box
+    .main_game
+      .word-wall
+        .letter-wall
+          width: 71%
+          margin-top: 1.5em
+          .letter
+            width: 26vw
+            height: 26vw
+      .word-def
+        .wildcards
+        .word_definition_box
+          .title_word
+          .word_definition
+          .enter_answer
+            .answer_input
+              .check_box
+                .control_check
+            .next_box
+              .control_next
+
+
+
+@media (max-width: $media10) and (orientation: landscape)
+  
+  .main_box
+    .main_game
+      height: 64vh
+      .word-wall
+        .letter-wall
+          width: 60%
+          .letter
+            width: 22vw
+            height: 22vw
+      .word-def
+        margin: auto 1em
+        .wildcards
+          top: .9em
+          right: .9em
+          font-size: calc(.5vw + .4em)
+        .word_definition_box
+          margin-top: 1.5em
+          .title_word
+            font-size: calc(2vw + 1em)
+          .word_definition
+            margin-top: .8em
+            font-size: calc(1vw + 1em)
+          .enter_answer
+            margin-top: 1.2em
+            height: 3.8em
+            .answer_input
+              .check_box
+                .control_check
+                  font-size: .9em
+            .next_box
+              .control_next
+                font-size: .9em
+
+
+@media (max-width: $media11) and (orientation: landscape)
+  
+  .main_box
+    .main_game
+      height: 62vh
+
 
 @media (max-width: $media12) and (orientation: portrait)
 
@@ -316,6 +511,13 @@ div.owl-prev, div.owl-next
           top: 2em
           right: 2em
           font-size: 1.5vh
+          .w_wild
+            &.w_tip 
+              .tip_explanation
+                top: 4em
+                left: -1.7em
+                width: 15em
+                font-size: calc(1vw + 1vh + .2em)
         .word_definition_box
           font-size: calc(1vw + .8em)
           .title_word, .word_definition
