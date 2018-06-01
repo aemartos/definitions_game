@@ -117,7 +117,7 @@ const cancelModalButton = document.querySelector('.control.control_cross');
 //const okModalButton = document.querySelector('.modal-ok');
 
 const modalShade = styler(document.querySelector('.dark-opacity'));
-const modalContainer = styler(document.querySelector('.modal-content'));
+const modalContainer = styler(document.querySelector('.modal_position'));
 const modal = styler(document.querySelector('.modal'));
 //const modalSections = Array.from(document.querySelector('.modal').children).map(styler);
 //const sectionLabels = modalSections.map((s, i) => 'section' + i);

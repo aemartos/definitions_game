@@ -87,6 +87,21 @@ function handleOrientationChange(mediaquery) {
     //nav: true,
 		navText: ["<div class='owl-prev'><img class='control control_left_arrow svg'src='/assets/images/icons/left_arrow_fill.svg'/></div><div class='owl-next'><img class='control control_right_arrow svg'src='/assets/images/icons/right_arrow_fill.svg'/></div>"],
     responsiveClass: true,
+    /*responsive: {
+    	'(max-width: 412px) and (orientation: portrait)': {
+	      items: 1,
+	      nav:true,
+        dots: false
+    	},
+    	'(max-width: 768px) and (orientation: portrait)': {
+	      items: 4,
+	      nav:false
+    	},
+    	'(max-width: 1024px) and (orientation: portrait)': {
+	      items: 6,
+	      loop:false
+    	}
+  	}*/
     responsive:{
         0:{
             items:1,
