@@ -58,6 +58,26 @@
         .w_wild
           position: relative
           +transition_default
+          &.w_tip
+            position: relative
+            .tip_explanation
+              position: absolute
+              top: 4.5em
+              left: -1.1em
+              width: 14em
+              padding: 1.2em
+              font-size: calc(.5vw + .5vh + .2em)
+              color: white
+              background-color: $secondarycolor
+              font-weight: 300
+              z-index: 2
+              .triangle
+                position: absolute
+                top: -.5em
+                left: 3em
+                +transform (rotate(45deg))
+                border-top: 1em solid $secondarycolor
+                border-left: 1em solid $secondarycolor
           .w_times
             +flex
             justify-content: center
@@ -76,9 +96,10 @@
             +hand_cursor
             path
               fill: $background
-          &:hover
-            +hover_opacity
-            +transition_default
+          .wild_icon
+            &:hover
+              +hover_opacity
+              +transition_default
 
       .word_definition_box
         color: $background
