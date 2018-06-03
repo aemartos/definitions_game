@@ -45,6 +45,8 @@
             background-color: $wrong
           &.right
             background-color: $right
+          span
+            margin-top: -.1em
     .word-def
       width: 50%
       margin: auto 4em
@@ -326,6 +328,7 @@ div.owl-prev, div.owl-next
           .letter
             width: 16vw
             height: 16vw
+            font-size: calc(5vh + 2em)
       .word-def
         width: 80%
         margin-top: 2em
@@ -361,6 +364,9 @@ div.owl-prev, div.owl-next
     .main_game
       .word-wall
         margin-top: 13em
+        .letter-wall
+          .letter
+            font-size: calc(3vw + 1.5em)
 
 
 
@@ -376,6 +382,12 @@ div.owl-prev, div.owl-next
   .main_box
     .main_game
       height: 65vh
+      .word-wall
+        .letter-wall
+          .letter
+            font-size: calc(5vw + 2em)
+      
+
 
 
 @media (max-width: $media8) and (orientation: portrait)
@@ -384,6 +396,9 @@ div.owl-prev, div.owl-next
     .main_game
       .word-wall
         margin-top: 10em
+        .letter-wall
+          .letter
+            //font-size: calc(4vh + 2em)
       .word-def
         .wildcards
           .w_wild
@@ -391,32 +406,7 @@ div.owl-prev, div.owl-next
               .tip_explanation
                 left: -1.2em
 
-// @media (max-width: $media8) and (orientation: portrait)
-  
-//   .main_box
-//     .main_game
-//       margin-top: 0
-//       .word-wall
-//         margin-top: 10em
-//         .letter-wall
-//           .letter
-//             width: 23vw
-//             height: 23vw
-//       .word-def
-//         .wildcards
-//           font-size: calc(.5vw + .8em)
-//         .word_definition_box
-//           font-size: calc(1vw + 1em)
-//           .enter_answer
-//             height: 3.5em
-//             .answer_input
-//               width: 85%
-//               .check_box
-//                 .control_check
-//             .next_box
-//               width: 15%
-//               .control_next
-    
+
 
 @media (max-width: $media9) and (orientation: landscape)
   
@@ -432,6 +422,8 @@ div.owl-prev, div.owl-next
           .letter
             width: 26vw
             height: 26vw
+            margin-bottom: .1em
+            font-size: calc(10vw + 5em)
       .word-def
         .wildcards
         .word_definition_box
@@ -445,9 +437,19 @@ div.owl-prev, div.owl-next
               .control_next
 
 
+@media (max-width: $media9) 
+  @media (max-height: $media13) 
+
+      .main_box
+        .main_game
+          height: 69vh
+
 
 @media (max-width: $media10) and (orientation: landscape)
   
+  .owl-theme .owl-nav
+    margin: 0.5em
+
   .main_box
     .main_game
       height: 64vh
@@ -455,8 +457,10 @@ div.owl-prev, div.owl-next
         .letter-wall
           width: 60%
           .letter
+            margin: 0
             width: 22vw
             height: 22vw
+            font-size: calc(14vw + 2em)
       .word-def
         margin: auto 1em
         .wildcards
@@ -504,6 +508,7 @@ div.owl-prev, div.owl-next
             margin-bottom: 0 
             width: 40vw
             height: 40vw
+            font-size: calc(6vh + 2.3em)
       .word-def
         width: 80%
         margin-top: .8em
@@ -543,7 +548,10 @@ div.owl-prev, div.owl-next
       .main_box
         .main_game
           margin-top: 3em
-            
+          .word-wall
+            .letter-wall
+              .letter
+                font-size: calc(6vh + 2.3em)
 
 
 
@@ -556,7 +564,6 @@ div.owl-prev, div.owl-next
           .word-wall
             .letter-wall
               width: 55%
-              font-size: calc(4vw + 2em)
               .letter
                 width: 50vw
                 height: 50vw
@@ -573,10 +580,10 @@ div.owl-prev, div.owl-next
             margin-top: 5em
             .letter-wall
               width: 50%
-              font-size: calc(4vw + 2em)
               .letter
                 width: 45vw
                 height: 45vw
+                font-size: calc(6vh + 2.3em)
           .word-def 
             .word_definition_box 
               font-size: calc(1vw + .7em)
@@ -591,10 +598,10 @@ div.owl-prev, div.owl-next
         margin-top: 4.5em
         .letter-wall
           width: 44%
-          font-size: calc(4vw + 2em)
           .letter
             width: 40vw
             height: 40vw
+            font-size: calc(5vh + 2em)
       .word-def 
         .word_definition_box 
           font-size: calc(1vw + .7em)
