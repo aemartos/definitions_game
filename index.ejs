@@ -16,34 +16,170 @@
 
 <body>
 
-    <div class="modal_position" id="modalCreditsPos">
-        <div class="modal" id="modalCredits">
-            <div class="modal-box">
-                <div class="close-modal-cross">
-                  <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-                </div>
-                  <div class="modal-content">
-                     <div class="modal-title">créditos</div>
-                     <div class="modal-text">
-                       <p>aplicación de <a href="#" target="_blank"><img class="e_logo" src="assets/images/logos/elab_logo_black.svg"/></a>, desarrollada por el Grupo Internet de Nueva Generación de la UPM, con el apoyo institucional del INCIBE, el CRIF las Acacias y Orange.</p>
-                     </div>
-                     <div class="logos">
-                        <a href="http://www.upm.es/" target="_blank"><img class="logo upm_logo" src="assets/images/logos/upm_logo.png"/></a>
-                       <a href="https://www.orange.es/" target="_blank"><img class="logo orange_logo" src="assets/images/logos/orange_logo.png"/></a>
-                       <a href="https://www.incibe.es/" target="_blank"><img class="logo incibe_logo" src="assets/images/logos/incibe_logo.svg"/></a>
-                       <a href="http://crif.acacias.educa.madrid.org" target="_blank"><img class="logo crif_logo" src="assets/images/logos/crif_logo.png"/></a>
-                     </div>
-                     <div class="modal-title">licencia</div>
-                     <div class="modal-text">
-                       <p>esta obra está bajo una <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional.</a> <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank"><img class="license_logo" src="assets/images/logos/license.png"/></a></p>
-                     </div>
-                  </div>
+    <!-- CREDITS MODAL-->
+    <div class="modal_position" id="modalCredits">
+      <div class="modal">
+          <div class="modal-box">
+            <div class="close-modal-cross">
+              <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
+            </div>
+            <div class="modal-content">
+              <div class="modal-title modal-title-prin"></div>
+              <div class="modal-text">
+                <p class="modal-text-info"></p>
+              </div>
+              <div class="logos">
+                <a href="http://www.upm.es/" target="_blank"><img class="logo upm_logo" src="assets/images/logos/upm_logo.png"/></a>
+                <a href="https://www.orange.es/" target="_blank"><img class="logo orange_logo" src="assets/images/logos/orange_logo.png"/></a>
+                <a href="https://www.incibe.es/" target="_blank"><img class="logo incibe_logo" src="assets/images/logos/incibe_logo.svg"/></a>
+                <a href="http://crif.acacias.educa.madrid.org" target="_blank"><img class="logo crif_logo" src="assets/images/logos/crif_logo.png"/></a>
+              </div>
+              <div class="modal-title modal-title-license"></div>
+              <div class="modal-text">
+               <p class="modal-text-license"></p>
               </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="dark-opacity"></div>
+
+
+    <!-- INFO MODAL-->
+    <div class="modal_position" id="modalInfo">
+      <div class="modal">
+        <div class="modal-box">
+          <div class="close-modal-cross">
+            <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
+          </div>
+          <div class="modal-content">
+           <div class="modal-title modal-title-prin"></div>
+            <div class="modal-text">
+              <p class="modal-text-info"></p>
+
+              <ul class="icon_list">
+                <li><img class="control control_info" src="/assets/images/icons/info.svg"/><span class="t-info"></span></li>
+                <li><img class="control control_progress" src="/assets/images/icons/progress.svg"/><span class="t-progress"></span></li>
+                <li><img class="control control_reset" src="/assets/images/icons/reset.svg"/><span class="t-reset"></span></li>
+                <li><img class="control control_stop" src="/assets/images/icons/stop.svg"/><span class="t-stop"></span></li>
+                <li><img class="control control_fullscreen" src="/assets/images/icons/full_screen.svg"/><span class="t-full"></span></li>
+              </ul>
+            </div>
+            <div class="modal-actions">
+              <div class="btn btn-red">cerrar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- PROGRESS MODAL-->
+    <div class="modal_position" id="modalProgress">
+      <div class="modal">
+        <div class="modal-box">
+           <div class="close-modal-cross">
+              <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
+            </div>
+            <div class="modal-content">
+              <div class="modal-title modal-title-prin"></div>
+                <div class="modal-text">
+                  <p class="modal-text-info"></p>
+                  <div class="task-list">
+                    
+                  </div>
+                </div>
+              <div class="modal-actions">
+                <div class="btn btn-red"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    
+    <!-- RESET MODAL-->
+    <div class="modal_position" id="modalReset">
+      <div class="modal">
+        <div class="modal-box">
+          <div class="close-modal-cross">
+            <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
+          </div>
+          <div class="modal-content">
+            <div class="modal-title modal-title-prin"></div>
+              <div class="modal-text">
+                <p class="modal-text-info"></p>
+              </div>
+            <div class="modal-actions">
+              <div class="btn btn-red"></div>
+              <div class="btn btn-green"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- STOP MODAL-->
+    <div class="modal_position" id="modalStop">
+      <div class="modal">
+        <div class="modal-box">
+          <div class="close-modal-cross">
+            <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
+          </div>
+          <div class="modal-content">
+            <div class="modal-title modal-title-prin"></div>
+              <div class="modal-text">
+                <p class="modal-text-info"></p>
+              </div>
+            <div class="modal-actions">
+              <div class="btn btn-red"></div>
+              <div class="btn btn-green"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- FINAL MODAL-->
+    <div class="modal_position" id="modalFinal">
+      <div class="modal">
+        <div class="modal-box">
+          <div class="close-modal-cross">
+              <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
+            </div>
+           <div class="modal-content">
+              <div class="modal-title modal-title-end"></div>
+                <div class="modal-text">
+                  <div class="final_score">
+                    <div class="individual_score"><span class="number_score">60:00</span> <span class="text_score score-time"></span></div>
+                    <div class="individual_score"><span class="number_score">0/25</span> <span class="text_score score-right"></span></div>
+                    <div class="individual_score"><span class="number_score">100</span> <span class="text_score score-points"></span></div>
+                  </div>
+                  <p class="modal-text-info"></p>
+                  <div class="responsive_video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nYh-n7EOtMA" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                  </div>
+                </div>
+              <div class="modal-actions">
+                  <div class="btn btn-red btn-red-r"></div>
+                  <div class="btn btn-red btn-red-t"></div>
+                <div class="btn btn-green"></div>
+              </div>
+           </div>
+        </div> 
+      </div>
+    </div>
+    
+
+    <div class="dark-opacity" id="dark-opacity" ></div>
+
+
+
+
 
     <div id="container">
 
@@ -52,9 +188,21 @@
               <img class="definitions_logo" src="/assets/images/logos/wordwall_logo.svg"/>
               <img class="type_logo" src="/assets/images/logos/internet.svg"/>
             </div>
-            <div class="elab">
-                <p class="text_elab"></p>
-                <img class="elab_logo" src="/assets/images/logos/elab_logo_white.svg"/>
+            <div class="menu_right">
+                <div class="elab">
+                    <p class="text_elab" id="text_elab"></p>
+                    <img class="elab_logo" src="/assets/images/logos/elab_logo_white.svg"/>
+                </div>
+                <div class="language_menu">
+                    <div class="current_language" id="lang_arrow" href="">
+                        <span class="curr_lang">es</span>
+                        <span class="icon-arrow_up" id="l_arrow"></span>
+                    </div>
+                    <ul class="other_languages closed">
+                        <!-- <li class="lang">es</li> -->
+                        <li class="lang">en</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -64,17 +212,17 @@
 
                 <div class="control_text">
                     <div class="start_game">
-                      <span class="start_game_text"></span>
+                      <span class="start_game_text" id="start_game_text"></span>
                       <img class="control control_start svg" id="start_button" src="/assets/images/icons/start.svg"/>
                     </div>
-                  <div class="credits"></div>
+                  <div class="credits" id="openCredits"></div>
                 </div>
 
                 <div class="controls_menu hide">
-                    <span class="control control_info"><img class="svg" src="/assets/images/icons/info.svg"/></span>
-                    <span class="control control_progress"><img class="svg" src="/assets/images/icons/progress.svg"/></span>
-                    <span class="control control_reset"><img class="svg" src="/assets/images/icons/reset.svg"/></span>
-                    <span class="control control_stop"><img class="svg" src="/assets/images/icons/stop.svg"/></span>
+                    <span class="control control_info" id="openInfo"><img class="svg" src="/assets/images/icons/info.svg"/></span>
+                    <span class="control control_progress" id="openProgress"><img class="svg" src="/assets/images/icons/progress.svg"/></span>
+                    <span class="control control_reset" id="openReset"><img class="svg" src="/assets/images/icons/reset.svg"/></span>
+                    <span class="control control_stop" id="openStop"><img class="svg" src="/assets/images/icons/stop.svg"/></span>
                     <span class="control control_fullscreen" id="enterfullscreen"><img class="svg" src="/assets/images/icons/full_screen.svg"/></span>
                     <span class="control control_nofullscreen hide" id="exitfullscreen"><img class="svg" src="/assets/images/icons/no_full_screen.svg"/></span>
                 </div>
@@ -98,7 +246,7 @@
                 <div class="progress_score hide">
                     <div class="time_elapsed">
                       <div class="number_progress number_time">60:00</div>
-                      <div class="text_progress time_text"></div>
+                      <div class="text_progress time_text" id="time_text"></div>
                     </div>
                     <div class="questions_answered">
                       <div class="number_progress number_answered">0/25</div>
@@ -106,7 +254,7 @@
                     </div>
                     <div class="user_score">
                       <div class="number_progress score_number">100</div>
-                      <div class="text_progress score_text"></div>
+                      <div class="text_progress score_text" id="score_text"></div>
                     </div>
                 </div>
 
@@ -114,7 +262,7 @@
           </div>
           
         <div class="main_box">
-          <p class="main_text"></p>
+          <p class="main_text" id="main_text"></p>
 
           <div class="main_game hide">
             <div class="word-wall">
@@ -155,25 +303,29 @@
                             <span class="w_times w_t_tip">1</span>
                             <img class="svg wildcard" src="/assets/images/icons/tip_w.svg"/>
                         </div>
-                        <div class="tip_explanation"><span class="triangle"></span><p>también suele emplearse el anglicismo nick, para designar el mismo concepto.</p></div>
+                        <div class="tip_type tip_type_tip"><span class="triangle"></span><p id="tip_type_tip"></p></div>
+                        <div class="tip_explanation hide"><span class="triangle"></span><p>también suele emplearse el anglicismo nick, para designar el mismo concepto.</p></div>
                     </div>
                     <div class="w_wild w_two_tries">
                         <div class="wild_icon">
                             <span class="w_times w_t_tries">2</span>
                             <img class="svg wildcard" src="/assets/images/icons/two_tries_w.svg"/>
                         </div>
+                        <div class="tip_type tip_type_two"><span class="triangle"></span><p id="tip_type_two"></p></div>
                     </div>
                     <div class="w_wild w_number">
                         <div class="wild_icon">
                             <span class="w_times w_t_number">1</span>
                             <img class="svg wildcard" src="/assets/images/icons/number_w.svg"/>
                         </div>
+                        <div class="tip_type tip_type_number"><span class="triangle"></span><p id="tip_type_number"></p></div>
                     </div>
                     <div class="w_wild w_letter">
                         <div class="wild_icon">
                             <span class="w_times w_t_letter">2</span>
                             <img class="svg wildcard" src="/assets/images/icons/letter_w.svg"/>
                         </div>
+                        <div class="tip_type tip_type_next"><span class="triangle"></span><p id="tip_type_next"></p></div>
                     </div>
                 </div>
 

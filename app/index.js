@@ -33,7 +33,7 @@ function init_app(){
 	$.when.apply($, promises_array).then(init_events);
 	var tm = new TranslatorManager("es");
 	tm.update();
-	//tm.changeLocale("en");
+	tm.changeLocale("en");
 	
 }
 
@@ -49,6 +49,26 @@ $(document).ready(function(){
 
 
 
+//-------- LANGUAJE MENU -----------
+
+  var accordion = function (className) {
+    var item = $(className);
+    item.toggleClass("closed");
+    if (item.css('max-height') == '0px'){
+      item.css('max-height', item.prop("scrollHeight") + 20 + "px");
+    } else {
+      item.css('max-height', '0');
+    }
+  };
+
+  //////////OPEN LANGUAJE //////////
+
+  var language_arrow = $("#lang_arrow");
+
+  language_arrow.on("click", function() {
+    $('#l_arrow').toggleClass("closed");
+    accordion(".other_languages");
+  });
 
 
 

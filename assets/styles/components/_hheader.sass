@@ -18,18 +18,62 @@
     .type_logo
       width: 6em
       margin-left: 1em
-  .elab
-    display: flex
-    flex-flow: row nowrap
-    justify-content: space-between
-    align-items: center
-    .text_elab
-      font-weight: lighter
-      margin-right: .8em
-      padding-top: .3em
-    .elab_logo
-      width: 4em
-      +hand_cursor
+  .menu_right
+    +flex
+    align-items: baseline
+    .elab
+      display: flex
+      flex-flow: row nowrap
+      justify-content: space-between
+      align-items: center
+      .text_elab
+        font-weight: lighter
+        margin-right: .8em
+        padding-top: .3em
+      .elab_logo
+        width: 4em
+        +hand_cursor
+    .language_menu
+      opacity: .4
+      margin-left: 1em
+      position: relative
+      font-size: 1.5em
+      .current_language
+        +hand_cursor
+        .curr_language
+        .icon-arrow_up
+          font-size: .45em
+          line-height: 2em
+          opacity: 1
+          +transition_default
+          &:before
+            +transition_default
+            +transform(rotate(180deg))
+          &:hover
+            &:before
+              opacity: .5
+          &.closed
+            &:before
+              +transform(rotate(0deg))
+      .other_languages
+        position: absolute
+        top: 1em
+        left: 0
+        max-height: 0
+        overflow: hidden
+        opacity: 1
+        +transition_default
+        &.closed
+          opacity: 0
+          +transition_default
+        .lang
+          opacity: .5
+          +hand_cursor
+          +transition_default
+          &:hover
+            opacity: 1
+            +transition_default
+
 
 
 
@@ -44,12 +88,14 @@
       .type_logo
         width: 4em
         margin-left: .5em
-    .elab
-      .text_elab
-        font-size: .6em
-      .elab_logo
-        width: 2em
-
+    .menu_right
+      .elab
+        .text_elab
+          font-size: .6em
+        .elab_logo
+          width: 2em
+      .language_menu
+          font-size: 1em
 
 @media (max-width: $media9) 
   
@@ -62,13 +108,18 @@
       .type_logo
         width: 3em
         margin-left: .5em
-    .elab
-      .text_elab
-        font-size: .5em
-        margin: 0 1em 0 0
-        padding-top: .5em
-      .elab_logo
-        width: 2em
+    .menu_right
+      .elab
+        .text_elab
+          font-size: .5em
+          margin: 0 1em 0 0
+          padding-top: .5em
+        .elab_logo
+          width: 2em
+      .language_menu
+        line-height: 1.2
+        margin-right: .5em
+        font-size: .8em
      
 
 
