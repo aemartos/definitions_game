@@ -208,8 +208,10 @@ div.owl-prev, div.owl-next
           width: 85%
           font-size: calc(4vw + 1.5em)
           .letter
-            width: 13vw
-            height: 13vw
+            width: 18vw
+            height: 18vw
+            span
+              font-size: calc(1vw + 1.5em)
       .word-def
         width: 70%
         margin-top: 4em
@@ -277,6 +279,24 @@ div.owl-prev, div.owl-next
 
 
 
+@media (max-width: $media5)
+  @media (max-height: $media11)
+    
+    .main_box
+      .main_game
+        height: 65vh
+        .word-wall
+          .letter-wall
+            width: 66%
+            margin-top: 2em
+            .letter
+              width: 25vw
+              height: 25vw
+              span
+                font-size: calc(8vw + 2em)
+
+
+
 @media (max-width: $media6) and (orientation: landscape)
   
   .main_box
@@ -312,7 +332,24 @@ div.owl-prev, div.owl-next
                 .control_check
             .next_box
               .control_next
-                
+
+
+
+@media (max-width: $media6)
+  @media (max-height: $media13)
+
+    .main_box
+      .main_game
+        .word-wall
+          .letter-wall
+            width: 54%
+            .letter
+              width: 20vw
+              height: 20vw
+              span
+                font-size: calc(3vw + 2em) 
+
+
 
 
 @media (max-width: $media7) and (orientation: portrait)
@@ -328,7 +365,8 @@ div.owl-prev, div.owl-next
           .letter
             width: 16vw
             height: 16vw
-            font-size: calc(5vh + 2em)
+            span
+              font-size: calc(1vw + 1em)
       .word-def
         width: 80%
         margin-top: 2em
@@ -354,7 +392,7 @@ div.owl-prev, div.owl-next
   
     .main_box
       .main_game
-        height: 63vh
+        height: 61vh
 
 
 
@@ -365,6 +403,7 @@ div.owl-prev, div.owl-next
       .word-wall
         margin-top: 13em
         .letter-wall
+          width: 83%
           .letter
             font-size: calc(3vw + 1.5em)
 
@@ -415,6 +454,7 @@ div.owl-prev, div.owl-next
 
   .main_box
     .main_game
+      height: 68vh
       .word-wall
         .letter-wall
           width: 71%
@@ -423,7 +463,8 @@ div.owl-prev, div.owl-next
             width: 26vw
             height: 26vw
             margin-bottom: .1em
-            font-size: calc(10vw + 5em)
+            span
+              font-size: calc(4vw + 2em)
       .word-def
         .wildcards
         .word_definition_box
@@ -442,7 +483,7 @@ div.owl-prev, div.owl-next
 
       .main_box
         .main_game
-          height: 69vh
+          height: 65vh
 
 
 @media (max-width: $media10) and (orientation: landscape)
@@ -460,7 +501,8 @@ div.owl-prev, div.owl-next
             margin: 0
             width: 22vw
             height: 22vw
-            font-size: calc(14vw + 2em)
+            span
+              font-size: calc(1vw + 2em)
       .word-def
         margin: auto 1em
         .wildcards
@@ -486,11 +528,29 @@ div.owl-prev, div.owl-next
                 font-size: .9em
 
 
+@media (max-width: $media11) and (orientation: portrait)
+  
+  .main_box
+    .main_game
+      .word-wall
+        .letter-wall
+          width: 80%
+
+
 @media (max-width: $media11) and (orientation: landscape)
   
   .main_box
     .main_game
       height: 62vh
+
+
+@media (max-width: $media11)
+  @media (max-height: $media15)
+  
+    .main_box
+      .main_game
+        height: 60vh
+
 
 
 @media (max-width: $media12) and (orientation: portrait)
@@ -594,34 +654,22 @@ div.owl-prev, div.owl-next
 
   .main_box
     .main_game
+      height: 75vh
       .word-wall
         margin-top: 4.5em
         .letter-wall
+          margin: 0
           width: 44%
           .letter
             width: 40vw
             height: 40vw
-            font-size: calc(5vh + 2em)
+            span
+              font-size: calc(3vw + 1em)
       .word-def 
         .word_definition_box 
           font-size: calc(1vw + .7em)
 
 
-
-// @media (max-width: $media14) and (orientation: portrait)
-//   @media (max-height: $media10) 
-//     .main_box
-//       .main_game
-//         .word-wall
-//           margin-top: 4em
-//           .letter-wall
-//             width: 40%
-//             .letter
-//               width: 38vw
-//               height: 38vw
-//         .word-def 
-//           .word_definition_box 
-//             font-size: calc(1vw + .5em)
 
 
 @media (max-width: $media15) and (orientation: portrait)
