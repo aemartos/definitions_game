@@ -33,7 +33,7 @@ function init_app(){
 	$.when.apply($, promises_array).then(init_events);
 	var tm = new TranslatorManager("es");
 	tm.update();
-	tm.changeLocale("en");
+	//tm.changeLocale("en");
 	
 }
 

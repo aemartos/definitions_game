@@ -88,17 +88,17 @@
               .triangle
                 left: 2.4em
             &.tip_type_two
-              left: -.4em
+              left: -1em
               .triangle
-                left: 2.2em
+                left: 2.8em
             &.tip_type_number
               left: -2.2em
               .triangle
                 left: 4em
             &.tip_type_next
-              left: -.6em
+              left: -1.6em
               .triangle
-                left: 2.4em
+                left: 3.4em
           &.w_tip
             position: relative
             .tip_explanation
@@ -218,11 +218,11 @@ div.owl-prev, div.owl-next
               &.tip_type_tip
                 left: -.5em
               &.tip_type_two
-                left: -.4em
+                left: -.7em
               &.tip_type_number
-                left: -2.1em
+                left: -1.9em
               &.tip_type_next
-                left: -.4em
+                left: -1.2em
 
 
 
@@ -238,13 +238,13 @@ div.owl-prev, div.owl-next
             .tip_type
               top: 5em
               &.tip_type_tip
-                left: .1em
+                left: 0em
               &.tip_type_two
-                left: .2em
+                left: -.5em
               &.tip_type_number
                 left: -1.6em
               &.tip_type_next
-                left: .1em
+                left: -1em
             &.w_tip 
               .tip_explanation
                 left: -.5em
@@ -346,6 +346,17 @@ div.owl-prev, div.owl-next
           top: 1.5em
           right: 1.5em
           font-size: calc(.5vw + .5em)
+          .w_wild
+            .tip_type
+              top: 4.5em
+              &.tip_type_tip
+                left: -.5em
+              &.tip_type_two
+                left: -.7em
+              &.tip_type_number
+                left: -2em
+              &.tip_type_next
+                left: -1.4em
         .word_definition_box
           margin-top: 3em
           font-size: calc(1vw + .5em)
@@ -436,7 +447,21 @@ div.owl-prev, div.owl-next
               height: 20vw
               span
                 font-size: calc(3vw + 2em) 
-
+        .word-def
+          .wildcards
+            .w_wild
+              .tip_type
+                top: 5.4em
+                &.tip_type_tip
+                  left: .3em
+                &.tip_type_two
+                  left: 0em
+                &.tip_type_number
+                  left: -1.3em
+                &.tip_type_next
+                  left: -1.2em
+                  .triangle
+                    left: 3.8em
 
 
 
@@ -554,18 +579,6 @@ div.owl-prev, div.owl-next
             span
               font-size: calc(4vw + 2em)
       .word-def
-        .wildcards
-          .w_wild
-            .tip_type
-              top: 5.5em
-              &.tip_type_tip
-                left: .5em
-              &.tip_type_two
-                left: .6em
-              &.tip_type_number
-                left: -1.1em
-              &.tip_type_next
-                left: .6em
         .word_definition_box
           .title_word
           .word_definition
@@ -575,6 +588,30 @@ div.owl-prev, div.owl-next
                 .control_check
             .next_box
               .control_next
+
+
+
+
+@media (max-width: $media9)
+
+  .main_box
+    .main_game
+      .word-def
+        .wildcards
+          .w_wild
+            .tip_type
+              top: 5.4em
+              &.tip_type_tip
+                left: .5em
+              &.tip_type_two
+                left: .2em
+              &.tip_type_number
+                left: -1.1em
+              &.tip_type_next
+                left: -1em
+                .triangle
+                  left: 3.8em
+
 
 
 @media (max-width: $media9) 
@@ -608,6 +645,15 @@ div.owl-prev, div.owl-next
           top: .9em
           right: .9em
           font-size: calc(.5vw + .4em)
+          .w_wild
+            .tip_type
+              &.tip_type_tip
+              &.tip_type_two
+              &.tip_type_number
+              &.tip_type_next
+                left: -1.3em
+                .triangle
+                  left: 3.8em
         .word_definition_box
           margin-top: 1.5em
           .title_word
