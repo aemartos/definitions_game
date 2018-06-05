@@ -1,4 +1,4 @@
-export let STATE = {
+export let state = {
   game_started: false,
   game_ended: false,
   time: "60:00",

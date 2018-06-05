@@ -1,5 +1,5 @@
 
-export const MASTER = {
+export const INTERNET_DEFINITIONS = {
   countdown: true,
   time: "60:00",
   letter_limit: 25, //4, 9, 16 or 25

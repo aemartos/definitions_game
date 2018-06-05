@@ -8,9 +8,11 @@ import './vendor/isotope.pkgd.min';
 import './vendor/owl.carousel.min';
 import './vendor/popmotion.global.min';
 import svgs_inline from './svgmanager';
-import TranslatorManager from './config/translatormanager';
+import TranslatorManager from './translatormanager';
 import init_svg_events from './eventmanager';
-
+import generate_ui from './uigenerator';
+import INTERNET_DEFINITIONS from './config/definitions';
+import state from './config/config';
 
 //------------------------------------------
 
@@ -34,7 +36,7 @@ function init_app(){
 	var tm = new TranslatorManager("es");
 	tm.update();
 	//tm.changeLocale("en");
-	
+	generate_ui(state, INTERNET_DEFINITIONS);
 }
 
 $(document).ready(function(){
