@@ -3,7 +3,7 @@
  */
 
 // Load application styles
-import 'styles/index.sass';
+import 'index2.sass';
 import {city, country, Persona} from './world';
 
 import Translator from './translator';
