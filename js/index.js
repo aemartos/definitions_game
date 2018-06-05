@@ -1,7 +1,7 @@
 
 
 // Load application styles
-import 'styles/index.sass';
+import 'index.sass';
 import {city, country, Persona} from './world';
 
 import './vendor/isotope.pkgd.min';

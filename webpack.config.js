@@ -1,13 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ejscompiled = require('ejs-compiled-loader');
 
 // Is the current build a development build
 const IS_DEV = (process.env.NODE_ENV === 'dev');
 
 const dirNode = 'node_modules';
-const dirApp = path.join(__dirname, 'app');
+const dirApp = path.join(__dirname, 'js');
 const dirAssets = path.join(__dirname, 'assets');
+const dirStyles = path.join(__dirname, 'styles');
 
 const appHtmlTitle = 'Webpack Boilerplate';
 
@@ -22,7 +24,8 @@ module.exports = {
         modules: [
             dirNode,
             dirApp,
-            dirAssets
+            dirAssets,
+            dirStyles
         ]
     },
     plugins: [
@@ -35,7 +38,7 @@ module.exports = {
           "window.jQuery": "jquery"
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.ejs'),
+            template: '!!ejs-compiled-loader!html/index.ejs',
             title: appHtmlTitle
         })
     ],
@@ -80,7 +83,7 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: IS_DEV,
-                            includePaths: [dirAssets]
+                            includePaths: [dirStyles]
                         }
                     }
                 ]
