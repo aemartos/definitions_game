@@ -1,4 +1,4 @@
-import {LOCALES} from './locales.js';
+import {LOCALES} from './config/locales.js';
 
 
 export default class Translator{

@@ -8,7 +8,7 @@ import './vendor/isotope.pkgd.min';
 import './vendor/owl.carousel.min';
 import './vendor/popmotion.global.min';
 import svgs_inline from './svgmanager';
-import TranslatorManager from './translatormanager';
+import TranslatorManager from './config/translatormanager';
 import init_svg_events from './eventmanager';
 
 
@@ -132,15 +132,4 @@ function handleOrientationChange(mediaquery) {
   	 $('.owl-carousel').owlCarousel('destroy');
   }
 }
-
-
-
-
-//----------- CURSOR FOCUS ---------------
-
-
-
-
-
-
 

@@ -1,4 +1,4 @@
-import Translator from './translator';
+import Translator from '../translator';
 
 
 export default class TranslatorManager{
