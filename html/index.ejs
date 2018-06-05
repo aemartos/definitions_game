@@ -16,167 +16,15 @@
 
 <body>
 
-    <!-- CREDITS MODAL-->
-    <div class="modal_position" id="modalCredits">
-      <div class="modal">
-          <div class="modal-box">
-            <div class="close-modal-cross">
-              <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-            </div>
-            <div class="modal-content">
-              <div class="modal-title modal-title-prin"></div>
-              <div class="modal-text">
-                <p class="modal-text-info"></p>
-              </div>
-              <div class="logos">
-                <a href="http://www.upm.es/" target="_blank"><img class="logo upm_logo" src="assets/images/logos/upm_logo.png"/></a>
-                <a href="https://www.orange.es/" target="_blank"><img class="logo orange_logo" src="assets/images/logos/orange_logo.png"/></a>
-                <a href="https://www.incibe.es/" target="_blank"><img class="logo incibe_logo" src="assets/images/logos/incibe_logo.svg"/></a>
-                <a href="http://crif.acacias.educa.madrid.org" target="_blank"><img class="logo crif_logo" src="assets/images/logos/crif_logo.png"/></a>
-              </div>
-              <div class="modal-title modal-title-license"></div>
-              <div class="modal-text">
-               <p class="modal-text-license"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- INFO MODAL-->
-    <div class="modal_position" id="modalInfo">
-      <div class="modal">
-        <div class="modal-box">
-          <div class="close-modal-cross">
-            <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-          </div>
-          <div class="modal-content">
-           <div class="modal-title modal-title-prin"></div>
-            <div class="modal-text">
-              <p class="modal-text-info"></p>
-
-              <ul class="icon_list">
-                <li><img class="control control_info" src="/assets/images/icons/info.svg"/><span class="t-info"></span></li>
-                <li><img class="control control_progress" src="/assets/images/icons/progress.svg"/><span class="t-progress"></span></li>
-                <li><img class="control control_reset" src="/assets/images/icons/reset.svg"/><span class="t-reset"></span></li>
-                <li><img class="control control_stop" src="/assets/images/icons/stop.svg"/><span class="t-stop"></span></li>
-                <li><img class="control control_fullscreen" src="/assets/images/icons/full_screen.svg"/><span class="t-full"></span></li>
-              </ul>
-            </div>
-            <div class="modal-actions">
-              <div class="btn btn-red">cerrar</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     
-    <!-- PROGRESS MODAL-->
-    <div class="modal_position" id="modalProgress">
-      <div class="modal">
-        <div class="modal-box">
-           <div class="close-modal-cross">
-              <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-            </div>
-            <div class="modal-content">
-              <div class="modal-title modal-title-prin"></div>
-                <div class="modal-text">
-                  <p class="modal-text-info"></p>
-                  <div class="task-list">
-                    
-                  </div>
-                </div>
-              <div class="modal-actions">
-                <div class="btn btn-red"></div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    
-    <!-- RESET MODAL-->
-    <div class="modal_position" id="modalReset">
-      <div class="modal">
-        <div class="modal-box">
-          <div class="close-modal-cross">
-            <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-          </div>
-          <div class="modal-content">
-            <div class="modal-title modal-title-prin"></div>
-              <div class="modal-text">
-                <p class="modal-text-info"></p>
-              </div>
-            <div class="modal-actions">
-              <div class="btn btn-red"></div>
-              <div class="btn btn-green"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
-    <!-- STOP MODAL-->
-    <div class="modal_position" id="modalStop">
-      <div class="modal">
-        <div class="modal-box">
-          <div class="close-modal-cross">
-            <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-          </div>
-          <div class="modal-content">
-            <div class="modal-title modal-title-prin"></div>
-              <div class="modal-text">
-                <p class="modal-text-info"></p>
-              </div>
-            <div class="modal-actions">
-              <div class="btn btn-red"></div>
-              <div class="btn btn-green"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- FINAL MODAL-->
-    <div class="modal_position" id="modalFinal">
-      <div class="modal">
-        <div class="modal-box">
-          <div class="close-modal-cross">
-              <img class="control control_cross svg" src="/assets/images/icons/cross.svg"/>
-            </div>
-           <div class="modal-content">
-              <div class="modal-title modal-title-end"></div>
-                <div class="modal-text">
-                  <div class="final_score">
-                    <div class="individual_score"><span class="number_score">60:00</span> <span class="text_score score-time"></span></div>
-                    <div class="individual_score"><span class="number_score">0/25</span> <span class="text_score score-right"></span></div>
-                    <div class="individual_score"><span class="number_score">100</span> <span class="text_score score-points"></span></div>
-                  </div>
-                  <p class="modal-text-info"></p>
-                  <div class="responsive_video">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nYh-n7EOtMA" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-                  </div>
-                </div>
-              <div class="modal-actions">
-                  <div class="btn btn-red btn-red-r"></div>
-                  <div class="btn btn-red btn-red-t"></div>
-                <div class="btn btn-green"></div>
-              </div>
-           </div>
-        </div> 
-      </div>
-    </div>
-    
+    <%- include html/modalCredits -%>
+    <%- include html/modalInfo -%>
+    <%- include html/modalProgress -%>
+    <%- include html/modalReset -%>
+    <%- include html/modalStop -%>
+    <%- include html/modalFinal -%>
 
     <div class="dark-opacity" id="dark-opacity" ></div>
-
-
-
 
 
     <div id="container">
@@ -348,8 +196,6 @@
         </div>
 
     </div>
-    <!-- <%- include html/modal -%>
-    <%- include html/modal2 -%> -->
 
 
 </body>

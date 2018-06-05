@@ -9,7 +9,7 @@ import './vendor/owl.carousel.min';
 import './vendor/popmotion.global.min';
 import svgs_inline from './svgmanager';
 import TranslatorManager from './translatormanager';
-import init_events from './eventmanager';
+import init_svg_events from './eventmanager';
 
 
 //------------------------------------------
@@ -30,7 +30,7 @@ document.getElementById('output').innerHTML = `${peter.despidete()} ${city}, ${c
 
 function init_app(){
 	let promises_array = svgs_inline("img.svg");
-	$.when.apply($, promises_array).then(init_events);
+	$.when.apply($, promises_array).then(init_svg_events);
 	var tm = new TranslatorManager("es");
 	tm.update();
 	//tm.changeLocale("en");
