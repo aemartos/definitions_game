@@ -11,8 +11,9 @@ import svgs_inline from './svgmanager';
 import TranslatorManager from './translatormanager';
 import init_svg_events from './eventmanager';
 import generate_ui from './uigenerator';
-import INTERNET_DEFINITIONS from './config/definitions';
-import state from './config/config';
+import game_interactions from './gameinteract';
+import {INTERNET_DEFINITIONS} from './config/definitions';
+import {state} from './config/config';
 
 //------------------------------------------
 
@@ -101,7 +102,7 @@ var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
 var mediaquery2 = matchMedia("(max-width: 980px)");
 
 function handleOrientationChange(mediaquery) {
-	console.log("holi");
+
   if (mediaquery1.matches || mediaquery2.matches) {
 
 		$('.owl-carousel').owlCarousel({

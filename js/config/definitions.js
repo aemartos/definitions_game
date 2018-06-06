@@ -7,6 +7,7 @@ export const INTERNET_DEFINITIONS = {
   letters: [
     {
       letter: "a",
+      number: 0,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "apodo o pseudónimo utilizado en las redes. nombre usualmente corto y fácil de recordar",
@@ -15,6 +16,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "b",
+      number: 1,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "imagen, gráfico o texto con fines publicitarios que habitualmente enlaza con el sitio web del anunciante",
@@ -23,6 +25,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "c",
+      number: 2,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "navegador web de código abierto más popular, con interfaz sencilla, muy buena estabilidad, velocidad y seguridad",
@@ -31,6 +34,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "c",
+      number: 3,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "datos que se envian desde un servidor web al navegador del cliente y que se guardan localmente en el pc del usuario",
@@ -39,6 +43,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "d",
+      number: 4,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "sistema de denominación de hosts en internet el cual está formado por un conjunto de caracteres el cual identifica un sitio de la red accesible por un usuario",
@@ -47,6 +52,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "e",
+      number: 5,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "símbolo gráfico que representa diversas expresiones, permitiendo que una persona puede mostrar su estado de ánimo en medios como la mensajería instantánea ;)",
@@ -55,6 +61,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "f",
+      number: 6,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "compilación de las preguntas más frecuentes que se hacen en una web de cualquier tema",
@@ -63,6 +70,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "f",
+      number: 7,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "mini grafico (a modo de marca o logo), que aparece a los usuarios en la barra de direcciones del navegador",
@@ -71,6 +79,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "h",
+      number: 8,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "persona experta en el manejo de computadoras, que se ocupa de la seguridad de los sistemas y de desarrollar técnicas de mejora, utiliza sus conocimientos técnicos para superar un problema, normalmente asociado a la seguridad",
@@ -79,6 +88,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "i",
+      number: 9,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "red informática de nivel mundial que utiliza la línea telefónica para transmitir la información",
@@ -87,6 +97,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "j",
+      number: 10,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "formato de imagen más popular. es un formato comprimido, lo que le permite ocupar poco espacio en la memoria o ser enviado con rapidez por internet",
@@ -95,6 +106,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "l",
+      number: 11,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "red social orientada al ambiente comercial y de negocios",
@@ -103,6 +115,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "l",
+      number: 12,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "clave de acceso que se le asigna a un usuario, lo identifica dentro de internet junto con la dirección electrónica del pc que utiliza",
@@ -111,6 +124,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "m",
+      number: 13,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "programa malicioso cuyo objetivo es causar daños a ordenadores, sistemas o redes y, por extensión, a sus usuarios",
@@ -119,6 +133,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "n",
+      number: 14,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "aplicación para visualizar todo tipo de información y navegar por internet con funcionalidades plenamente multimedia",
@@ -127,6 +142,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "o",
+      number: 15,
       starts_or_contains: "contain",
       header: "contiene la",
       def: "programa cuyo código fuente está disponible al público general, para usar y modificar",
@@ -143,6 +159,7 @@ export const INTERNET_DEFINITIONS = {
     },*/
     {
       letter: "p",
+      number: 16,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "es una aplicación web para la transferencia segura de fondos, entre cuentas de miembros",
@@ -151,6 +168,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "p",
+      number: 17,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "comunicaciones fraudulentas diseñadas para inducir a los consumidores a divulgar información personal o financiera, incluyendo nombre de usuario, contraseña, información sobre tarjetas de crédito, entre otros",
@@ -159,6 +177,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "q",
+      number: 18,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "forma como se le denomina al tipo de teclado que más se usa en la actualidad",
@@ -167,6 +186,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "r",
+      number: 19,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "dispositivo de hardware que permite la interconexión de ordenadores en red, que determina el siguiente punto hacia donde se dirigen los datos",
@@ -175,6 +195,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "s",
+      number: 20,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "programa especial que se carga en un ordenador al encenderlo y cuya función es gestionar los demás programas o aplicaciones que se ejecutarán",
@@ -183,6 +204,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "t",
+      number: 21,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "formato de archivo que almacena información, especialmente destinado a distribuir archivos de gran tamaño",
@@ -191,6 +213,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "u",
+      number: 22,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "persona que tiene una cuenta por medio de la cual puede acceder a los recursos y servicios que ofrece una red",
@@ -199,6 +222,7 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "w",
+      number: 23,
       starts_or_contains: "start",
       header: "empieza por la",
       def: "websites que permiten a los usuarios modificar o crear contenido de forma rápida y sencilla",
@@ -215,6 +239,7 @@ export const INTERNET_DEFINITIONS = {
     },*/
     {
       letter: "y",
+      number: 24,
       starts_or_contains: "contain",
       header: "contiene la",
       def: "término inglés que se refiere al acto de atormentar y molestar a otra persona usando medios electrónicos",

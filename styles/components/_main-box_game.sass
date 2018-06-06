@@ -439,6 +439,7 @@ div.owl-prev, div.owl-next
 
     .main_box
       .main_game
+        height: 67vh
         .word-wall
           .letter-wall
             width: 54%
@@ -509,6 +510,28 @@ div.owl-prev, div.owl-next
 
 
 
+
+@media (max-width: 818px)  
+  @media (max-height: 613px)  
+  
+    .main_box
+      .main_game
+        height: 76vh
+        .word-wall
+          .letter-wall
+            width: 68%
+            .letter
+              width: 25vw
+              height: 25vw
+        .word-def
+          .wildcards
+            .w_wild
+              .tip_type
+                &.tip_type_next
+                  left: -1.8em
+
+
+
 @media (max-width: 800px) and (orientation: portrait)
   
   .main_box
@@ -518,7 +541,7 @@ div.owl-prev, div.owl-next
         .letter-wall
           width: 83%
           .letter
-            font-size: calc(3vw + 1.5em)
+            font-size: calc(3vw + 1.5em)            
 
 
 
