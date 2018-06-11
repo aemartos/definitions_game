@@ -30,7 +30,6 @@ export default function svgs_inline(imgs_selector){
 
           // Replace image with new SVG
           $img.replaceWith($svg);
-
         }, 'xml');
     promises_array.push(svg_promise);
 

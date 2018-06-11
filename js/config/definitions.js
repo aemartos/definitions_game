@@ -1,7 +1,5 @@
 
 export const INTERNET_DEFINITIONS = {
-  countdown: true,
-  time: "60:00",
   letter_limit: 25, //4, 9, 16 or 25
   wildcards: [{name: "additional tip", use: false}, {name: "two tries", use: false}, {name: "number of letters", use: false}, {name: "next letter", use: false}],
   letters: [
