@@ -1,4 +1,4 @@
-import {state} from './config/config';
+import {state, set_initial_state} from './config/config';
 import UIManager from './uimanager';
 import handleOrientationChange from './carousel';
 
@@ -9,6 +9,9 @@ export default class EventManager{
     this.end_game = $("#end_game");
     this.check_letter = $('#check_box');
     this.inputValue = $("#main_input");
+    this.progress = $(".number_answered");
+    this.progress_fill = $('.progress_fill');
+    this.score = $('.score_number');
     this.enterfullScreenButton = $('#enterfullscreen');
     this.exitfullScreenButton = $('#exitfullscreen');
     this.burger_button = $("#burger_button");
@@ -31,6 +34,9 @@ export default class EventManager{
   }
   add_ui_manager(uimanager){
     this.ui = uimanager;
+  }
+  add_modal_manager(modalmanager){
+    this.mm = modalmanager;
   }
   init_ui(){
     this.start_button.on('click', this.startGame);
@@ -68,37 +74,27 @@ export default class EventManager{
   startGame(){
     state.game_started = true;
     //start clock
+    
     this.timeinterval = setInterval(this.updateClock, 1000);
+    this.progress.html( "0" + "/" + state.letters.length);
     this.ui.render(state);
   }
   resetGame(){
     console.log("reset");
-  	state.game_started = false;
-  	state.game_ended = false;
-  	state.time = 3600;
-  	state.time_paused = false;
-  	state.progress = 0;
-    state.letters = [];
-    state.actual_letter = 0;
+  	set_initial_state();
+    this.ui.render(state);
   }
   endGame(){
     console.log("stop");
     state.game_ended = true;
     state.time_paused = true;
-    //state.time = ;
+    this.ui.render(state);
   }
   updateClock(){
     if(!state.time_paused){
       state.time = state.time -1;
       this.ui.render(state, ["score"]);
     }
-  }
-  progress(){
-    console.log("progress");
-    state.letters.forEach((elem, index) => {
-     //elem.right
-      this.ui.render(state, ["score"]);
-    });
   }
   letterClicked(event){
     state.actual_letter = parseInt($(event.currentTarget).attr("index"));
@@ -117,15 +113,25 @@ export default class EventManager{
   }
   checkLetter(event){
     if (!event.keyCode || event.keyCode === 13) {
+      
       if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
-      state.letters[state.actual_letter].right = true;
-    } else {
-      state.letters[state.actual_letter].right = false;
-    }
-    this.inputValue.val("");
-    state.actual_letter++;
-    this.inputValue.focus();
-    this.ui.render(state, ["definitions"]);
+        state.letters[state.actual_letter].right = true;
+        state.score = state.score + state.letters[state.actual_letter].score;
+        this.score.html(state.score);
+      } else {
+        state.letters[state.actual_letter].right = false;
+      }
+      state.progress++;
+      var fill = (state.progress)*105/state.letters.length;
+      this.progress_fill.css("width", fill + "%");
+      this.progress.html( state.progress + "/" + state.letters.length);
+      this.nextLetter();
+
+      if(state.progress===25){
+        console.log("fin juego");
+        state.game_ended = true;
+        this.mm.openModal("modalFinal");
+      }
     }
     
   }

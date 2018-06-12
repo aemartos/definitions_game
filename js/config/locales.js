@@ -6,6 +6,7 @@ export const LOCALES = {
    "aciertos": "hits", //right guess
    "aplicación de <a href='#' target='_blank'><img class='e_logo' src='assets/images/logos/elab_logo_black.svg'/></a>, desarrollada por el Grupo Internet de Nueva Generación de la UPM, con el apoyo institucional del INCIBE, el CRIF las Acacias y Orange.": "<a href='#' target='_blank'><img class='e_logo' src='assets/images/logos/elab_logo_black.svg'/></a> application, developed by the New Generation Internet Group of UPM, with institutional support from INCIBE, CRIF Acacias and Orange.",
    "cancelar": "cancel",
+   "caracteres": "characters",
    "cerrar": "close",
    "créditos": "credits",
    "dos intentos": "two tries",
@@ -22,6 +23,9 @@ export const LOCALES = {
    "finalizar": "end up",
    "has terminado la prueba. puedes repasar las palabras acertadas.": "you have finished the game. you can review the correct words.",
    "instrucciones": "instructions",
+   "la palabra contiene": "the word contains",
+   "la primera palabra contiene": "first word contains",
+   "la segunda": "second one",
    "licencia": "license",
    "lo has hecho bastante bien, pero has fallado algunas. revisa el siguiente video para aprender un poco más:": "you have done quite well, but you have failed some. check the following video to learn a little more:",
    "modo pantalla completa": "fullscreen mode",

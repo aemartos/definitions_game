@@ -1,9 +1,10 @@
 //class that manages the UI
 
 export default class UIManager{
-  constructor(eventmanager){
+  constructor(eventmanager, translator){
       this.ev = eventmanager;
-
+      this.trans = translator;
+      
       this.letterWall = $('.letter-wall');
       this.explanation = $('.text_explanation');
       this.lettersNumber = $('.text_number');
@@ -23,6 +24,7 @@ export default class UIManager{
       this.game_controls_mob = $('.controls_menu_mob');
       this.game_score = $('.progress_score');
       this.clock = $("#clock");
+      this.count_answer_letters = this.count_answer_letters.bind(this);
   }
   accordion(item) {
     //get .accordion_menu parent
@@ -76,6 +78,13 @@ export default class UIManager{
       this.game_score.addClass('hide');
     }
   }
+  count_answer_letters(answer){
+    if (answer.indexOf(" ") != -1) {
+      return this.trans.t("la primera palabra contiene") + " " + answer.split(" ")[0].length + " " + this.trans.t("caracteres") + ", " + this.trans.t("la segunda") + " " + answer.split(" ")[1].length;
+    } else {
+      return this.trans.t("la palabra contiene") + " " + answer.length + " " + this.trans.t("caracteres");
+    } 
+  }
   render_definitions(state){
     if(state.game_started){
       var letter = "";
@@ -88,7 +97,7 @@ export default class UIManager{
         var classes = "";
         if(index === state.actual_letter){
         	tip = elem.tip;
-          number = elem.answer.length;
+          number = this.count_answer_letters(elem.answer);
         	title = elem.header + " " + elem.letter;
         	def = elem.def;
           //also add special class to indicate actual letter

@@ -2,8 +2,8 @@ import Translator from './translator';
 
 
 export default class TranslatorManager{
-  constructor(lang){
-    this.trans = new Translator(lang);
+  constructor(translator){
+    this.trans = translator;
   }
   update(){
     $("#main_text").html(this.trans.t("¿te atreves con este reto? tienes una hora para completar y superar nuestro muro de palabras, sobre uso seguro de internet y las TIC"));

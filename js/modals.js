@@ -106,6 +106,7 @@ export default class ModalManager{
   openModal(modalid){
     this.modal = styler(document.querySelector('#'+modalid+' .modal'));
     this.openedmodal = modalid;
+    this.fillModal(modalid);
     this.showContainers(modalid);
     //pause timer
     state.time_paused = true;
@@ -117,6 +118,11 @@ export default class ModalManager{
       '-200'
       //[...modalSections.map((s, i) => tweenUp(sectionLabels[i], 300, 50)), 50]
     ]).start(this.setStylers);
+  }
+  fillModal(modalid){
+    if(modalid==="modalFinal"){
+      console.log("FILLMODAL")
+    }
   }
   cancelModal(){
     //unpause timer
@@ -136,6 +142,12 @@ export default class ModalManager{
       complete: ()=>this.hideContainers(this.openedmodal)
     });
   }
+  processModal(modalid){
+    if(modalid==="modalStop"){
+      console.log("processModal modalStop");
+      this.openModal("modalFinal");
+    }
+  }
   acceptModal(){
     //unpause timer
     state.time_paused = false;
@@ -151,7 +163,10 @@ export default class ModalManager{
       { track: 'shade', from: 1, to: 0, ease: easing.linear, duration: 300 }
     ]).start({
       update: this.setStylers,
-      complete: ()=>this.hideContainers(this.openedmodal)
+      complete: ()=>{
+        this.hideContainers(this.openedmodal);
+        this.processModal(this.openedmodal);
+        }
     });
   }
 }
