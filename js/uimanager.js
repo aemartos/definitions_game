@@ -1,10 +1,12 @@
 //class that manages the UI
+import handleOrientationChange from './carousel';
+import {UI_CONFIG} from './config/config';
 
 export default class UIManager{
   constructor(eventmanager, translator){
       this.ev = eventmanager;
       this.trans = translator;
-      
+
       this.letterWall = $('.letter-wall');
       this.explanation = $('.text_explanation');
       this.lettersNumber = $('.text_number');
@@ -15,6 +17,9 @@ export default class UIManager{
       this.wild_two = $('.w_t_tries');
       this.wild_number = $('.w_t_number');
       this.wild_letter = $('.w_t_letter');
+
+      this.progress = $(".number_answered");
+      this.progress_fill = $('.progress_fill');
 
       this.start_button = $('#start_button');
       this.game = $('.main_game');
@@ -74,6 +79,9 @@ export default class UIManager{
       //when game started
       this.game_score.removeClass('hide');
       this.clock.html(this.toHHMMSS(state.time));
+      this.progress.html( state.progress + "/" + state.letters.length);
+      var fill = (state.progress)*105/state.letters.length;
+      this.progress_fill.css("width", fill + "%");
     } else {
       this.game_score.addClass('hide');
     }
@@ -83,7 +91,7 @@ export default class UIManager{
       return this.trans.t("la primera palabra contiene") + " " + answer.split(" ")[0].length + " " + this.trans.t("caracteres") + ", " + this.trans.t("la segunda") + " " + answer.split(" ")[1].length;
     } else {
       return this.trans.t("la palabra contiene") + " " + answer.length + " " + this.trans.t("caracteres");
-    } 
+    }
   }
   render_definitions(state){
     if(state.game_started){
@@ -118,6 +126,11 @@ export default class UIManager{
       this.lettersNumber.html(number);
       this.wordTitle.html(title);
       this.wordDef.html(def);
+      var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
+      var mediaquery2 = matchMedia("(max-width: 980px)");
+      if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
+        handleOrientationChange(undefined, true);
+      }
     } else {
       console.log("TODO");
     }

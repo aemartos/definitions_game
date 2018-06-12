@@ -7,7 +7,7 @@ export let state = {};
 export function set_initial_state(){
     state = JSON.parse(JSON.stringify(INITIAL_STATE));
     INTERNET_DEFINITIONS.letters.forEach((elem, index) => {
-      elem.right = undefined;   
+      elem.right = undefined;
       state.letters.push(elem);
     });
 }
@@ -41,10 +41,12 @@ const INITIAL_STATE = {
 };
 
 
-export const UI = {
+export const UI_CONFIG = {
   with_reset_button: true,
   with_fullscreen: true,
   name:"wordwall",
   type_logo:"/assets/images/logos/internet.svg",
-  survey: "https://docs.google.com/forms/d/10xa0gH9pLU9xAyxMz7ufmotky4mCROTxOLNzNs2VKkg/edit"
+  survey: "https://docs.google.com/forms/d/10xa0gH9pLU9xAyxMz7ufmotky4mCROTxOLNzNs2VKkg/edit",
+  mediaquery1: matchMedia("(max-width: 1024px) and (orientation: portrait)"),
+  mediaquery2: matchMedia("(max-width: 980px)")
 };

@@ -19,7 +19,7 @@ import {state, set_initial_state} from './config/config';
 $(document).ready(function(){
 	//load imgs and transform them to svgs inline
 	//after that (so asyncronously) init events that depends on the svgs
-  
+
   //create translator manager and call update for the first time
   var trans = new Translator("es");
   var tm = new TranslatorManager(trans);
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 
 		ui.render(state);
-	  ev.init_ui();
+	  setTimeout(()=>ev.init_ui(), 500);
 		mm.init_modals();
 
 		//ev.init_game();
