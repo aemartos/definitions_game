@@ -1,5 +1,6 @@
 const { styler, timeline, listen, easing } = window.popmotion;
 import {state} from './config/config';
+import UIManager from './uimanager';
 
 export default class ModalManager{
   constructor(eventmanager){
@@ -35,9 +36,10 @@ export default class ModalManager{
 
     //--------- FINAL MODAL------------
     this.crossFinalButton = document.querySelector('#modalFinal .control.control_cross');
-    this.resetFinalButton = document.querySelector('#modalFinal .btn-red-r');
-    this.finishFinalButton = document.querySelector('#modalFinal .btn-red-t');
-    this.answersFinalButton = document.querySelector('#modalFinal .btn-green');
+    //this.resetFinalButton = document.querySelector('#modalFinal .btn-red-r');
+    //this.finishFinalButton = document.querySelector('#modalFinal .btn-red-t');
+    //this.answersFinalButton = document.querySelector('#modalFinal .btn-green');
+    this.finishFinalButton = document.querySelector('#modalFinal .btn-green');
 
     this.modal = {};
     this.openedmodal = {};
@@ -75,9 +77,9 @@ export default class ModalManager{
     listen(this.acceptStopButton, 'click').start(this.acceptModal);
 
     listen(this.crossFinalButton, 'click').start(this.cancelModal);
-    listen(this.resetFinalButton, 'click').start(this.cancelModal);
+    //listen(this.resetFinalButton, 'click').start(this.cancelModal);
     listen(this.finishFinalButton, 'click').start(this.cancelModal);
-    listen(this.answersFinalButton, 'click').start(this.acceptModal);
+    //listen(this.answersFinalButton, 'click').start(this.acceptModal);
   }
   tweenUp(track, duration = 500, yFrom = 100) {
     return {track,
@@ -104,6 +106,7 @@ export default class ModalManager{
     modalContainer.set('display', 'none');
   }
   openModal(modalid){
+
     this.modal = styler(document.querySelector('#'+modalid+' .modal'));
     this.openedmodal = modalid;
     this.fillModal(modalid);
@@ -121,11 +124,24 @@ export default class ModalManager{
   }
   fillModal(modalid){
     if(modalid==="modalFinal"){
-      console.log("FILLMODAL")
+      this.final_time = $('#final_time');
+      this.final_progress = $('#final_progress');
+      this.final_score = $('#final_score');
+
+      //this.final_time.html(toHHMMSS(state.time));
+      this.final_time.html(state.time);
+      this.final_progress.html(state.success + "/" + state.letters.length);
+      this.final_score.html(state.score);
+    }
+    if(modalid==="modalProgress"){
+      this.progress_modal_text = $('.game-score');
+      this.progress_modal_text.html(state.progress + "/" + state.letters.length);
     }
   }
   cancelModal(){
     //unpause timer
+    $("#main_input").focus();
+
     state.time_paused = false;
     timeline([
       {
@@ -139,17 +155,20 @@ export default class ModalManager{
       { track: 'shade', from: 1, to: 0, ease: easing.linear, duration: 200 }
     ]).start({
       update: this.setStylers,
-      complete: ()=>this.hideContainers(this.openedmodal)
+      complete: ()=> {
+        this.hideContainers(this.openedmodal);
+      }
+
     });
   }
   processModal(modalid){
     if(modalid==="modalStop"){
-      console.log("processModal modalStop");
       this.openModal("modalFinal");
     }
   }
-  acceptModal(){
+  acceptModal(modalid){
     //unpause timer
+    //$("#main_input").focus();
     state.time_paused = false;
     timeline([
       {
@@ -166,7 +185,7 @@ export default class ModalManager{
       complete: ()=>{
         this.hideContainers(this.openedmodal);
         this.processModal(this.openedmodal);
-        }
+      }
     });
   }
 }

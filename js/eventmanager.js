@@ -7,6 +7,7 @@ export default class EventManager{
     this.start_button = $('#start_button');
     this.reset_game = $("#reset_game");
     this.end_game = $("#end_game");
+    this.final_game = $("#final_game");
     this.check_letter = $('#check_box');
     this.inputValue = $("#main_input");
     this.progress = $(".number_answered");
@@ -41,6 +42,7 @@ export default class EventManager{
   init_ui(){
     this.start_button.on('click', this.startGame);
     this.reset_game.on('click', this.resetGame);
+    this.final_game.on('click', this.resetGame);
     this.end_game.on('click', this.endGame);
     this.check_letter.on('click', this.checkLetter);
     window.addEventListener('fullscreenchange', this.fullscreenChange);
@@ -74,18 +76,15 @@ export default class EventManager{
   startGame(){
     state.game_started = true;
     //start clock
-    
     this.timeinterval = setInterval(this.updateClock, 1000);
     this.progress.html( "0" + "/" + state.letters.length);
     this.ui.render(state);
   }
   resetGame(){
-    console.log("reset");
   	set_initial_state();
     this.ui.render(state);
   }
   endGame(){
-    console.log("stop");
     state.game_ended = true;
     state.time_paused = true;
     this.ui.render(state);
@@ -118,6 +117,7 @@ export default class EventManager{
         state.letters[state.actual_letter].right = true;
         state.score = state.score + state.letters[state.actual_letter].score;
         this.score.html(state.score);
+        state.success++;
       } else {
         state.letters[state.actual_letter].right = false;
       }
@@ -169,11 +169,9 @@ export default class EventManager{
       //this method is called whenever a fullscreenChange event is fired.
       //we change state here and not in the other methods because fullscreen can be toggled also with keys, not only buttons
       if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-        console.log("no fullscreen");
         $(this.enterfullScreenButton).removeClass('hide');
         $(this.exitfullScreenButton).addClass('hide');
       } else{
-        console.log("fullscreen");
         $(this.enterfullScreenButton).addClass('hide');
         $(this.exitfullScreenButton).removeClass('hide');
       }

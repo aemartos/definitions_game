@@ -4,12 +4,13 @@ export default class UIManager{
   constructor(eventmanager, translator){
       this.ev = eventmanager;
       this.trans = translator;
-      
+
       this.letterWall = $('.letter-wall');
       this.explanation = $('.text_explanation');
       this.lettersNumber = $('.text_number');
       this.wordTitle = $('.title_word');
       this.wordDef = $('.word_definition');
+      this.mainInput = $('#main_input');
 
       this.wild_tip = $('.w_t_tip');
       this.wild_two = $('.w_t_tries');
@@ -92,6 +93,8 @@ export default class UIManager{
       var number = "";
       var title = "";
       var def = "";
+      var val = "";
+      var val_wildcard = "";
 
       state.letters.forEach((elem, index) => {
         var classes = "";
@@ -100,8 +103,12 @@ export default class UIManager{
           number = this.count_answer_letters(elem.answer);
         	title = elem.header + " " + elem.letter;
         	def = elem.def;
+          val = elem.answer[0];
+          val_wildcard = elem.answer[0] + elem.answer[1];
+
           //also add special class to indicate actual letter
           classes += "active";
+
         }
         if(elem.right === true){
           classes += " right";
@@ -118,8 +125,10 @@ export default class UIManager{
       this.lettersNumber.html(number);
       this.wordTitle.html(title);
       this.wordDef.html(def);
+      this.mainInput.val(val);
+      
     } else {
-      console.log("TODO");
+
     }
   }
   render_wildcards(state){

@@ -58,7 +58,7 @@ export const INTERNET_DEFINITIONS = {
       starts_or_contains: "start",
       header: "empieza por la",
       def: "símbolo gráfico que representa diversas expresiones, permitiendo que una persona puede mostrar su estado de ánimo en medios como la mensajería instantánea ;)",
-      answer: "emoticon",
+      answer: "emoticono",
       score: 10,
       tip: "🙂"
     },
@@ -145,9 +145,9 @@ export const INTERNET_DEFINITIONS = {
     },
     {
       letter: "o",
-      starts_or_contains: "contain",
-      header: "contiene la",
-      def: "programa cuyo código fuente está disponible al público general, para usar y modificar",
+      starts_or_contains: "start",
+      header: "empieza por la",
+      def: "en inglés, programa cuyo código fuente está disponible al público general, para usar y modificar",
       answer: "open source",
       score: 10,
       tip: "código fuente abierto o software libre, aunque el software libre no es siempre gratuito"
@@ -228,8 +228,8 @@ export const INTERNET_DEFINITIONS = {
       letter: "w",
       starts_or_contains: "start",
       header: "empieza por la",
-      def: "websites que permiten a los usuarios modificar o crear contenido de forma rápida y sencilla",
-      answer: "wiki",
+      def: "websites que permiten a los usuarios, de forma colaborativa, modificar, crear y consultar contenido e información de forma rápida y sencilla",
+      answer: "wikis",
       score: 10,
       tip: "estas páginas se desarrollan a partir de la colaboración de los internautas y el término se popularizó con el auge de la wikipedia"
     },

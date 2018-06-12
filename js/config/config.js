@@ -18,6 +18,7 @@ const INITIAL_STATE = {
   time: 3600,
   time_paused: false,
   progress: 0,
+  success: 0,
   wildcards: [
     {additionaltip: 1},
     {twotries: 2},
