@@ -4,15 +4,14 @@ export let state = {
   game_ended: false,
   time: 3600,
   time_paused: false,
-  progress: "0/25",
-  /*wildcards: [{name: "additional tip", quantity: 1}, {name: "two tries", quantity: 2}, {name: "number of letters",  quantity: 1}, {name: "next letter",  quantity: 2}],*/
+  progress: 0,
   wildcards: [
     {additionaltip: 1},
     {twotries: 2},
     {numberletters: 1},
     {nextletter: 2}
   ],
-  score: "0",
+  score: 0,
   letters: [],
   /*letters will contain the letters of the game and if they have been answered
   letters: [{
@@ -35,7 +34,6 @@ export const INITIAL_STATE = {
   time: 3600,
   time_paused: false,
   progress: "0/25",
-  /*wildcards: [{name: "additional tip", quantity: 1}, {name: "two tries", quantity: 2}, {name: "number of letters",  quantity: 1}, {name: "next letter",  quantity: 2}],*/
   wildcards: [
     {additionaltip: 1},
     {twotries: 2},

@@ -5,6 +5,10 @@ import handleOrientationChange from './carousel';
 export default class EventManager{
   constructor(){
     this.start_button = $('#start_button');
+    this.reset_game = $("#reset_game");
+    this.end_game = $("#end_game");
+    this.check_letter = $('#check_box');
+    this.inputValue = $("#main_input");
     this.enterfullScreenButton = $('#enterfullscreen');
     this.exitfullScreenButton = $('#exitfullscreen');
     this.burger_button = $("#burger_button");
@@ -12,10 +16,17 @@ export default class EventManager{
     this.timeinterval = {};
     this.ui = {};
 
+    this.fullscreenChange = this.fullscreenChange.bind(this);
+    this.togglefullscreen = this.togglefullscreen.bind(this);
+
     this.startGame = this.startGame.bind(this);
+    this.resetGame = this.resetGame.bind(this);
+    this.endGame = this.endGame.bind(this);
+    this.checkLetter = this.checkLetter.bind(this);
     this.updateClock = this.updateClock.bind(this);
     this.add_ui_manager = this.add_ui_manager.bind(this);
     this.letterClicked = this.letterClicked.bind(this);
+    this.nextLetter = this.nextLetter.bind(this);
     this.wildcardClicked = this.wildcardClicked.bind(this);
   }
   add_ui_manager(uimanager){
@@ -23,6 +34,9 @@ export default class EventManager{
   }
   init_ui(){
     this.start_button.on('click', this.startGame);
+    this.reset_game.on('click', this.resetGame);
+    this.end_game.on('click', this.endGame);
+    this.check_letter.on('click', this.checkLetter);
     window.addEventListener('fullscreenchange', this.fullscreenChange);
     window.addEventListener('webkitfullscreenchange', this.fullscreenChange);
     window.addEventListener('mozfullscreenchange', this.fullscreenChange);
@@ -35,6 +49,7 @@ export default class EventManager{
     });
     this.language_arrow.on("click", (e)=>{
       this.ui.accordion($(e.target));
+      $('#l_arrow').toggleClass('closed');
     });
 
     //owl carousel, to show definitions in mobile devices
@@ -47,6 +62,8 @@ export default class EventManager{
     //add letters events
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
+    $(document).on("click", "#next_arrow", this.nextLetter);
+    $(document).on("keyup", "#main_input", this.checkLetter);
   }
   startGame(){
     state.game_started = true;
@@ -54,24 +71,68 @@ export default class EventManager{
     this.timeinterval = setInterval(this.updateClock, 1000);
     this.ui.render(state);
   }
+  resetGame(){
+    console.log("reset");
+  	state.game_started = false;
+  	state.game_ended = false;
+  	state.time = 3600;
+  	state.time_paused = false;
+  	state.progress = 0;
+    state.letters = [];
+    state.actual_letter = 0;
+  }
+  endGame(){
+    console.log("stop");
+    state.game_ended = true;
+    state.time_paused = true;
+    //state.time = ;
+  }
   updateClock(){
-    //console.log("update clock");
     if(!state.time_paused){
       state.time = state.time -1;
       this.ui.render(state, ["score"]);
     }
   }
+  progress(){
+    console.log("progress");
+    state.letters.forEach((elem, index) => {
+     //elem.right
+      this.ui.render(state, ["score"]);
+    });
+  }
   letterClicked(event){
-    console.log("letter clicked");
-    console.log(event.currentTarget);
-    //falta añadir el index en letter
-    //cogerlo aqúí y actualizar el state y llamar a render
-
+    state.actual_letter = parseInt($(event.currentTarget).attr("index"));
+    this.ui.render(state, ["definitions"]);
+    this.inputValue.focus();
+  }
+  nextLetter(event){
+    if (state.actual_letter===24) {
+      state.actual_letter = 0;
+    } else {
+    	state.actual_letter++
+    }
+    this.ui.render(state, ["definitions"]);
+    this.inputValue.val("");
+    this.inputValue.focus();
+  }
+  checkLetter(event){
+    if (!event.keyCode || event.keyCode === 13) {
+      if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
+      state.letters[state.actual_letter].right = true;
+    } else {
+      state.letters[state.actual_letter].right = false;
+    }
+    this.inputValue.val("");
+    state.actual_letter++;
+    this.inputValue.focus();
+    this.ui.render(state, ["definitions"]);
+    }
+    
   }
   wildcardClicked(event){
     console.log("wildcard clicked");
     console.log(event.currentTarget);
-
+    this.inputValue.focus();
   }
   togglefullscreen() {
     if ((document.fullScreenElement && document.fullScreenElement !== null) ||
@@ -103,12 +164,12 @@ export default class EventManager{
       //we change state here and not in the other methods because fullscreen can be toggled also with keys, not only buttons
       if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
         console.log("no fullscreen");
-        this.enterfullScreenButton.removeClass('hide');
-        this.exitfullScreenButton.addClass('hide');
+        $(this.enterfullScreenButton).removeClass('hide');
+        $(this.exitfullScreenButton).addClass('hide');
       } else{
         console.log("fullscreen");
-        this.enterfullScreenButton.addClass('hide');
-        this.exitfullScreenButton.removeClass('hide');
+        $(this.enterfullScreenButton).addClass('hide');
+        $(this.exitfullScreenButton).removeClass('hide');
       }
     }
 

@@ -6,6 +6,7 @@ export default class UIManager{
 
       this.letterWall = $('.letter-wall');
       this.explanation = $('.text_explanation');
+      this.lettersNumber = $('.text_number');
       this.wordTitle = $('.title_word');
       this.wordDef = $('.word_definition');
 
@@ -79,30 +80,33 @@ export default class UIManager{
     if(state.game_started){
       var letter = "";
       var tip = "";
+      var number = "";
       var title = "";
       var def = "";
 
       state.letters.forEach((elem, index) => {
         var classes = "";
-        if(index===state.actual_letter){
+        if(index === state.actual_letter){
         	tip = elem.tip;
-        	title = elem.header+ " " + elem.letter;
+          number = elem.answer.length;
+        	title = elem.header + " " + elem.letter;
         	def = elem.def;
           //also add special class to indicate actual letter
           classes += "active";
         }
-        if(elem.right===true){
+        if(elem.right === true){
           classes += " right";
-        } else if(elem.right===false) {
+        } else if(elem.right === false) {
           classes += " wrong";
         }
 
-        letter += "<div index="+index+" class='letter "+classes+"'><span class=''>" + elem.letter + "</span></div>";
+        letter += "<div index=" + index + " class='letter " + classes + "'><span class=''>" + elem.letter + "</span></div>";
 
       });
 
       this.letterWall.html(letter);
       this.explanation.html(tip);
+      this.lettersNumber.html(number);
       this.wordTitle.html(title);
       this.wordDef.html(def);
     } else {
