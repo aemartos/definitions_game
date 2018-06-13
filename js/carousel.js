@@ -1,5 +1,5 @@
-export default function handleOrientationChange(mediaqueryevent) {
-  if (mediaqueryevent && mediaqueryevent.matches ) {
+export default function handleOrientationChange(mediaqueryevent, force_matches) {
+  if (force_matches || (mediaqueryevent && mediaqueryevent.matches) ) {
 		$('.owl-carousel').owlCarousel({
         loop:true,
         margin:10,

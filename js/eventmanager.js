@@ -1,4 +1,4 @@
-import {state, set_initial_state} from './config/config';
+import {state, set_initial_state, UI_CONFIG} from './config/config';
 import UIManager from './uimanager';
 import handleOrientationChange from './carousel';
 
@@ -10,8 +10,7 @@ export default class EventManager{
     this.final_game = $("#final_game");
     this.check_letter = $('#check_box');
     this.inputValue = $("#main_input");
-    this.progress = $(".number_answered");
-    this.progress_fill = $('.progress_fill');
+
     this.score = $('.score_number');
     this.enterfullScreenButton = $('#enterfullscreen');
     this.exitfullScreenButton = $('#exitfullscreen');
@@ -61,11 +60,9 @@ export default class EventManager{
     });
 
     //owl carousel, to show definitions in mobile devices
-    var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
-    var mediaquery2 = matchMedia("(max-width: 980px)");
-    mediaquery1.addListener(handleOrientationChange);
-  	mediaquery2.addListener(handleOrientationChange);
-    handleOrientationChange();
+
+    UI_CONFIG.mediaquery1.addListener(handleOrientationChange);
+  	UI_CONFIG.mediaquery2.addListener(handleOrientationChange);
 
     //add letters events
     $(document).on("click", ".letter", this.letterClicked);
@@ -77,7 +74,6 @@ export default class EventManager{
     state.game_started = true;
     //start clock
     this.timeinterval = setInterval(this.updateClock, 1000);
-    this.progress.html( "0" + "/" + state.letters.length);
     this.ui.render(state);
   }
   resetGame(){
@@ -112,7 +108,7 @@ export default class EventManager{
   }
   checkLetter(event){
     if (!event.keyCode || event.keyCode === 13) {
-      
+
       if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
         state.letters[state.actual_letter].right = true;
         state.score = state.score + state.letters[state.actual_letter].score;
@@ -122,18 +118,15 @@ export default class EventManager{
         state.letters[state.actual_letter].right = false;
       }
       state.progress++;
-      var fill = (state.progress)*105/state.letters.length;
-      this.progress_fill.css("width", fill + "%");
-      this.progress.html( state.progress + "/" + state.letters.length);
       this.nextLetter();
-
+      this.ui.render(state, ["score", "definitions"]);
       if(state.progress===25){
         console.log("fin juego");
         state.game_ended = true;
         this.mm.openModal("modalFinal");
       }
     }
-    
+
   }
   wildcardClicked(event){
     console.log("wildcard clicked");
