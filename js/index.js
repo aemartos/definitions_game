@@ -37,10 +37,11 @@ $(document).ready(function(){
 		const ui = new UIManager(ev, trans);
 		ev.add_ui_manager(ui);
 
-
 		ui.render(state);
 	  setTimeout(()=>ev.init_ui(), 500);
 		mm.init_modals();
+    mm.add_ui_manager(ui);
+
 
 		//ev.init_game();
 	});

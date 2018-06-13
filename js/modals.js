@@ -5,6 +5,7 @@ import UIManager from './uimanager';
 export default class ModalManager{
   constructor(eventmanager){
     this.ev = eventmanager;
+
     this.modalShade = document.querySelector('#dark-opacity');
     this.modalShadeStyled = styler(this.modalShade);
 
@@ -13,6 +14,7 @@ export default class ModalManager{
     this.crossCreditsButton = document.querySelector('#modalCredits .control.control_cross');
 
     //--------- INFO MODAL------------
+    this.startGameButton = document.querySelector('#start_button');
     this.openInfoButton = document.querySelector('#openInfo');
     this.crossInfoButton = document.querySelector('#modalInfo .control.control_cross');
     this.closeInfoButton = document.querySelector('#modalInfo .btn-red');
@@ -51,6 +53,11 @@ export default class ModalManager{
     this.openModal = this.openModal.bind(this);
     this.acceptModal = this.acceptModal.bind(this);
     this.cancelModal = this.cancelModal.bind(this);
+
+    this.add_ui_manager = this.add_ui_manager.bind(this);
+  }
+  add_ui_manager(uimanager){
+    this.ui = uimanager;
   }
   init_modals(){
     listen(this.modalShade, 'click').start(this.cancelModal);
@@ -59,6 +66,7 @@ export default class ModalManager{
     listen(this.crossCreditsButton, 'click').start(this.cancelModal);
 
     listen(this.openInfoButton, 'click').start(()=>{this.openModal("modalInfo")});
+    listen(this.startGameButton, 'click').start(()=>{this.openModal("modalInfo")});
     listen(this.crossInfoButton, 'click').start(this.cancelModal);
     listen(this.closeInfoButton, 'click').start(this.cancelModal);
 
@@ -106,7 +114,6 @@ export default class ModalManager{
     modalContainer.set('display', 'none');
   }
   openModal(modalid){
-
     this.modal = styler(document.querySelector('#'+modalid+' .modal'));
     this.openedmodal = modalid;
     this.fillModal(modalid);
@@ -128,8 +135,7 @@ export default class ModalManager{
       this.final_progress = $('#final_progress');
       this.final_score = $('#final_score');
 
-      //this.final_time.html(toHHMMSS(state.time));
-      this.final_time.html(state.time);
+      this.final_time.html(this.ui.toHHMMSS(state.time));
       this.final_progress.html(state.success + "/" + state.letters.length);
       this.final_score.html(state.score);
     }

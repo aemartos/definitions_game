@@ -64,6 +64,13 @@
             .tip_type
               opacity: 1
               +transition_default
+          &.desactivated
+            opacity: .35
+            //pointer-events: none
+            //+cursor
+          &.active
+            svg 
+              fill: $secondarycolor
           .tip_type
             opacity: 0
             white-space: nowrap

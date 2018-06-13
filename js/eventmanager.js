@@ -8,6 +8,7 @@ export default class EventManager{
     this.reset_game = $("#reset_game");
     this.end_game = $("#end_game");
     this.final_game = $("#final_game");
+    this.cross_final = $("#modalFinal .control_cross");
     this.check_letter = $('#check_box');
     this.inputValue = $("#main_input");
 
@@ -16,6 +17,14 @@ export default class EventManager{
     this.exitfullScreenButton = $('#exitfullscreen');
     this.burger_button = $("#burger_button");
     this.language_arrow = $("#lang_arrow");
+
+    this.wildTip = $('#w_tip');
+    this.wildTwo = $('#w_two_tries');
+    this.wildNumber = $('#w_number');
+    this.wildLetter = $('#w_letter');
+
+    this.clicks = 0;
+
     this.timeinterval = {};
     this.ui = {};
 
@@ -42,6 +51,7 @@ export default class EventManager{
     this.start_button.on('click', this.startGame);
     this.reset_game.on('click', this.resetGame);
     this.final_game.on('click', this.resetGame);
+    this.cross_final.on('click', this.resetGame);
     this.end_game.on('click', this.endGame);
     this.check_letter.on('click', this.checkLetter);
     window.addEventListener('fullscreenchange', this.fullscreenChange);
@@ -93,8 +103,14 @@ export default class EventManager{
   }
   letterClicked(event){
     state.actual_letter = parseInt($(event.currentTarget).attr("index"));
-    this.ui.render(state, ["definitions"]);
     this.inputValue.focus();
+    $('.tip_explanation').addClass('hide');
+    if(state.letters[state.actual_letter].wildcards.additionaltip === true){
+        state.active_wildcard = "w_tip";
+      } else {
+        state.active_wildcard = "";
+      }
+    this.ui.render(state, ["definitions", "wildcards"]);
   }
   nextLetter(event){
     if (state.actual_letter===24) {
@@ -102,9 +118,10 @@ export default class EventManager{
     } else {
     	state.actual_letter++
     }
-    this.ui.render(state, ["definitions"]);
-    this.inputValue.val("");
+    this.ui.render(state, ["definitions", "wildcards"]);
+    //this.inputValue.val("");
     this.inputValue.focus();
+    $('.tip_explanation').addClass('hide');
   }
   checkLetter(event){
     if (!event.keyCode || event.keyCode === 13) {
@@ -119,7 +136,8 @@ export default class EventManager{
       }
       state.progress++;
       this.nextLetter();
-      this.ui.render(state, ["score", "definitions"]);
+      this.ui.render(state, ["score", "definitions", "wildcards"]);
+      $('.tip_explanation').addClass('hide');
       if(state.progress===25){
         console.log("fin juego");
         state.game_ended = true;
@@ -130,8 +148,28 @@ export default class EventManager{
   }
   wildcardClicked(event){
     console.log("wildcard clicked");
-    console.log(event.currentTarget);
+    console.log($(event.currentTarget).attr("id"));
+    var id = $(event.currentTarget).attr("id");
     this.inputValue.focus();
+    switch(id) {
+      case "w_tip":
+        if(!state.letters[state.actual_letter].wildcards.additionaltip){
+          state.wildcards.additionaltip--;
+        }
+        state.letters[state.actual_letter].wildcards.additionaltip = true;
+        state.active_wildcard = "w_tip";
+        break;
+      case "w_two_tries":
+        break;
+      case "w_number":
+        $('.number_explanation').toggleClass('hide');
+        $('.tip_type').toggleClass('hide');
+        break;
+      case "w_letter":
+        break;
+    }
+    this.ui.render(state, ["wildcards"]);
+
   }
   togglefullscreen() {
     if ((document.fullScreenElement && document.fullScreenElement !== null) ||

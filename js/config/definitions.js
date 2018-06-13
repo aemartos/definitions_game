@@ -1,12 +1,6 @@
 
 export const INTERNET_DEFINITIONS = {
   letter_limit: 25, //4, 9, 16 or 25
-  wildcards: [
-    {additionaltip: 1},
-    {twotries: 2},
-    {numberletters: 1},
-    {nextletter: 2}
-  ],
   letters: [
     {
       letter: "a",
@@ -15,6 +9,12 @@ export const INTERNET_DEFINITIONS = {
       def: "apodo o pseudónimo utilizado en las redes. nombre usualmente corto y fácil de recordar",
       answer: "alias",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "también suele emplearse el anglicismo nick, para designar el mismo concepto"
     },
     {
@@ -24,6 +24,12 @@ export const INTERNET_DEFINITIONS = {
       def: "imagen, gráfico o texto con fines publicitarios que habitualmente enlaza con el sitio web del anunciante",
       answer: "banner",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "de forma rectangular y con orientación horizontal que se coloca muchas veces en el tercio superior de la página web"
     },
     {
@@ -33,6 +39,12 @@ export const INTERNET_DEFINITIONS = {
       def: "navegador web de código abierto más popular, con interfaz sencilla, muy buena estabilidad, velocidad y seguridad",
       answer: "chrome",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "es el navegador más usado de internet, desarrollado por google"
     },
     {
@@ -42,6 +54,12 @@ export const INTERNET_DEFINITIONS = {
       def: "datos que se envian desde un servidor web al navegador del cliente y que se guardan localmente en el pc del usuario",
       answer: "cookies",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "lo utilizan las páginas web para consultar la actividad previa del usuario, llevar un control sobre él y conseguir información sobre sus hábitos"
     },
     {
@@ -51,6 +69,12 @@ export const INTERNET_DEFINITIONS = {
       def: "sistema de denominación de hosts en internet el cual está formado por un conjunto de caracteres el cual identifica un sitio de la red accesible por un usuario",
       answer: "dominio",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "nombre único y exclusivo que se le da a un sitio web en internet para que cualquiera pueda visitarlo"
     },
     {
@@ -60,6 +84,12 @@ export const INTERNET_DEFINITIONS = {
       def: "símbolo gráfico que representa diversas expresiones, permitiendo que una persona puede mostrar su estado de ánimo en medios como la mensajería instantánea ;)",
       answer: "emoticono",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "🙂"
     },
     {
@@ -69,6 +99,12 @@ export const INTERNET_DEFINITIONS = {
       def: "compilación de las preguntas más frecuentes que se hacen en una web de cualquier tema",
       answer: "FAQ",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "expresión inglesa: frequently asked questions"
     },
     {
@@ -78,6 +114,12 @@ export const INTERNET_DEFINITIONS = {
       def: "mini grafico (a modo de marca o logo), que aparece a los usuarios en la barra de direcciones del navegador",
       answer: "favicon",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: 'mezcla de las palabras en inglés  "favorite" e "icon"'
     },
     {
@@ -87,6 +129,12 @@ export const INTERNET_DEFINITIONS = {
       def: "persona experta en el manejo de computadoras, que se ocupa de la seguridad de los sistemas y de desarrollar técnicas de mejora, utiliza sus conocimientos técnicos para superar un problema, normalmente asociado a la seguridad",
       answer: "hacker",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "no hay que confundir con cracker, que es el que rompe la seguridad de un sistema"
     },
     {
@@ -96,6 +144,12 @@ export const INTERNET_DEFINITIONS = {
       def: "red informática de nivel mundial que utiliza la línea telefónica para transmitir la información",
       answer: "internet",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "red de redes que comunica ordenadores a través de protocolos IP"
     },
     {
@@ -105,6 +159,12 @@ export const INTERNET_DEFINITIONS = {
       def: "formato de imagen más popular. es un formato comprimido, lo que le permite ocupar poco espacio en la memoria o ser enviado con rapidez por internet",
       answer: "JPG",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: 'extensión de archivo de las imágenes, nombre de la imagen, seguido de un punto:  "imagen.xxx"'
     },
     {
@@ -114,6 +174,12 @@ export const INTERNET_DEFINITIONS = {
       def: "red social orientada al ambiente comercial y de negocios",
       answer: "linkedin",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "partiendo del perfil de cada usuario, que libremente revela su experiencia laboral y sus destrezas, esta web pone en contacto a millones de empresas y empleados"
     },
     {
@@ -123,6 +189,12 @@ export const INTERNET_DEFINITIONS = {
       def: "clave de acceso que se le asigna a un usuario, lo identifica dentro de internet junto con la dirección electrónica del pc que utiliza",
       answer: "login",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "en español: entrar o ingresar en un sitio web, a través de tu perfil de usuario"
     },
     {
@@ -132,6 +204,12 @@ export const INTERNET_DEFINITIONS = {
       def: "programa malicioso cuyo objetivo es causar daños a ordenadores, sistemas o redes y, por extensión, a sus usuarios",
       answer: "malware",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "abreviatura de malicious software"
     },
     {
@@ -141,6 +219,12 @@ export const INTERNET_DEFINITIONS = {
       def: "aplicación para visualizar todo tipo de información y navegar por internet con funcionalidades plenamente multimedia",
       answer: "navegador",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "como ejemplo de este tipo de aplicaciones existen: internet explorer, firefox, chrome y safari"
     },
     {
@@ -150,6 +234,12 @@ export const INTERNET_DEFINITIONS = {
       def: "en inglés, programa cuyo código fuente está disponible al público general, para usar y modificar",
       answer: "open source",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "código fuente abierto o software libre, aunque el software libre no es siempre gratuito"
     },
     /*{
@@ -158,7 +248,13 @@ export const INTERNET_DEFINITIONS = {
       header: "empieza por la",
       def: "su contenido puede ir desde un texto corto a un conjunto de textos, gráficos estáticos o en movimiento, sonido, etc, en lenguaje HTML",
       score: 10,
-      answer: "página web",
+      answer: "p
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },ágina web",
       tip: ""
     },*/
     {
@@ -168,6 +264,12 @@ export const INTERNET_DEFINITIONS = {
       def: "es una aplicación web para la transferencia segura de fondos, entre cuentas de miembros",
       answer: "paypal",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "empresa que facilita un servicio virtual de pago. a través de este sistema es posible realizar compras online de forma segura"
     },
     {
@@ -177,6 +279,12 @@ export const INTERNET_DEFINITIONS = {
       def: "comunicaciones fraudulentas diseñadas para inducir a los consumidores a divulgar información personal o financiera, incluyendo nombre de usuario, contraseña, información sobre tarjetas de crédito, entre otros",
       answer: "phishing",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "utilizado por los delincuentes para obtener información confidencial,  haciéndose pasar por una comunicación confiable y legítima"
     },
     {
@@ -186,6 +294,12 @@ export const INTERNET_DEFINITIONS = {
       def: "forma como se le denomina al tipo de teclado que más se usa en la actualidad",
       answer: "QWERTY",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "el nombre viene de la forma en como están distribuidas las letras y los caracteres"
     },
     {
@@ -195,6 +309,12 @@ export const INTERNET_DEFINITIONS = {
       def: "dispositivo de hardware que permite la interconexión de ordenadores en red, que determina el siguiente punto hacia donde se dirigen los datos",
       answer: "router",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "aparato que nos facilita nuestra compañía de teléfono que nos provee acceso a la red local y a internet de forma inalámbrica"
     },
     {
@@ -204,6 +324,12 @@ export const INTERNET_DEFINITIONS = {
       def: "programa especial que se carga en un ordenador al encenderlo y cuya función es gestionar los demás programas o aplicaciones que se ejecutarán",
       answer: "sistema operativo",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "windows, linux, unix, MacOS son algunos ejemplos"
     },
     {
@@ -213,6 +339,12 @@ export const INTERNET_DEFINITIONS = {
       def: "formato de archivo que almacena información, especialmente destinado a distribuir archivos de gran tamaño",
       answer: "torrent",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "almacena los datos necesarios para que una aplicación de BitTorrent comparta el contenido"
     },
     {
@@ -222,6 +354,12 @@ export const INTERNET_DEFINITIONS = {
       def: "persona que tiene una cuenta por medio de la cual puede acceder a los recursos y servicios que ofrece una red",
       answer: "usuario",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "a las redes sociales accedemos con el nombre con el que iniciamos el registro y con la contraseña"
     },
     {
@@ -231,6 +369,12 @@ export const INTERNET_DEFINITIONS = {
       def: "websites que permiten a los usuarios, de forma colaborativa, modificar, crear y consultar contenido e información de forma rápida y sencilla",
       answer: "wikis",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "estas páginas se desarrollan a partir de la colaboración de los internautas y el término se popularizó con el auge de la wikipedia"
     },
     /*{
@@ -240,6 +384,12 @@ export const INTERNET_DEFINITIONS = {
       def: "servidor especial encargado de centralizar el tráfico entre internet y una red privada, de forma que evita que cada una de las máquinas de la red interior tenga que disponer necesariamente de una conexión directa a la red",
       answer: "proxy",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: ""
     },*/
     {
@@ -249,6 +399,12 @@ export const INTERNET_DEFINITIONS = {
       def: "término inglés que se refiere al acto de atormentar y molestar a otra persona usando medios electrónicos",
       answer: "cyberbullying",
       score: 10,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: false
+      },
       tip: "acoso psicológico entre iguales en internet y redes sociales, suele derivar del acoso escolar"
     }
 	]

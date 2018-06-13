@@ -19,6 +19,11 @@ export default class UIManager{
       this.wild_number = $('.w_t_number');
       this.wild_letter = $('.w_t_letter');
 
+      this.wildTip = $('#w_tip');
+      this.wildTwo = $('#w_two_tries');
+      this.wildNumber = $('#w_number');
+      this.wildLetter = $('#w_letter');
+
       this.progress = $(".number_answered");
       this.progress_fill = $('.progress_fill');
 
@@ -103,10 +108,12 @@ export default class UIManager{
       var def = "";
       var val = "";
       var val_wildcard = "";
+      var i = null;
 
       state.letters.forEach((elem, index) => {
         var classes = "";
         if(index === state.actual_letter){
+          i = index;
         	tip = elem.tip;
           number = this.count_answer_letters(elem.answer);
         	title = elem.header + " " + elem.letter;
@@ -133,8 +140,14 @@ export default class UIManager{
       this.lettersNumber.html(number);
       this.wordTitle.html(title);
       this.wordDef.html(def);
-      this.mainInput.val(val);
+
+      if (state.letters[i].starts_or_contains === "start") {
+        this.mainInput.val(val.toLowerCase());
+      } else {
+        this.mainInput.val("");
+      }
       
+
       
       var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
       var mediaquery2 = matchMedia("(max-width: 980px)");
@@ -151,17 +164,32 @@ export default class UIManager{
     var w_number = "";
     var w_letter = "";
 
-    state.wildcards.forEach((elem, index) => {
-    	w_tip = elem.additionaltip;
-	   	w_two = elem.twotries;
-	   	w_number = elem.numberletters;
-	   	w_letter = elem.nextletter;
+  	w_tip = state.wildcards.additionaltip;
+   	w_two = state.wildcards.twotries;
+   	w_number = state.wildcards.numberletters;
+   	w_letter = state.wildcards.nextletter;
+    
+    switch(state.active_wildcard) {
+        case "w_tip":
+          $('.tip_explanation').removeClass('hide');
+          $('.tip_type').addClass('hide');
+        break;
+        case "":
+          $('.tip_explanation').addClass('hide');
+          $('.tip_type').removeClass('hide');
+        break;
+    }
+        
+    if (state.wildcards.additionaltip===0 && state.letters[state.actual_letter].wildcards.additionaltip===false) {
+          this.wildTip.addClass('desactivated');
+    } else {
+      this.wildTip.removeClass('desactivated');
+    }
+    this.wild_tip.html((w_tip < 0) ? 0 : w_tip);
+    this.wild_two.html(w_two);
+    this.wild_number.html(w_number);
+    this.wild_letter.html(w_letter);
 
-	    this.wild_tip.html(w_tip);
-	    this.wild_two.html(w_two);
-	    this.wild_number.html(w_number);
-	    this.wild_letter.html(w_letter);
-    });
   }
   //zones_to_rerender is an array with the zones of the app that we want to repaint,
   //if nothing is specified we rerender everything
