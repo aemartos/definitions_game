@@ -79,11 +79,7 @@ export default class EventManager{
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
     $(document).on("click", "#next_arrow", this.nextLetter);
-    $(document).on("keyup", (event)=> {
-      if(event.keyCode === 37 || event.keyCode === 39) {
-        this.nextLetter;
-      }
-    });
+    $(document).on("keyup", this.nextLetter);
     $(document).on("keyup", "#main_input", this.checkLetter);
   }
   startGame(){
@@ -124,8 +120,8 @@ export default class EventManager{
     }
   }
   nextLetter(event){
-    this.noFocus(event);
-    if (!$('#main_input').is(':focus')) {  
+    //this.noFocus(event);
+    //if (!$('#main_input').is(':focus')) {  
       if (!event.keyCode || event.keyCode === 39) {
         if (state.actual_letter===24) {
           state.actual_letter = 0;
@@ -139,7 +135,7 @@ export default class EventManager{
           state.actual_letter--
         }
       }
-    }
+    //}
     this.ui.render(state, ["definitions", "wildcards"]);
     //this.inputValue.val("");
     this.inputValue.focus();
