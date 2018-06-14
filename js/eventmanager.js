@@ -35,6 +35,7 @@ export default class EventManager{
     this.resetGame = this.resetGame.bind(this);
     this.endGame = this.endGame.bind(this);
     this.checkLetter = this.checkLetter.bind(this);
+    this.noFocus = this.noFocus.bind(this);
     this.updateClock = this.updateClock.bind(this);
     this.add_ui_manager = this.add_ui_manager.bind(this);
     this.letterClicked = this.letterClicked.bind(this);
@@ -78,6 +79,11 @@ export default class EventManager{
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
     $(document).on("click", "#next_arrow", this.nextLetter);
+    $(document).on("keyup", (event)=> {
+      if(event.keyCode === 37 || event.keyCode === 39) {
+        this.nextLetter;
+      }
+    });
     $(document).on("keyup", "#main_input", this.checkLetter);
   }
   startGame(){
@@ -112,11 +118,27 @@ export default class EventManager{
       }
     this.ui.render(state, ["definitions", "wildcards"]);
   }
+  noFocus(event){
+    if(event.keyCode === 39 || event.keyCode === 37) {
+      $("#main_input").blur();
+    }
+  }
   nextLetter(event){
-    if (state.actual_letter===24) {
-      state.actual_letter = 0;
-    } else {
-    	state.actual_letter++
+    this.noFocus(event);
+    if (!$('#main_input').is(':focus')) {  
+      if (!event.keyCode || event.keyCode === 39) {
+        if (state.actual_letter===24) {
+          state.actual_letter = 0;
+        } else {
+        	state.actual_letter++
+        }
+      } else if (!event.keyCode || event.keyCode === 37) {
+        if (state.actual_letter===0) {
+          state.actual_letter = 24;
+        } else {
+          state.actual_letter--
+        }
+      }
     }
     this.ui.render(state, ["definitions", "wildcards"]);
     //this.inputValue.val("");
