@@ -182,10 +182,7 @@ export default class EventManager{
     this.inputValue.focus();
     //if the wildcard has not been used in the actual letter ç
     //we will put it to true and decrease the wildcard count
-    if(!state.letters[state.actual_letter].wildcards[wildcard_id]){
-      state.letters[state.actual_letter].wildcards[wildcard_id] = true;
-      state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
-    }
+
     if(state.active_wildcard===wildcard_id){
       state.active_wildcard = "";
     } else {
@@ -194,14 +191,17 @@ export default class EventManager{
     //particular stuff of each wildcard
     switch(wildcard_id) {
       case "additionaltip":
-
+      case "numberletters":
+          if(!state.letters[state.actual_letter].wildcards[wildcard_id]){
+            state.letters[state.actual_letter].wildcards[wildcard_id] = true;
+            state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
+          }
         break;
       case "twotries":
         break;
-      case "numberletters":
-
-        break;
       case "nextletter":
+            state.letters[state.actual_letter].wildcards[wildcard_id]++;
+            state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
         break;
     }
     this.ui.render(state, ["wildcards"]);

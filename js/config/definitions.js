@@ -13,7 +13,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 2
       },
       tip: "también suele emplearse el anglicismo nick, para designar el mismo concepto"
     },
