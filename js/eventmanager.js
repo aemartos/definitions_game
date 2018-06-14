@@ -18,10 +18,10 @@ export default class EventManager{
     this.burger_button = $("#burger_button");
     this.language_arrow = $("#lang_arrow");
 
-    this.wildTip = $('#w_tip');
-    this.wildTwo = $('#w_two_tries');
-    this.wildNumber = $('#w_number');
-    this.wildLetter = $('#w_letter');
+    this.wildTip = $('#additionaltip');
+    this.wildTwo = $('#twotries');
+    this.wildNumber = $('#numberletters');
+    this.wildLetter = $('#nextletter');
 
     this.clicks = 0;
 
@@ -35,12 +35,14 @@ export default class EventManager{
     this.resetGame = this.resetGame.bind(this);
     this.endGame = this.endGame.bind(this);
     this.checkLetter = this.checkLetter.bind(this);
-    this.noFocus = this.noFocus.bind(this);
     this.updateClock = this.updateClock.bind(this);
     this.add_ui_manager = this.add_ui_manager.bind(this);
     this.letterClicked = this.letterClicked.bind(this);
     this.nextLetter = this.nextLetter.bind(this);
+    this.prevLetter = this.prevLetter.bind(this);
     this.wildcardClicked = this.wildcardClicked.bind(this);
+    this.goToLetter = this.goToLetter.bind(this);
+    this.keyup = this.keyup.bind(this);
   }
   add_ui_manager(uimanager){
     this.ui = uimanager;
@@ -79,7 +81,7 @@ export default class EventManager{
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
     $(document).on("click", "#next_arrow", this.nextLetter);
-    $(document).on("keyup", this.nextLetter);
+    $(document).on("keyup", this.keyup);
     $(document).on("keyup", "#main_input", this.checkLetter);
   }
   startGame(){
@@ -103,43 +105,52 @@ export default class EventManager{
       this.ui.render(state, ["score"]);
     }
   }
-  letterClicked(event){
-    state.actual_letter = parseInt($(event.currentTarget).attr("index"));
-    this.inputValue.focus();
-    $('.tip_explanation').addClass('hide');
-    if(state.letters[state.actual_letter].wildcards.additionaltip === true){
-        state.active_wildcard = "w_tip";
-      } else {
-        state.active_wildcard = "";
-      }
-    this.ui.render(state, ["definitions", "wildcards"]);
-  }
-  noFocus(event){
+  keyup(event){
     if(event.keyCode === 39 || event.keyCode === 37) {
-      $("#main_input").blur();
+      if(!$("#main_input").is(":focus")){
+        if(event.keyCode===39){
+          this.nextLetter(undefined, false );
+        } else {
+          this.prevLetter(undefined, false);
+        }
+      }
     }
   }
-  nextLetter(event){
-    //this.noFocus(event);
-    //if (!$('#main_input').is(':focus')) {  
-      if (!event.keyCode || event.keyCode === 39) {
+  letterClicked(event){
+    var number = parseInt($(event.currentTarget).attr("index"));
+    this.goToLetter(number);
+  }
+  nextLetter(event, with_focus){
+        var number = state.actual_letter;
         if (state.actual_letter===24) {
-          state.actual_letter = 0;
+          number = 0;
         } else {
-        	state.actual_letter++
+        	number++;
         }
-      } else if (!event.keyCode || event.keyCode === 37) {
+        this.goToLetter(number, with_focus);
+  }
+  prevLetter(event, with_focus){
+        var number = state.actual_letter;
         if (state.actual_letter===0) {
-          state.actual_letter = 24;
+          number = 24;
         } else {
-          state.actual_letter--
+        	number--;
         }
-      }
-    //}
+        this.goToLetter(number, with_focus);
+  }
+  goToLetter(number, with_focus){
+    state.actual_letter = number;
+    if(state.letters[state.actual_letter].wildcards.additionaltip === true){
+        state.active_wildcard = "additionaltip";
+    } else {
+      state.active_wildcard = "";
+    }
+    if(with_focus){
+      this.inputValue.focus();
+    }
+    $('.tip_explanation').addClass('hide');
     this.ui.render(state, ["definitions", "wildcards"]);
     //this.inputValue.val("");
-    this.inputValue.focus();
-    $('.tip_explanation').addClass('hide');
   }
   checkLetter(event){
     if (!event.keyCode || event.keyCode === 13) {
@@ -167,23 +178,30 @@ export default class EventManager{
   wildcardClicked(event){
     console.log("wildcard clicked");
     console.log($(event.currentTarget).attr("id"));
-    var id = $(event.currentTarget).attr("id");
+    var wildcard_id = $(event.currentTarget).attr("id");
     this.inputValue.focus();
-    switch(id) {
-      case "w_tip":
-        if(!state.letters[state.actual_letter].wildcards.additionaltip){
-          state.wildcards.additionaltip--;
-        }
-        state.letters[state.actual_letter].wildcards.additionaltip = true;
-        state.active_wildcard = "w_tip";
+    //if the wildcard has not been used in the actual letter ç
+    //we will put it to true and decrease the wildcard count
+    if(!state.letters[state.actual_letter].wildcards[wildcard_id]){
+      state.letters[state.actual_letter].wildcards[wildcard_id] = true;
+      state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
+    }
+    if(state.active_wildcard===wildcard_id){
+      state.active_wildcard = "";
+    } else {
+      state.active_wildcard = wildcard_id;
+    }
+    //particular stuff of each wildcard
+    switch(wildcard_id) {
+      case "additionaltip":
+
         break;
-      case "w_two_tries":
+      case "twotries":
         break;
-      case "w_number":
-        $('.number_explanation').toggleClass('hide');
-        $('.tip_type').toggleClass('hide');
+      case "numberletters":
+
         break;
-      case "w_letter":
+      case "nextletter":
         break;
     }
     this.ui.render(state, ["wildcards"]);

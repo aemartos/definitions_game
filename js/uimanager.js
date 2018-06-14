@@ -146,9 +146,9 @@ export default class UIManager{
       } else {
         this.mainInput.val("");
       }
-      
 
-      
+
+
       var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
       var mediaquery2 = matchMedia("(max-width: 980px)");
       if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
@@ -168,18 +168,28 @@ export default class UIManager{
    	w_two = state.wildcards.twotries;
    	w_number = state.wildcards.numberletters;
    	w_letter = state.wildcards.nextletter;
-    
+
     switch(state.active_wildcard) {
-        case "w_tip":
+        case "additionaltip":
+          $('.w_explanation').addClass("hide");
           $('.tip_explanation').removeClass('hide');
           $('.tip_type').addClass('hide');
         break;
+        case "twotries":
+          break;
+        case "numberletters":
+          $('.w_explanation').addClass("hide");
+          $('.number_explanation').removeClass('hide');
+          $('.tip_type').addClass('hide');
+          break;
+        case "nextletter":
+          break;
         case "":
-          $('.tip_explanation').addClass('hide');
+          $('.w_explanation').addClass("hide");
           $('.tip_type').removeClass('hide');
         break;
     }
-        
+
     if (state.wildcards.additionaltip===0 && state.letters[state.actual_letter].wildcards.additionaltip===false) {
           this.wildTip.addClass('desactivated');
     } else {

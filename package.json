@@ -7,6 +7,7 @@
   "homepage": "https://github.com/ebarra/webpack-boilerplate",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
+    "prod": "cross-env NODE_ENV=dev webpack-dev-server --progress --host 0.0.0.0 --disableHostCheck=true --config webpack.config.dev.js",
     "build": "webpack -p --progress --mode production --config webpack.config.build.js"
   },
   "repository": {
