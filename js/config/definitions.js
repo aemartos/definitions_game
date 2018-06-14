@@ -28,7 +28,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 1
       },
       tip: "de forma rectangular y con orientación horizontal que se coloca muchas veces en el tercio superior de la página web"
     },
@@ -43,7 +43,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "es el navegador más usado de internet, desarrollado por google"
     },
@@ -58,7 +58,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "lo utilizan las páginas web para consultar la actividad previa del usuario, llevar un control sobre él y conseguir información sobre sus hábitos"
     },
@@ -73,7 +73,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "nombre único y exclusivo que se le da a un sitio web en internet para que cualquiera pueda visitarlo"
     },
@@ -88,7 +88,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "🙂"
     },
@@ -103,7 +103,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "expresión inglesa: frequently asked questions"
     },
@@ -118,7 +118,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: 'mezcla de las palabras en inglés  "favorite" e "icon"'
     },
@@ -133,7 +133,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "no hay que confundir con cracker, que es el que rompe la seguridad de un sistema"
     },
@@ -148,7 +148,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "red de redes que comunica ordenadores a través de protocolos IP"
     },
@@ -163,7 +163,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: 'extensión de archivo de las imágenes, nombre de la imagen, seguido de un punto:  "imagen.xxx"'
     },
@@ -178,7 +178,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "partiendo del perfil de cada usuario, que libremente revela su experiencia laboral y sus destrezas, esta web pone en contacto a millones de empresas y empleados"
     },
@@ -193,7 +193,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "en español: entrar o ingresar en un sitio web, a través de tu perfil de usuario"
     },
@@ -208,7 +208,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "abreviatura de malicious software"
     },
@@ -223,7 +223,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "como ejemplo de este tipo de aplicaciones existen: internet explorer, firefox, chrome y safari"
     },
@@ -238,7 +238,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "código fuente abierto o software libre, aunque el software libre no es siempre gratuito"
     },
@@ -253,7 +253,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },ágina web",
       tip: ""
     },*/
@@ -268,7 +268,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "empresa que facilita un servicio virtual de pago. a través de este sistema es posible realizar compras online de forma segura"
     },
@@ -283,7 +283,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "utilizado por los delincuentes para obtener información confidencial,  haciéndose pasar por una comunicación confiable y legítima"
     },
@@ -298,7 +298,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "el nombre viene de la forma en como están distribuidas las letras y los caracteres"
     },
@@ -313,7 +313,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "aparato que nos facilita nuestra compañía de teléfono que nos provee acceso a la red local y a internet de forma inalámbrica"
     },
@@ -328,7 +328,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "windows, linux, unix, MacOS son algunos ejemplos"
     },
@@ -343,7 +343,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "almacena los datos necesarios para que una aplicación de BitTorrent comparta el contenido"
     },
@@ -358,7 +358,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "a las redes sociales accedemos con el nombre con el que iniciamos el registro y con la contraseña"
     },
@@ -373,7 +373,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "estas páginas se desarrollan a partir de la colaboración de los internautas y el término se popularizó con el auge de la wikipedia"
     },
@@ -388,7 +388,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: ""
     },*/
@@ -403,7 +403,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: false
+        nextletter: 0
       },
       tip: "acoso psicológico entre iguales en internet y redes sociales, suele derivar del acoso escolar"
     }

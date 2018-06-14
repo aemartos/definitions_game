@@ -176,8 +176,6 @@ export default class EventManager{
 
   }
   wildcardClicked(event){
-    console.log("wildcard clicked");
-    console.log($(event.currentTarget).attr("id"));
     var wildcard_id = $(event.currentTarget).attr("id");
     this.inputValue.focus();
     //if the wildcard has not been used in the actual letter ç
@@ -189,6 +187,7 @@ export default class EventManager{
       state.active_wildcard = wildcard_id;
     }
     //particular stuff of each wildcard
+    var zones_to_rerender = [];
     switch(wildcard_id) {
       case "additionaltip":
       case "numberletters":
@@ -196,15 +195,24 @@ export default class EventManager{
             state.letters[state.actual_letter].wildcards[wildcard_id] = true;
             state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
           }
+          zones_to_rerender = ["wildcards"];
         break;
       case "twotries":
         break;
       case "nextletter":
+          var extra = 0;
+          if(state.letters[state.actual_letter].starts_or_contains==="start"){
+            extra = 1;
+          }
+      //if wildcards left and can show another extra letter
+          if(state.wildcards[wildcard_id]>0 && state.letters[state.actual_letter].answer.length>state.letters[state.actual_letter].wildcards[wildcard_id]+extra){
             state.letters[state.actual_letter].wildcards[wildcard_id]++;
             state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
+          }
+            zones_to_rerender = ["definitions","wildcards"];
         break;
     }
-    this.ui.render(state, ["wildcards"]);
+    this.ui.render(state, );
 
   }
   togglefullscreen() {

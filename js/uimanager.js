@@ -107,7 +107,6 @@ export default class UIManager{
       var title = "";
       var def = "";
       var val = "";
-      var val_wildcard = "";
       var i = null;
 
       state.letters.forEach((elem, index) => {
@@ -118,9 +117,19 @@ export default class UIManager{
           number = this.count_answer_letters(elem.answer);
         	title = elem.header + " " + elem.letter;
         	def = elem.def;
-          val = elem.answer[0];
-          val_wildcard = elem.answer[0] + elem.answer[1];
-
+          var extra = 0;
+          if(elem.starts_or_contains==="start"){
+            val = elem.answer[0];
+            extra = 1;
+          } else {
+            val = "";
+            extra = 0;
+          }
+          if(elem.wildcards.nextletter>0){
+              for (var i = 0; i < elem.wildcards.nextletter; i++) {
+                val += elem.answer[i+extra];
+              }            
+          }
           //also add special class to indicate actual letter
           classes += "active";
 
@@ -141,21 +150,12 @@ export default class UIManager{
       this.wordTitle.html(title);
       this.wordDef.html(def);
 
-      if (state.letters[i].starts_or_contains === "start") {
-        this.mainInput.val(val.toLowerCase());
-      } else {
-        this.mainInput.val("");
-      }
-
-
-
+      this.mainInput.val(val.toLowerCase());
       var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
       var mediaquery2 = matchMedia("(max-width: 980px)");
       if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
         handleOrientationChange(undefined, true);
       }
-    } else {
-
     }
   }
   render_wildcards(state){

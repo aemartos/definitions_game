@@ -23,7 +23,7 @@ const INITIAL_STATE = {
     additionaltip: 2,
     twotries: 2,
     numberletters: 6,
-    nextletter: 8
+    nextletter: 18
   },
   active_wildcard: "",
   score: 0,
@@ -36,6 +36,13 @@ const INITIAL_STATE = {
         header: "empieza por la",
         def: "apodo o pseudónimo utilizado en las redes. nombre usualmente corto y fácil de recordar",
         answer: "alias",
+        score: 10,
+        wildcards: {
+          additionaltip: false,
+          twotries: false,
+          numberletters: false,
+          nextletter: 0
+        },
         tip: "también suele emplearse el anglicismo nick, para designar el mismo concepto"
         right: undefined
       }, ...]*/
