@@ -3,7 +3,8 @@ import UIManager from './uimanager';
 import handleOrientationChange from './carousel';
 
 export default class EventManager{
-  constructor(){
+  constructor(translatormanager){
+    this.tm = translatormanager;
     this.start_button = $('#start_button');
     this.reset_game = $("#reset_game");
     this.end_game = $("#end_game");
@@ -43,6 +44,7 @@ export default class EventManager{
     this.wildcardClicked = this.wildcardClicked.bind(this);
     this.goToLetter = this.goToLetter.bind(this);
     this.keyup = this.keyup.bind(this);
+    this.changeLocale = this.changeLocale.bind(this);
   }
   add_ui_manager(uimanager){
     this.ui = uimanager;
@@ -83,6 +85,13 @@ export default class EventManager{
     $(document).on("click", "#next_arrow", this.nextLetter);
     $(document).on("keyup", this.keyup);
     $(document).on("keyup", "#main_input", this.checkLetter);
+    $(document).on("click", ".lang", this.changeLocale);
+  }
+  changeLocale(event){
+    this.tm.changeLocale($(event.currentTarget).html());
+    state.lang = $(event.currentTarget).html();
+    this.ui.accordion($(event.currentTarget));
+    this.ui.render(state, ["lang"]);
   }
   startGame(){
     state.game_started = true;
@@ -106,12 +115,14 @@ export default class EventManager{
     }
   }
   keyup(event){
-    if(event.keyCode === 39 || event.keyCode === 37) {
-      if(!$("#main_input").is(":focus")){
-        if(event.keyCode===39){
-          this.nextLetter(undefined, false );
-        } else {
-          this.prevLetter(undefined, false);
+    if(!this.mm.isOpenedModal()){
+      if(event.keyCode === 39 || event.keyCode === 37) {
+        if(!$("#main_input").is(":focus")){
+          if(event.keyCode===39){
+            this.nextLetter(undefined, false );
+          } else {
+            this.prevLetter(undefined, false);
+          }
         }
       }
     }
@@ -153,27 +164,27 @@ export default class EventManager{
     //this.inputValue.val("");
   }
   checkLetter(event){
-    if (!event.keyCode || event.keyCode === 13) {
-
-      if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
-        state.letters[state.actual_letter].right = true;
-        state.score = state.score + state.letters[state.actual_letter].score;
-        this.score.html(state.score);
-        state.success++;
-      } else {
-        state.letters[state.actual_letter].right = false;
-      }
-      state.progress++;
-      this.nextLetter();
-      this.ui.render(state, ["score", "definitions", "wildcards"]);
-      $('.tip_explanation').addClass('hide');
-      if(state.progress===25){
-        console.log("fin juego");
-        state.game_ended = true;
-        this.mm.openModal("modalFinal");
+    if(!this.mm.isOpenedModal()){
+      if (!event.keyCode || event.keyCode === 13) {
+        if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
+          state.letters[state.actual_letter].right = true;
+          state.score = state.score + state.letters[state.actual_letter].score;
+          this.score.html(state.score);
+          state.success++;
+        } else {
+          state.letters[state.actual_letter].right = false;
+        }
+        state.progress++;
+        this.nextLetter();
+        this.ui.render(state, ["score", "definitions", "wildcards"]);
+        $('.tip_explanation').addClass('hide');
+        if(state.progress===25){
+          console.log("fin juego");
+          state.game_ended = true;
+          this.mm.openModal("modalFinal");
+        }
       }
     }
-
   }
   wildcardClicked(event){
     var wildcard_id = $(event.currentTarget).attr("id");

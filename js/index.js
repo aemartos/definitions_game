@@ -20,25 +20,26 @@ $(document).ready(function(){
 	//load imgs and transform them to svgs inline
 	//after that (so asyncronously) init events that depends on the svgs
 
+  set_initial_state();
   //create translator manager and call update for the first time
-  var trans = new Translator("es");
+  var lang = state.lang!=="" ? state.lang:navigator.language.substring(0,2);
+  state.lang = lang;
+  var trans = new Translator(lang);
   var tm = new TranslatorManager(trans);
   tm.update();
-  //tm.changeLocale("en");
-  set_initial_state();
 
 	let promises_array = svgs_inline("img.svg");
 
 	$.when.apply($, promises_array).then(()=>{
 		//this function is called after the svgs have been loaded
-		const ev = new EventManager();
+		const ev = new EventManager(tm);
 		const mm = new ModalManager(ev);
     ev.add_modal_manager(mm);
 		const ui = new UIManager(ev, trans);
 		ev.add_ui_manager(ui);
 
 		ui.render(state);
-	  setTimeout(()=>ev.init_ui(), 500);
+	  ev.init_ui();
 		mm.init_modals();
     mm.add_ui_manager(ui);
 

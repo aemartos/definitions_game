@@ -45,6 +45,7 @@ export default class ModalManager{
 
     this.modal = {};
     this.openedmodal = {};
+    this.isopenmodal = false;
 
     this.init_modals = this.init_modals.bind(this);
     this.setStylers = this.setStylers.bind(this);
@@ -55,6 +56,7 @@ export default class ModalManager{
     this.cancelModal = this.cancelModal.bind(this);
 
     this.add_ui_manager = this.add_ui_manager.bind(this);
+    this.isOpenedModal = this.isOpenedModal.bind(this);
   }
   add_ui_manager(uimanager){
     this.ui = uimanager;
@@ -89,6 +91,9 @@ export default class ModalManager{
     listen(this.finishFinalButton, 'click').start(this.cancelModal);
     //listen(this.answersFinalButton, 'click').start(this.acceptModal);
   }
+  isOpenedModal(){
+    return this.isopenmodal;
+  }
   tweenUp(track, duration = 500, yFrom = 100) {
     return {track,
             duration,
@@ -112,15 +117,19 @@ export default class ModalManager{
     this.modalShadeStyled.set('display', 'none');
     var modalContainer = styler(document.querySelector("#" + modalid));
     modalContainer.set('display', 'none');
+    this.isopenmodal = false;
   }
   openModal(modalid){
     this.modal = styler(document.querySelector('#'+modalid+' .modal'));
     this.openedmodal = modalid;
+    this.isopenmodal = true;
     this.fillModal(modalid);
     this.showContainers(modalid);
     //pause timer
     state.time_paused = true;
-
+    if(modalid==="modalFinal"){
+      $("#main_input").blur();
+    }
     timeline([
       { track: 'shade', from: 0, to: 1, ease: easing.linear },
       '-100',
@@ -163,6 +172,9 @@ export default class ModalManager{
       update: this.setStylers,
       complete: ()=> {
         this.hideContainers(this.openedmodal);
+        if(this.openedmodal==="modalFinal"){
+          this.ev.resetGame();
+        }
       }
 
     });

@@ -35,7 +35,12 @@ export default class UIManager{
       this.game_controls_mob = $('.controls_menu_mob');
       this.game_score = $('.progress_score');
       this.clock = $("#clock");
+
+      this.curr_lang = $("#curr_lang");
+      this.other_languages = $("#other_languages");
+
       this.count_answer_letters = this.count_answer_letters.bind(this);
+      this.render_lang = this.render_lang.bind(this);
   }
   accordion(item) {
     //get .accordion_menu parent
@@ -62,6 +67,16 @@ export default class UIManager{
       } else {
         return minutes+':'+seconds;
       }
+  }
+  render_lang(state){
+    this.curr_lang.html(state.lang);
+    let locales = this.trans.getLocales();
+    locales = locales.filter(item => item !== state.lang);
+    var langs = "";
+    for (var i = 0; i < locales.length; i++) {
+      langs += '<li class="lang">' + locales[i] + '</li>';
+    }
+    this.other_languages.html(langs);
   }
   render_buttons(state){
     if(state.game_started){
@@ -128,7 +143,7 @@ export default class UIManager{
           if(elem.wildcards.nextletter>0){
               for (var i = 0; i < elem.wildcards.nextletter; i++) {
                 val += elem.answer[i+extra];
-              }            
+              }
           }
           //also add special class to indicate actual letter
           classes += "active";
@@ -205,7 +220,7 @@ export default class UIManager{
   //if nothing is specified we rerender everything
   render(state, zones_to_rerender) {
     if(zones_to_rerender===undefined){
-      zones_to_rerender = ["buttons", "score", "definitions", "wildcards"];
+      zones_to_rerender = ["buttons", "score", "definitions", "wildcards", "lang"];
     }
     for (let i = 0; i < zones_to_rerender.length; i++) {
         switch(zones_to_rerender[i]) {
@@ -220,6 +235,9 @@ export default class UIManager{
               break;
           case "wildcards":
               this.render_wildcards(state);
+              break;
+          case "lang":
+              this.render_lang(state);
               break;
           default:
               console.log("Do not know how to RENDER " + zones_to_rerender[i]);
