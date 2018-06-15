@@ -21,8 +21,8 @@ const INITIAL_STATE = {
   progress: 0,
   success: 0,
   wildcards: {
-    additionaltip: 1,
-    twotries: 4,
+    additionaltip: 6,
+    twotries: 0,
     numberletters: 4,
     nextletter: 8
   },
