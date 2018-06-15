@@ -13,7 +13,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: 2
+        nextletter: 0
       },
       tip: "también suele emplearse el anglicismo nick, para designar el mismo concepto"
     },
@@ -28,7 +28,7 @@ export const INTERNET_DEFINITIONS = {
         additionaltip: false,
         twotries: false,
         numberletters: false,
-        nextletter: 1
+        nextletter: 0
       },
       tip: "de forma rectangular y con orientación horizontal que se coloca muchas veces en el tercio superior de la página web"
     },
