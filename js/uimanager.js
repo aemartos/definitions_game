@@ -19,11 +19,6 @@ export default class UIManager{
       this.wild_number = $('.w_t_number');
       this.wild_letter = $('.w_t_letter');
 
-      this.wildTip = $('#w_tip');
-      this.wildTwo = $('#w_two_tries');
-      this.wildNumber = $('#w_number');
-      this.wildLetter = $('#w_letter');
-
       this.progress = $(".number_answered");
       this.progress_fill = $('.progress_fill');
 
@@ -174,16 +169,6 @@ export default class UIManager{
     }
   }
   render_wildcards(state){
-    var w_tip = "";
-    var w_two = "";
-    var w_number = "";
-    var w_letter = "";
-
-  	w_tip = state.wildcards.additionaltip;
-   	w_two = state.wildcards.twotries;
-   	w_number = state.wildcards.numberletters;
-   	w_letter = state.wildcards.nextletter;
-
     switch(state.active_wildcard) {
         case "additionaltip":
           $('.w_explanation').addClass("hide");
@@ -204,16 +189,20 @@ export default class UIManager{
           $('.tip_type').removeClass('hide');
         break;
     }
-
-    if (state.wildcards.additionaltip===0 && state.letters[state.actual_letter].wildcards.additionaltip===false) {
-          this.wildTip.addClass('desactivated');
-    } else {
-      this.wildTip.removeClass('desactivated');
+    var all_wildcards = Object.keys(state.wildcards);
+    for (var i = 0; i < all_wildcards.length; i++) {
+      if (state.wildcards[all_wildcards[i]]===0 && state.letters[state.actual_letter].wildcards[all_wildcards[i]]===false) {
+          $('#' + all_wildcards[i]).addClass('desactivated');
+      } else {
+          $('#' + all_wildcards[i]).removeClass('desactivated');
+      }
     }
-    this.wild_tip.html((w_tip < 0) ? 0 : w_tip);
-    this.wild_two.html(w_two);
-    this.wild_number.html(w_number);
-    this.wild_letter.html(w_letter);
+
+
+    this.wild_tip.html(state.wildcards.additionaltip);
+    this.wild_two.html(state.wildcards.twotries);
+    this.wild_number.html(state.wildcards.numberletters);
+    this.wild_letter.html(state.wildcards.nextletter);
 
   }
   //zones_to_rerender is an array with the zones of the app that we want to repaint,

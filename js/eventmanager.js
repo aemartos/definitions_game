@@ -19,11 +19,6 @@ export default class EventManager{
     this.burger_button = $("#burger_button");
     this.language_arrow = $("#lang_arrow");
 
-    this.wildTip = $('#additionaltip');
-    this.wildTwo = $('#twotries');
-    this.wildNumber = $('#numberletters');
-    this.wildLetter = $('#nextletter');
-
     this.clicks = 0;
 
     this.timeinterval = {};
