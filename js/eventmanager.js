@@ -152,7 +152,7 @@ export default class EventManager{
     } else {
       state.active_wildcard = "";
     }
-    if(with_focus){
+    if(with_focus!==false){
       this.inputValue.focus();
     }
     $('.tip_explanation').addClass('hide');
