@@ -97,6 +97,7 @@ export default class EventManager{
   resetGame(){
   	set_initial_state();
     this.ui.render(state);
+    clearTimeout(this.timeinterval);
   }
   endGame(){
     state.game_ended = true;
@@ -156,7 +157,6 @@ export default class EventManager{
     }
     $('.tip_explanation').addClass('hide');
     this.ui.render(state, ["definitions", "wildcards"]);
-    //this.inputValue.val("");
   }
   checkLetter(event){
     if(!this.mm.isOpenedModal()){

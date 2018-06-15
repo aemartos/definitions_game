@@ -146,8 +146,12 @@ export default class UIManager{
         }
         if(elem.right === true){
           classes += " right";
+          val = elem.answer;
+          //$('#main_input').attr('disabled','disabled');
         } else if(elem.right === false) {
           classes += " wrong";
+          val = elem.answer;
+          //$('#main_input').attr('disabled','disabled');
         }
 
         letter += "<div index=" + index + " class='letter " + classes + "'><span class=''>" + elem.letter + "</span></div>";
@@ -161,6 +165,11 @@ export default class UIManager{
       this.wordDef.html(def);
 
       this.mainInput.val(val.toLowerCase());
+      if(val.toLowerCase()===state.letters[state.actual_letter].answer.toLowerCase()){
+        this.mainInput.attr('disabled','disabled');
+      } else {
+        this.mainInput.removeAttr('disabled');
+      }
       var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
       var mediaquery2 = matchMedia("(max-width: 980px)");
       if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
