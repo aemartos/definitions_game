@@ -78,6 +78,8 @@ export default class EventManager{
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
     $(document).on("click", "#next_arrow", this.nextLetter);
+    $(document).on("click", ".owl-prev", this.prevLetter);
+    $(document).on("click", ".owl-next", this.nextLetter);
     $(document).on("keyup", this.keyup);
     $(document).on("keyup", "#main_input", this.checkLetter);
     $(document).on("click", ".lang", this.changeLocale);
@@ -115,7 +117,7 @@ export default class EventManager{
       if(event.keyCode === 39 || event.keyCode === 37) {
         if(!$("#main_input").is(":focus")){
           if(event.keyCode===39){
-            this.nextLetter(undefined, false );
+            this.nextLetter(undefined, false);
           } else {
             this.prevLetter(undefined, false);
           }

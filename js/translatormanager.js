@@ -22,7 +22,7 @@ export default class TranslatorManager{
     $("#modalInfo .t-progress").html(this.trans.t("muestra el progreso"));
     $("#modalInfo .t-reset").html(this.trans.t("reinicia la prueba"));
     $("#modalInfo .t-stop").html(this.trans.t("finaliza la prueba"));
-    $("#modalInfo .t-full").html(this.trans.t("muestra el progreso"));
+    $("#modalInfo .t-full").html(this.trans.t("modo pantalla completa"));
     $("#modalInfo .btn-red").html(this.trans.t("cerrar"));
     $("#modalProgress .modal-title-prin").html(this.trans.t("progreso de la prueba"));
     $("#modalProgress .modal-text-info").html(this.trans.t("palabras contestadas <span class='game-score'></span>"));

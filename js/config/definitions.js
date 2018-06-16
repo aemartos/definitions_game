@@ -66,7 +66,7 @@ export const INTERNET_DEFINITIONS = {
       letter: "d",
       starts_or_contains: "start",
       header: "empieza por la",
-      def: "sistema de denominación de hosts en internet el cual está formado por un conjunto de caracteres el cual identifica un sitio de la red accesible por un usuario",
+      def: "sistema de denominación de hosts en internet formado por un conjunto de caracteres el cual identifica un sitio de la red accesible por un usuario",
       answer: "dominio",
       score: 10,
       wildcards: {
@@ -379,3 +379,86 @@ export const INTERNET_DEFINITIONS = {
     }
 	]
 };
+
+
+export const INTERNET_DEFINITIONS_2 = {
+  letter_limit: 25, //4, 9, 16 or 25
+  letters: [
+    {
+      letter: "",
+      starts_or_contains: "",
+      header: "",
+      def: "",
+      score: 15,
+      answer: "",
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: 0
+      },
+      tip: ""
+    },
+    {
+      letter: "a",
+      starts_or_contains: "starts",
+      header: "empieza por la",
+      def: "servicio de google que se utiliza para ofrecer publicidad patrocinada a potenciales anunciantes. se paga por clic, pueden ser anuncios de todo tipo y puedes configurar el área de acción",
+      score: 15,
+      answer: "adwords",
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: 0
+      },
+      tip: "es la mayor fuente de ingresos de google. registrarse es gratis. solo se cobra cuando alguien hace clic en el anuncio para visitar la web o cuando alguien llama."
+    },
+    {
+      letter: "f",
+      starts_or_contains: "start",
+      header: "empieza por la",
+      def: "en inglés, dispositivo de seguridad de la red que monitoriza el tráfico entrante y saliente y decide si debe permitir o bloquear un tráfico específico en función de un conjunto de restricciones de seguridad ya definidas",
+      score: 15,
+      answer: "firewall",
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: 0
+      },
+      tip: "la traducción literal a la lengua castellana sería: cortafuegos"
+    },
+    {
+      letter: "w",
+      starts_or_contains: "start",
+      header: "empieza por la",
+      def: "en inglés, espacio en internet, su contenido puede ir desde un texto corto a un conjunto de textos, gráficos estáticos o en movimiento, sonido, etc, en lenguaje HTML",
+      score: 15,
+      answer: "website",
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: 0
+      },
+      tip: "se accede a través de una url concreta"
+    },
+    {
+      letter: "x",
+      starts_or_contains: "contain",
+      header: "contiene la",
+      def: "servidor especial encargado de centralizar el tráfico entre internet y una red privada, de forma que evita que cada una de las máquinas de la red interior tenga que disponer necesariamente de una conexión directa a la red",
+      answer: "proxy",
+      score: 15,
+      wildcards: {
+        additionaltip: false,
+        twotries: false,
+        numberletters: false,
+        nextletter: 0
+      },
+      tip: "es un ordenador intermedio que se usa en la comunicación de otros dos. La información va directamente entre un ordenador y otro"
+    }
+  ]
+};
+
