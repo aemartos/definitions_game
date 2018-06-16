@@ -140,18 +140,17 @@ export default class UIManager{
                 val += elem.answer[i+extra];
               }
           }
+          
           //also add special class to indicate actual letter
           classes += "active";
 
         }
         if(elem.right === true){
           classes += " right";
-          val = elem.answer;
-          //$('#main_input').attr('disabled','disabled');
+          //val = elem.answer;
         } else if(elem.right === false) {
           classes += " wrong";
-          val = elem.answer;
-          //$('#main_input').attr('disabled','disabled');
+          //val = elem.answer;
         }
 
         letter += "<div index=" + index + " class='letter " + classes + "'><span class=''>" + elem.letter + "</span></div>";
@@ -164,7 +163,12 @@ export default class UIManager{
       this.wordTitle.html(title);
       this.wordDef.html(def);
 
+
+      if(state.letters[state.actual_letter].right !== undefined){
+        val = state.letters[state.actual_letter].answer;
+      }
       this.mainInput.val(val.toLowerCase());
+
       if(val.toLowerCase()===state.letters[state.actual_letter].answer.toLowerCase()){
         this.mainInput.attr('disabled','disabled');
       } else {
@@ -200,13 +204,16 @@ export default class UIManager{
     }
     var all_wildcards = Object.keys(state.wildcards);
     for (var i = 0; i < all_wildcards.length; i++) {
-      if (state.wildcards[all_wildcards[i]]===0 && state.letters[state.actual_letter].wildcards[all_wildcards[i]]===false) {
+      if (state.wildcards[all_wildcards[i]] === 0 && state.letters[state.actual_letter].wildcards[all_wildcards[i]] === false) {
           $('#' + all_wildcards[i]).addClass('desactivated');
       } else {
           $('#' + all_wildcards[i]).removeClass('desactivated');
       }
     }
 
+    if(state.wildcards.nextletter === 0) {
+      $('#nextletter').addClass('desactivated');
+    }
 
     this.wild_tip.html(state.wildcards.additionaltip);
     this.wild_two.html(state.wildcards.twotries);

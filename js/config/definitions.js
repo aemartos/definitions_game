@@ -242,21 +242,6 @@ export const INTERNET_DEFINITIONS = {
       },
       tip: "código fuente abierto o software libre, aunque el software libre no es siempre gratuito"
     },
-    /*{
-      letter: "p",
-      starts_or_contains: "start",
-      header: "empieza por la",
-      def: "su contenido puede ir desde un texto corto a un conjunto de textos, gráficos estáticos o en movimiento, sonido, etc, en lenguaje HTML",
-      score: 10,
-      answer: "p
-      wildcards: {
-        additionaltip: false,
-        twotries: false,
-        numberletters: false,
-        nextletter: 0
-      },ágina web",
-      tip: ""
-    },*/
     {
       letter: "p",
       starts_or_contains: "start",
@@ -377,21 +362,6 @@ export const INTERNET_DEFINITIONS = {
       },
       tip: "estas páginas se desarrollan a partir de la colaboración de los internautas y el término se popularizó con el auge de la wikipedia"
     },
-    /*{
-      letter: "x",
-      starts_or_contains: "contain",
-      header: "contiene la",
-      def: "servidor especial encargado de centralizar el tráfico entre internet y una red privada, de forma que evita que cada una de las máquinas de la red interior tenga que disponer necesariamente de una conexión directa a la red",
-      answer: "proxy",
-      score: 10,
-      wildcards: {
-        additionaltip: false,
-        twotries: false,
-        numberletters: false,
-        nextletter: 0
-      },
-      tip: ""
-    },*/
     {
       letter: "y",
       starts_or_contains: "contain",

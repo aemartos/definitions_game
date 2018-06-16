@@ -128,30 +128,39 @@ export default class EventManager{
     this.goToLetter(number);
   }
   nextLetter(event, with_focus){
-        var number = state.actual_letter;
-        if (state.actual_letter===24) {
-          number = 0;
-        } else {
-        	number++;
-        }
-        this.goToLetter(number, with_focus);
+    var number = state.actual_letter;
+    if (state.actual_letter===24) {
+      number = 0;
+    } else {
+    	number++;
+    }
+    this.goToLetter(number, with_focus);
   }
   prevLetter(event, with_focus){
-        var number = state.actual_letter;
-        if (state.actual_letter===0) {
-          number = 24;
-        } else {
-        	number--;
-        }
-        this.goToLetter(number, with_focus);
+    var number = state.actual_letter;
+    if (state.actual_letter===0) {
+      number = 24;
+    } else {
+    	number--;
+    }
+    this.goToLetter(number, with_focus);
   }
   goToLetter(number, with_focus){
     state.actual_letter = number;
-    if(state.letters[state.actual_letter].wildcards.additionaltip === true){
+    state.active_wildcard = "";
+    var letter_wildcards = Object.keys(state.letters[state.actual_letter].wildcards);
+    for (var i = 0; i < letter_wildcards.length; i++) {
+      if (state.letters[state.actual_letter].wildcards[letter_wildcards[i]] === true) {
+        state.active_wildcard = letter_wildcards[i];
+      } 
+      //console.log(state.active_wildcard);
+    }
+    /*if(state.letters[state.actual_letter].wildcards.additionaltip === true){
         state.active_wildcard = "additionaltip";
     } else {
       state.active_wildcard = "";
-    }
+    }*/
+
     if(with_focus!==false){
       this.inputValue.focus();
     }
@@ -183,7 +192,7 @@ export default class EventManager{
   }
   wildcardClicked(event){
     var wildcard_id = $(event.currentTarget).attr("id");
-    this.inputValue.focus();
+
     //if the wildcard has not been used in the actual letter ç
     //we will put it to true and decrease the wildcard count
 

@@ -21,10 +21,10 @@ const INITIAL_STATE = {
   progress: 0,
   success: 0,
   wildcards: {
-    additionaltip: 6,
+    additionaltip: 4,
     twotries: 0,
-    numberletters: 4,
-    nextletter: 8
+    numberletters: 2,
+    nextletter: 6
   },
   active_wildcard: "",
   score: 0,
