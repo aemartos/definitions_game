@@ -22,7 +22,7 @@ export default function handleOrientationChange(mediaqueryevent, force_matches) 
                 nav:false
             },
             1000:{
-                items:5,
+                items:4,
                 loop:false
             }
     	    }

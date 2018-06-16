@@ -10,7 +10,7 @@
       justify-content: center
       width: 40%
       height: calc(100vh - 14.5em)
-      min-height: 30em
+      //min-height: 30em
       background-color: $background2
       .letter-wall
         display: flex
@@ -259,6 +259,10 @@ div.owl-prev, div.owl-next
     .main_game
       .word-wall
         height: calc(100vh - 13em)
+        .letter-wall
+          .letter
+            &.active
+              +transform(scale(1,1))
       .word-def
         .wildcards
           .w_wild
@@ -277,6 +281,9 @@ div.owl-prev, div.owl-next
                 left: -.5em
                 top: 5.5em
         .word_definition_box
+          .word_definition
+            height: 4.1em
+            overflow-y: auto
           .enter_answer
             .answer_input
               width: 85%
@@ -387,6 +394,8 @@ div.owl-prev, div.owl-next
         .word_definition_box
           margin-top: 3em
           font-size: calc(1vw + .5em)
+          .word_definition
+            height: 3.1em
           .title_word
             font-size: calc(2vw + 1em)
           .word_definition
@@ -405,6 +414,17 @@ div.owl-prev, div.owl-next
 
 
 
+@media (max-width: $media6)
+  
+  .main_box
+    .main_game
+      .word-def
+        .word_definition_box 
+          .word_definition
+            height: 3em
+
+
+
 @media (max-width: $media5)
   @media (max-height: $media11)
     
@@ -420,7 +440,6 @@ div.owl-prev, div.owl-next
               height: 25vw
               span
                 font-size: calc(8vw + 2em)
-
 
 
 @media (max-width: $media6) and (orientation: landscape)
@@ -460,13 +479,33 @@ div.owl-prev, div.owl-next
               .control_next
 
 
+@media (max-width: 823px)  
+  @media (max-height: 613px)  
+  
+    .main_box
+      .main_game
+        height: 76vh
+        .word-wall
+          .letter-wall
+            width: 68%
+            .letter
+              width: 25vw
+              height: 25vw
+        .word-def
+          .wildcards
+            .w_wild
+              .tip_type
+                &.tip_type_next
+                  left: -1.8em
+
+
 
 @media (max-width: $media6)
   @media (max-height: $media13)
 
     .main_box
       .main_game
-        height: 67vh
+        height: 65vh
         .word-wall
           .letter-wall
             width: 54%
@@ -490,6 +529,7 @@ div.owl-prev, div.owl-next
                   left: -1.2em
                   .triangle
                     left: 3.8em
+
 
 
 
@@ -527,28 +567,6 @@ div.owl-prev, div.owl-next
                 font-size: .8em
 
 
-
-@media (max-width: 823px)  
-  @media (max-height: 613px)  
-  
-    .main_box
-      height: calc(100vh - 9em)
-      .main_game
-        height: 76vh
-        .word-wall
-          .letter-wall
-            width: 68%
-            .letter
-              width: 25vw
-              height: 25vw
-        .word-def
-          .wildcards
-            .w_wild
-              .tip_type
-                &.tip_type_next
-                  left: -1.8em
-
-
 @media (max-width: $media7)
   @media (max-height: 375px)
   
@@ -564,6 +582,16 @@ div.owl-prev, div.owl-next
 
 
 
+// @media (max-height: $media8)
+//   @media (max-width: $media3) 
+
+//     .main_box
+//       .main_game
+//         min-height: 30em
+//         .word-wall
+//           height: 30em
+
+
 @media (max-width: 800px) and (orientation: portrait)
   
   .main_box
@@ -573,7 +601,11 @@ div.owl-prev, div.owl-next
         .letter-wall
           width: 83%
           .letter
-            font-size: calc(3vw + 1.5em)            
+            font-size: calc(3vw + 1.5em)
+      .word-def
+        .word_definition_box 
+          .word_definition 
+            height: 4.1em        
 
 
 
@@ -582,6 +614,7 @@ div.owl-prev, div.owl-next
   .main_box
     .main_game
       margin-top: 0
+
 
 
 @media (max-width: $media8) and (orientation: landscape)
@@ -607,6 +640,9 @@ div.owl-prev, div.owl-next
           .letter
             //font-size: calc(4vh + 2em)
       .word-def
+        .word_definition_box 
+          .word_definition
+            height: 3.1em
         .wildcards
           .w_wild
             &.w_tip, &.w_number
@@ -675,6 +711,7 @@ div.owl-prev, div.owl-next
       .main_box
         .main_game
           height: 65vh
+
 
 
 @media (max-width: $media10) and (orientation: landscape)
@@ -772,6 +809,9 @@ div.owl-prev, div.owl-next
       .word-def
         width: 80%
         margin-top: .8em
+        .word_definition_box 
+          .word_definition
+            height: 3.9em
         .wildcards
           top: 2em
           right: 2em
@@ -847,6 +887,8 @@ div.owl-prev, div.owl-next
           .word-def 
             .word_definition_box 
               font-size: calc(1vw + .7em)
+              .word_definition
+                height: 2.9em
 
 
 
@@ -868,6 +910,8 @@ div.owl-prev, div.owl-next
       .word-def 
         .word_definition_box 
           font-size: calc(1vw + .7em)
+          .word_definition 
+            height: 2.95em 
 
 
 
