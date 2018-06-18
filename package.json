@@ -7,7 +7,9 @@
   "homepage": "https://github.com/ebarra/webpack-boilerplate",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
-    "build": "webpack -p --progress --mode production --config webpack.config.build.js"
+    "prod": "cross-env NODE_ENV=dev webpack-dev-server --progress --host 0.0.0.0 --disableHostCheck=true --config webpack.config.dev.js",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack -p --progress --mode production --config webpack.config.build.js && cross-env npm run copy_assets",
+    "copy_assets": "mkdir -p dist/assets && cp -r assets dist/"
   },
   "repository": {
     "type": "git",
