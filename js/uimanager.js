@@ -175,7 +175,6 @@ export default class UIManager{
         this.wordTitle.html(title);
         this.wordDef.html(def);
 
-
         if(letter_now.right !== undefined){
           val = letter_now.answer;
         }

@@ -158,19 +158,13 @@ export default class EventManager{
       if (state.letters[state.actual_letter].wildcards[letter_wildcards[i]] === true) {
         state.active_wildcard = letter_wildcards[i];
       }
-      //console.log(state.active_wildcard);
     }
-    /*if(state.letters[state.actual_letter].wildcards.additionaltip === true){
-        state.active_wildcard = "additionaltip";
-    } else {
-      state.active_wildcard = "";
-    }*/
 
+    $('.tip_explanation').addClass('hide');
+    this.ui.render(state, ["definitions", "wildcards"]);
     if(with_focus!==false){
       this.inputValue.focus();
     }
-    $('.tip_explanation').addClass('hide');
-    this.ui.render(state, ["definitions", "wildcards"]);
   }
   checkLetter(event){
     if(!this.mm.isOpenedModal()){
