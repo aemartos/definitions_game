@@ -11,7 +11,7 @@ export default function handleOrientationChange(mediaqueryevent, force_matches) 
         dots: true,
         startPosition: state.actual_letter,
         //nav: true,
-    		navText: ["<div class='owl-prev'><img class='control control_left_arrow svg'src='/assets/images/icons/left_arrow_fill.svg'/></div>","<div class='owl-next'><img class='control control_right_arrow svg'src='/assets/images/icons/right_arrow_fill.svg'/></div>"],
+    		navText: ["<div class='owl-prev'><img class='control control_left_arrow svg' src='assets/images/icons/left_arrow_fill.svg'/></div>","<div class='owl-next'><img class='control control_right_arrow svg' src='assets/images/icons/right_arrow_fill.svg'/></div>"],
         responsiveClass: true,
         responsiveBaseElement: ".word-wall",
         responsive:{

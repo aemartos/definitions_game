@@ -2,13 +2,14 @@
   "name": "webpack-boilerplate",
   "version": "0.0.1",
   "description": "Plain webpack 4 Boilerplate with Babel, SASS and jquery on board",
-  "author": "Enrique Barra Ariasy",
+  "author": "Enrique Barra Arias",
   "license": "MIT",
   "homepage": "https://github.com/ebarra/webpack-boilerplate",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
     "prod": "cross-env NODE_ENV=dev webpack-dev-server --progress --host 0.0.0.0 --disableHostCheck=true --config webpack.config.dev.js",
-    "build": "webpack -p --progress --mode production --config webpack.config.build.js"
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack -p --progress --mode production --config webpack.config.build.js && cross-env npm run copy_assets",
+    "copy_assets": "mkdir -p dist/assets && cp -r assets dist/"
   },
   "repository": {
     "type": "git",
