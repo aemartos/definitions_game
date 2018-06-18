@@ -7,6 +7,9 @@ export default class UIManager{
       this.ev = eventmanager;
       this.trans = translator;
 
+      //variable used to see if we have rendered the letters or not
+      this.is_first_render = true;
+
       this.letterWall = $('.letter-wall');
       this.explanation = $('.text_explanation');
       this.lettersNumber = $('.text_number');
@@ -111,74 +114,78 @@ export default class UIManager{
   }
   render_definitions(state){
     if(state.game_started){
-      var letter = "";
-      var tip = "";
-      var number = "";
-      var title = "";
-      var def = "";
-      var val = "";
-      var i = null;
+      var all_letters = "";
+      var letter_now = state.letters[state.actual_letter];
+      var letter_prev = state.letters[state.previous_letter];
 
-      state.letters.forEach((elem, index) => {
-        var classes = "";
-        if(index === state.actual_letter){
-          i = index;
-        	tip = elem.tip;
-          number = this.count_answer_letters(elem.answer);
-        	title = elem.header + " " + elem.letter;
-        	def = elem.def;
-          var extra = 0;
-          if(elem.starts_or_contains==="start"){
-            val = elem.answer[0];
-            extra = 1;
-          } else {
-            val = "";
-            extra = 0;
-          }
-          if(elem.wildcards.nextletter>0){
-              for (var i = 0; i < elem.wildcards.nextletter; i++) {
-                val += elem.answer[i+extra];
-              }
-          }
-          
-          //also add special class to indicate actual letter
-          classes += "active";
+      if(this.is_first_render){
+          state.letters.forEach((elem, index) => {
+            var classes = "";
+            if(elem.right === true){
+              classes += " right";
+            } else if(elem.right === false) {
+              classes += " wrong";
+            }
+            if(index===state.actual_letter){
+              classes += " active";
+            }
+            //we don't use id for the letters because the owl-carousel clones the elements and does not work well
+            all_letters += "<div index=" + index + " class='letter letter"+index+ classes + "'><span class=''>" + elem.letter + "</span></div>";
 
-        }
-        if(elem.right === true){
-          classes += " right";
-          //val = elem.answer;
-        } else if(elem.right === false) {
-          classes += " wrong";
-          //val = elem.answer;
+          });
+          this.letterWall.html(all_letters);
+          if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
+            handleOrientationChange(undefined, true);
+          }
+
+          this.is_first_render = false;
+        } else {
+          //if we have already rendered the letters, we only have to change the active and previuos letters
+          $(".letter"+state.previous_letter).removeClass("active");
+          $(".letter"+state.actual_letter).addClass("active");
+          if(letter_prev.right){
+            $(".letter"+state.previous_letter).addClass("right");
+          } else if(letter_prev.right===false){
+            $(".letter"+state.previous_letter).addClass("wrong");
+          }
         }
 
-        letter += "<div index=" + index + " class='letter " + classes + "'><span class=''>" + elem.letter + "</span></div>";
+        var number_letters = this.count_answer_letters(letter_now.answer);
+        var tip = letter_now.tip;
 
-      });
+        var title = letter_now.header + " " + letter_now.letter;
+        var def = letter_now.def;
+        var val = "";
+        var extra = 0;
+        if(letter_now.starts_or_contains==="start"){
+          val = letter_now.answer[0];
+          extra = 1;
+        } else {
+          val = "";
+          extra = 0;
+        }
+        if(letter_now.wildcards.nextletter>0){
+            for (var i = 0; i < letter_now.wildcards.nextletter; i++) {
+              val += letter_now.answer[i+extra];
+            }
+        }
 
-      this.letterWall.html(letter);
-      this.explanation.html(tip);
-      this.lettersNumber.html(number);
-      this.wordTitle.html(title);
-      this.wordDef.html(def);
+        this.explanation.html(tip);
+        this.lettersNumber.html(number_letters);
+        this.wordTitle.html(title);
+        this.wordDef.html(def);
 
 
-      if(state.letters[state.actual_letter].right !== undefined){
-        val = state.letters[state.actual_letter].answer;
-      }
-      this.mainInput.val(val.toLowerCase());
+        if(letter_now.right !== undefined){
+          val = letter_now.answer;
+        }
+        this.mainInput.val(val.toLowerCase());
 
-      if(val.toLowerCase()===state.letters[state.actual_letter].answer.toLowerCase()){
-        this.mainInput.attr('disabled','disabled');
-      } else {
-        this.mainInput.removeAttr('disabled');
-      }
-      var mediaquery1 = matchMedia("(max-width: 1024px) and (orientation: portrait)");
-      var mediaquery2 = matchMedia("(max-width: 980px)");
-      if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
-        handleOrientationChange(undefined, true);
-      }
+        if(val.toLowerCase()===letter_now.answer.toLowerCase()){
+          this.mainInput.attr('disabled','disabled');
+        } else {
+          this.mainInput.removeAttr('disabled');
+        }
     }
   }
   render_wildcards(state){

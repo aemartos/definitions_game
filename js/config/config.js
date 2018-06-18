@@ -14,7 +14,7 @@ export function set_initial_state(){
 
 const INITIAL_STATE = {
   lang: "",
-  game_started: false,
+  game_started: true,
   game_ended: false,
   time: 3600,
   time_paused: false,
@@ -48,6 +48,7 @@ const INITIAL_STATE = {
         right: undefined
       }, ...]*/
   actual_letter: 0,
+  previous_letter: 0
 };
 
 

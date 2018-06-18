@@ -71,7 +71,9 @@ export default class EventManager{
 
     //owl carousel, to show definitions in mobile devices
 
+    //call function handleOrientationChange when there is a change in this media query, either entering or exiting it
     UI_CONFIG.mediaquery1.addListener(handleOrientationChange);
+    //call function handleOrientationChange when there is a change in this media query, either entering or exiting it
   	UI_CONFIG.mediaquery2.addListener(handleOrientationChange);
 
     //add letters events
@@ -148,13 +150,14 @@ export default class EventManager{
     this.goToLetter(number, with_focus);
   }
   goToLetter(number, with_focus){
+    state.previous_letter = state.actual_letter;
     state.actual_letter = number;
     state.active_wildcard = "";
     var letter_wildcards = Object.keys(state.letters[state.actual_letter].wildcards);
     for (var i = 0; i < letter_wildcards.length; i++) {
       if (state.letters[state.actual_letter].wildcards[letter_wildcards[i]] === true) {
         state.active_wildcard = letter_wildcards[i];
-      } 
+      }
       //console.log(state.active_wildcard);
     }
     /*if(state.letters[state.actual_letter].wildcards.additionaltip === true){
