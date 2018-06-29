@@ -7,6 +7,8 @@ export default class UIManager{
       this.ev = eventmanager;
       this.trans = translator;
 
+      this.typeApp = $('.type_text');
+
       //variable used to see if we have rendered the letters or not
       this.is_first_render = true;
 
@@ -37,8 +39,15 @@ export default class UIManager{
       this.curr_lang = $("#curr_lang");
       this.other_languages = $("#other_languages");
 
+      this.render_type_app = this.render_type_app.bind(this);
+
       this.count_answer_letters = this.count_answer_letters.bind(this);
       this.render_lang = this.render_lang.bind(this);
+  }
+
+  render_type_app(state) {
+    console.log(state.type_app);
+    this.typeApp.text(state.type_app);
   }
   accordion(item) {
     //get .accordion_menu parent
@@ -231,7 +240,7 @@ export default class UIManager{
   //if nothing is specified we rerender everything
   render(state, zones_to_rerender) {
     if(zones_to_rerender===undefined){
-      zones_to_rerender = ["buttons", "score", "definitions", "wildcards", "lang"];
+      zones_to_rerender = ["buttons", "score", "definitions", "wildcards", "lang", "type"];
     }
     for (let i = 0; i < zones_to_rerender.length; i++) {
         switch(zones_to_rerender[i]) {
@@ -249,6 +258,9 @@ export default class UIManager{
               break;
           case "lang":
               this.render_lang(state);
+              break;
+           case "type":
+              this.render_type_app(state);
               break;
           default:
               console.log("Do not know how to RENDER " + zones_to_rerender[i]);

@@ -1,5 +1,6 @@
 
 export const INTERNET_DEFINITIONS = {
+  type_app: "internet",
   letter_limit: 25, //4, 9, 16 or 25
   letters: [
     {
@@ -382,6 +383,7 @@ export const INTERNET_DEFINITIONS = {
 
 
 export const INTERNET_DEFINITIONS_2 = {
+  type_app: "internet2",
   letter_limit: 25, //4, 9, 16 or 25
   letters: [
     {
