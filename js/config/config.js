@@ -1,4 +1,4 @@
-import {INTERNET_DEFINITIONS_2} from './definitions';
+import {INTERNET_DEFINITIONS} from './definitions';
 
 export let state = {};
 
