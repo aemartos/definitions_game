@@ -1,4 +1,4 @@
-import {INTERNET_DEFINITIONS} from './definitions';
+import {INTERNET_DEFINITIONS_2} from './definitions';
 
 export let state = {};
 
@@ -16,7 +16,7 @@ export function set_initial_state(){
 const INITIAL_STATE = {
   lang: "",
   type_app: "",
-  game_started: true,
+  game_started: false,
   game_ended: false,
   time: 3600,
   time_paused: false,
@@ -58,7 +58,7 @@ export const UI_CONFIG = {
   with_reset_button: true,
   with_fullscreen: true,
   name:"wordwall",
-  type_logo:"/assets/images/logos/internet.svg",
+  type_logo:"assets/images/logos/internet.svg",
   survey: "https://docs.google.com/forms/d/10xa0gH9pLU9xAyxMz7ufmotky4mCROTxOLNzNs2VKkg/edit",
   mediaquery1: matchMedia("(max-width: 1024px) and (orientation: portrait)"),
   mediaquery2: matchMedia("(max-width: 980px)")

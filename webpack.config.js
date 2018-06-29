@@ -96,6 +96,13 @@ module.exports = {
                 options: {
                     name: '[path][name].[ext]'
                 }
+            },
+            {
+                test: /\.(eot|woff2|woff|ttf|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
             }
         ]
     }

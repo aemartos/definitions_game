@@ -36,7 +36,7 @@ export default class TranslatorManager{
     $("#modalStop .btn-red").html(this.trans.t("cancelar"));
     $("#modalStop .btn-green").html(this.trans.t("aceptar"));
     $("#modalFinal .modal-title-end").html(this.trans.t("¡enhorabuena! terminaste"));
-    $("#modalFinal .modal-text-info").html(this.trans.t("eres un crack, ¡a ti no hay quien te engañe! sabemos que no necesitas que te enseñemos uso seguro TIC e internet, pero aquí te dejamos un pequeño vídeo por si quieres saber más:"));
+    $("#modalFinal .modal-text-info").html(this.trans.t("eres un crack, ¡a ti no hay quien te engañe! sabemos que no necesitas que te enseñemos uso seguro TIC e internet"));
     $("#modalFinal .score-time").html(this.trans.t("tiempo"));
     $("#modalFinal .score-right").html(this.trans.t("aciertos"));
     $("#modalFinal .score-points").html(this.trans.t("puntos"));
