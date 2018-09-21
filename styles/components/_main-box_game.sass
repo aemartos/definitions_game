@@ -39,13 +39,14 @@
             margin-right: 0
           &:nth-child(21), &:nth-child(22), &:nth-child(23), &:nth-child(24), &:nth-child(25)
             margin-bottom: 0
+          &.wrong
+            background-color: $wrong !important
+            +transformImp(scale(1,1))
+          &.right
+            background-color: $right !important
           &.active
             background-color: $background
             +transform(scale(1.2,1.2))
-          &.wrong
-            background-color: $wrong !important
-          &.right
-            background-color: $right !important
           span
             margin-top: -.1em
     .word-def
@@ -345,7 +346,7 @@ div.owl-prev, div.owl-next
 
 @media (max-width: $media5)
   @media (max-height: 877px)
-  
+
     .main_box
       .main_game
         .word-wall
@@ -361,9 +362,20 @@ div.owl-prev, div.owl-next
                 +transform(scale(1))  
 
 
+@media (max-width: 863px)
+  @media (max-height: 863px)
+    .main_box
+      .main_game
+        .word-wall
+          .letter-wall
+            .letter
+              width: 15vw
+              height: 15vw
+              span
+                font-size: calc(1vh + 1.3em)
 
 @media (max-width: $media5) and (orientation: landscape)
-  
+
   .main_box
     .main_game
       height: 65vh
@@ -790,7 +802,7 @@ div.owl-prev, div.owl-next
 
 
 
-@media (max-width: $media12) and (orientation: portrait)
+@media (max-width: 533px) and (orientation: portrait)
 
   .main_box
     .main_game
@@ -926,6 +938,3 @@ div.owl-prev, div.owl-next
       .word-def 
         .word_definition_box 
           font-size: calc(1vw + .5em)
-
-
-

@@ -9,6 +9,7 @@ export function set_initial_state(){
     state.type_app = INTERNET_DEFINITIONS.type_app; 
     INTERNET_DEFINITIONS.letters.forEach((elem, index) => {
       elem.right = undefined;
+      elem.answered = undefined;
       state.letters.push(elem);
     });
 }
