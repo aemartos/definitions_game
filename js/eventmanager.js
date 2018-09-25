@@ -138,10 +138,10 @@ export default class EventManager{
     this.goToLetter(number);
   }
   nextLetter(number, event, with_focus){
-    if (!number || typeof number === 'object') {
+    if (typeof number !== 'number') {
       number = state.actual_letter;
     }
-    if (state.actual_letter === state.letters.length - 1) {
+    if (number === state.letters.length - 1) {
       number = -1;
     }
     if (!state.letters[number + 1].answered) {
@@ -153,17 +153,17 @@ export default class EventManager{
   }
 
   prevLetter(number, event, with_focus){
-    if (!number || typeof number === 'object') {
+    if (typeof number !== 'number') {
       number = state.actual_letter;
     }
-    if (state.actual_letter === 0) {
-      number = state.letters.length - 1;
+    if (number === 0) {
+      number = state.letters.length;
     }
     if (!state.letters[number - 1].answered) {
       this.goToLetter(number - 1, false);
     } else {
       number--;
-      this.nextLetter(number);
+      this.prevLetter(number);
     }
   }
 
