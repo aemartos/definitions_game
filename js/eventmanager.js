@@ -220,13 +220,17 @@ export default class EventManager{
     if(!this.mm.isOpenedModal()){
       if (!event.keyCode || event.keyCode === 13) {
         if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
+          //right answer
           state.letters[state.actual_letter].right = true;
           state.score = state.score + state.letters[state.actual_letter].score;
           this.score.html(state.score);
           state.success++;
         } else {
-          if (state.letters[state.actual_letter].wildcards['twotries'] && !state.letters[state.actual_letter].right) {
+          //wrong answer
+          if (state.letters[state.actual_letter].wildcards['twotries']) {
             state.letters[state.actual_letter].right = undefined;
+            //remove the wildcard from this letter:
+            state.letters[state.actual_letter].wildcards['twotries'] = false;
           } else {
             state.letters[state.actual_letter].right = false;
           }
