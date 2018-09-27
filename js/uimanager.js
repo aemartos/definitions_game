@@ -184,6 +184,12 @@ export default class UIManager{
         this.wordTitle.html(title);
         this.wordDef.html(def);
 
+        if(letter_now.second_try){
+          $('#two_tries_try_again').addClass('fadeIn');
+          setTimeout(function(){$('#two_tries_try_again').removeClass('fadeIn');}, 5000);
+          letter_now.second_try = false;
+        }
+
         if(letter_now.right !== undefined){
           val = letter_now.answer;
         }
