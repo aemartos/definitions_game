@@ -204,6 +204,8 @@ export default class UIManager{
           $('.tip_type').addClass('hide');
         break;
         case "twotries":
+          $('.tip_type').addClass('hide');
+          $('#two_tries_1_more').addClass('fadeIn');
           break;
         case "numberletters":
           $('.w_explanation').addClass("hide");
@@ -259,7 +261,7 @@ export default class UIManager{
           case "lang":
               this.render_lang(state);
               break;
-           case "type":
+          case "type":
               this.render_type_app(state);
               break;
           default:

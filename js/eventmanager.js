@@ -138,10 +138,10 @@ export default class EventManager{
     this.goToLetter(number);
   }
   nextLetter(number, event, with_focus){
-    if (typeof number !== 'number') {
+    if (!number || typeof number === 'object') {
       number = state.actual_letter;
     }
-    if (number === state.letters.length - 1) {
+    if (state.actual_letter === state.letters.length - 1) {
       number = -1;
     }
     if (!state.letters[number + 1].answered) {
@@ -153,39 +153,20 @@ export default class EventManager{
   }
 
   prevLetter(number, event, with_focus){
-    if (typeof number !== 'number') {
+    if (!number || typeof number === 'object') {
       number = state.actual_letter;
     }
-    if (number === 0) {
-      number = state.letters.length;
+    if (state.actual_letter === 0) {
+      number = state.letters.length - 1;
     }
     if (!state.letters[number - 1].answered) {
       this.goToLetter(number - 1, false);
     } else {
       number--;
-      this.prevLetter(number);
+      this.nextLetter(number);
     }
   }
 
-  // nextLetter(event, with_focus){
-  //   var number = state.actual_letter;
-  //   if (state.actual_letter === state.letters.length - 1) {
-  //     number = 0;
-  //   } else {
-  //   	number++;
-  //   }
-  //   this.goToLetter(number, with_focus);
-  // }
-
-  // prevLetter(event, with_focus){
-  //   var number = state.actual_letter;
-  //   if (state.actual_letter === 0) {
-  //     number = state.letters.length - 1;
-  //   } else {
-  //   	number--;
-  //   }
-  //   this.goToLetter(number, with_focus);
-  // }
   goToLetter(number, with_focus){
     state.previous_letter = state.actual_letter;
     state.actual_letter = number;
@@ -206,6 +187,35 @@ export default class EventManager{
       }
     }
   }
+  // checkLetter(event){
+  //   if(!this.mm.isOpenedModal()){
+  //     if (!event.keyCode || event.keyCode === 13) {
+  //       if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
+  //         state.letters[state.actual_letter].right = true;
+  //         state.score = state.score + state.letters[state.actual_letter].score;
+  //         this.score.html(state.score);
+  //         state.success++;
+  //       } else {
+  //         state.letters[state.actual_letter].right = false;
+  //       }
+  //       state.letters[state.actual_letter].answered = true;
+  //       state.progress++;
+  //       if (state.letters[state.actual_letter].right) {
+  //         this.nextLetter();
+  //       } else {
+  //         this.goToLetter(state.actual_letter);
+  //       }
+  //       this.ui.render(state, ["score", "definitions", "wildcards"]);
+  //       $('.tip_explanation').addClass('hide');
+  //       if(state.progress===state.letters.length){
+  //         console.log("fin juego");
+  //         state.game_ended = true;
+  //         this.mm.openModal("modalFinal");
+  //       }
+  //     }
+  //   }
+  // }
+
   checkLetter(event){
     if(!this.mm.isOpenedModal()){
       if (!event.keyCode || event.keyCode === 13) {
@@ -215,7 +225,11 @@ export default class EventManager{
           this.score.html(state.score);
           state.success++;
         } else {
-          state.letters[state.actual_letter].right = false;
+          if (state.letters[state.actual_letter].wildcards['twotries'] && !state.letters[state.actual_letter].right) {
+            state.letters[state.actual_letter].right = undefined;
+          } else {
+            state.letters[state.actual_letter].right = false;
+          }
         }
         state.letters[state.actual_letter].answered = true;
         state.progress++;
@@ -226,7 +240,7 @@ export default class EventManager{
         }
         this.ui.render(state, ["score", "definitions", "wildcards"]);
         $('.tip_explanation').addClass('hide');
-        if(state.progress===25){
+        if(state.progress===state.letters.length){
           console.log("fin juego");
           state.game_ended = true;
           this.mm.openModal("modalFinal");
@@ -237,7 +251,7 @@ export default class EventManager{
   wildcardClicked(event){
     var wildcard_id = $(event.currentTarget).attr("id");
 
-    //if the wildcard has not been used in the actual letter ç
+    //if the wildcard has not been used in the actual letter
     //we will put it to true and decrease the wildcard count
 
     if(state.active_wildcard===wildcard_id){
@@ -250,13 +264,12 @@ export default class EventManager{
     switch(wildcard_id) {
       case "additionaltip":
       case "numberletters":
+      case "twotries":
           if(!state.letters[state.actual_letter].wildcards[wildcard_id]){
             state.letters[state.actual_letter].wildcards[wildcard_id] = true;
             state.wildcards[wildcard_id] = state.wildcards[wildcard_id]-1;
           }
           zones_to_rerender = ["wildcards"];
-        break;
-      case "twotries":
         break;
       case "nextletter":
           var extra = 0;

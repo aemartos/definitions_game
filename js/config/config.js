@@ -6,7 +6,7 @@ export let state = {};
 //this has to be here because when you export a variable it is read-only it can´t be reasigned
 export function set_initial_state(){
     state = JSON.parse(JSON.stringify(INITIAL_STATE));
-    state.type_app = INTERNET_DEFINITIONS.type_app; 
+    state.type_app = INTERNET_DEFINITIONS.type_app;
     INTERNET_DEFINITIONS.letters.forEach((elem, index) => {
       elem.right = undefined;
       elem.answered = undefined;
@@ -17,7 +17,7 @@ export function set_initial_state(){
 const INITIAL_STATE = {
   lang: "",
   type_app: "",
-  game_started: false,
+  game_started: true,
   game_ended: false,
   time: 3600,
   time_paused: false,
@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   success: 0,
   wildcards: {
     additionaltip: 4,
-    twotries: 0,
+    twotries: 5,
     numberletters: 2,
     nextletter: 6
   },

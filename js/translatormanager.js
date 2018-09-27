@@ -48,6 +48,8 @@ export default class TranslatorManager{
     $("#tip_type_two").html(this.trans.t("dos intentos"));
     $("#tip_type_number").html(this.trans.t("número de letras"));
     $("#tip_type_next").html(this.trans.t("siguiente letra"));
+    $("#two_tries_1_more").html(this.trans.t("tienes 1 intento extra"));
+    $("#two_tries_try_again").html(this.trans.t("no es correto, prueba otra vez"));
   }
   changeLocale(lang){
     this.trans.changeLocale(lang);
