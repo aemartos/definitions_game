@@ -231,6 +231,9 @@ export default class EventManager{
             state.letters[state.actual_letter].right = undefined;
             //remove the wildcard from this letter:
             state.letters[state.actual_letter].wildcards['twotries'] = false;
+
+            $('#two_tries_try_again').addClass('fadeIn');
+            setTimeout(function(){$('#two_tries_try_again').removeClass('fadeIn');}, 5000);
           } else {
             state.letters[state.actual_letter].right = false;
           }
