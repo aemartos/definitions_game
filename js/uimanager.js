@@ -184,7 +184,13 @@ export default class UIManager{
         this.wordTitle.html(title);
         this.wordDef.html(def);
 
-        if(letter_now.second_try){
+        if(state.active_wildcard === 'twotries' && !letter_now.second_try && letter_now.right === undefined){
+          $('#twotries').addClass('desactivated');
+          $('#two_tries_1_more').addClass('fadeIn');
+          setTimeout(function(){$('#two_tries_1_more').removeClass('fadeIn');}, 5000);
+          letter_now.second_try = true;
+        } else if(state.active_wildcard === 'twotries' && letter_now.second_try && letter_now.right === undefined){
+          $('#twotries').removeClass('desactivated');
           $('#two_tries_try_again').addClass('fadeIn');
           setTimeout(function(){$('#two_tries_try_again').removeClass('fadeIn');}, 5000);
           letter_now.second_try = false;
@@ -211,8 +217,6 @@ export default class UIManager{
         break;
         case "twotries":
           $('.tip_type').addClass('hide');
-          $('#two_tries_1_more').addClass('fadeIn');
-          setTimeout(function(){$('#two_tries_1_more').removeClass('fadeIn');}, 5000);
           break;
         case "numberletters":
           $('.w_explanation').addClass("hide");

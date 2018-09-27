@@ -10,6 +10,7 @@ export function set_initial_state(){
     INTERNET_DEFINITIONS.letters.forEach((elem, index) => {
       elem.right = undefined;
       elem.answered = undefined;
+      elem.second_try = false;
       state.letters.push(elem);
     });
 }

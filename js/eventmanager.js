@@ -222,6 +222,7 @@ export default class EventManager{
         if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
           //right answer
           state.letters[state.actual_letter].right = true;
+          //tate.letters[state.actual_letter].second_try = false;
           state.score = state.score + state.letters[state.actual_letter].score;
           this.score.html(state.score);
           state.success++;
@@ -231,7 +232,7 @@ export default class EventManager{
             state.letters[state.actual_letter].right = undefined;
             //remove the wildcard from this letter:
             state.letters[state.actual_letter].wildcards['twotries'] = false;
-            state.letters[state.actual_letter].second_try = true;            
+            //state.letters[state.actual_letter].second_try = true;
           } else {
             state.letters[state.actual_letter].right = false;
           }
