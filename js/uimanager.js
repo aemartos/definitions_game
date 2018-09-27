@@ -189,7 +189,7 @@ export default class UIManager{
           $('#two_tries_1_more').addClass('fadeIn');
           setTimeout(function(){$('#two_tries_1_more').removeClass('fadeIn');}, 5000);
           letter_now.second_try = true;
-        } else if(state.active_wildcard === 'twotries' && letter_now.second_try && letter_now.right === undefined){
+        } else if(letter_now.second_try && letter_now.right === undefined){
           $('#twotries').removeClass('desactivated');
           $('#two_tries_try_again').addClass('fadeIn');
           setTimeout(function(){$('#two_tries_try_again').removeClass('fadeIn');}, 5000);

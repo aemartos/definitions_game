@@ -187,34 +187,6 @@ export default class EventManager{
       }
     }
   }
-  // checkLetter(event){
-  //   if(!this.mm.isOpenedModal()){
-  //     if (!event.keyCode || event.keyCode === 13) {
-  //       if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
-  //         state.letters[state.actual_letter].right = true;
-  //         state.score = state.score + state.letters[state.actual_letter].score;
-  //         this.score.html(state.score);
-  //         state.success++;
-  //       } else {
-  //         state.letters[state.actual_letter].right = false;
-  //       }
-  //       state.letters[state.actual_letter].answered = true;
-  //       state.progress++;
-  //       if (state.letters[state.actual_letter].right) {
-  //         this.nextLetter();
-  //       } else {
-  //         this.goToLetter(state.actual_letter);
-  //       }
-  //       this.ui.render(state, ["score", "definitions", "wildcards"]);
-  //       $('.tip_explanation').addClass('hide');
-  //       if(state.progress===state.letters.length){
-  //         console.log("fin juego");
-  //         state.game_ended = true;
-  //         this.mm.openModal("modalFinal");
-  //       }
-  //     }
-  //   }
-  // }
 
   checkLetter(event){
     if(!this.mm.isOpenedModal()){
