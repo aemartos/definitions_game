@@ -1,6 +1,7 @@
 //class that manages the UI
 import handleOrientationChange from './carousel';
 import {UI_CONFIG} from './config/config';
+import { notDeepEqual } from 'assert';
 
 export default class UIManager{
   constructor(eventmanager, translator){
@@ -184,13 +185,13 @@ export default class UIManager{
         this.wordTitle.html(title);
         this.wordDef.html(def);
 
-        if(state.active_wildcard === 'twotries' && !letter_now.second_try && letter_now.right === undefined){
-          $('#twotries').addClass('desactivated');
+        if(state.active_wildcard === 'twotries' && !letter_now.second_try && !letter_now.answered){
+          //$('#twotries').addClass('desactivated');
           $('#two_tries_1_more').addClass('fadeIn');
           setTimeout(function(){$('#two_tries_1_more').removeClass('fadeIn');}, 5000);
           letter_now.second_try = true;
-        } else if(letter_now.second_try && letter_now.right === undefined){
-          $('#twotries').removeClass('desactivated');
+        } else if(letter_now.second_try && !letter_now.answered){
+          //$('#twotries').removeClass('desactivated');
           $('#two_tries_try_again').addClass('fadeIn');
           setTimeout(function(){$('#two_tries_try_again').removeClass('fadeIn');}, 5000);
           letter_now.second_try = false;
@@ -216,6 +217,7 @@ export default class UIManager{
           $('.tip_type').addClass('hide');
         break;
         case "twotries":
+          $('.w_explanation').addClass("hide");
           $('.tip_type').addClass('hide');
           break;
         case "numberletters":
@@ -232,10 +234,16 @@ export default class UIManager{
     }
     var all_wildcards = Object.keys(state.wildcards);
     for (var i = 0; i < all_wildcards.length; i++) {
-      if (state.wildcards[all_wildcards[i]] === 0 && state.letters[state.actual_letter].wildcards[all_wildcards[i]] === false) {
-          $('#' + all_wildcards[i]).addClass('desactivated');
+      if (state.letters[state.actual_letter].answered) {
+        $('#' + all_wildcards[i]).addClass('desactivated');
       } else {
-          $('#' + all_wildcards[i]).removeClass('desactivated');
+        $('#' + all_wildcards[i]).removeClass('desactivated');
+        if(state.active_wildcard === 'twotries') {
+          $('#twotries').addClass('desactivated');
+        }
+      }
+      if (state.wildcards[all_wildcards[i]] === 0 && state.letters[state.actual_letter].wildcards[all_wildcards[i]] === false) {
+        $('#' + all_wildcards[i]).addClass('desactivated');
       }
     }
 

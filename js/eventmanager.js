@@ -194,6 +194,7 @@ export default class EventManager{
         if (state.letters[state.actual_letter].answer.toLowerCase()==this.inputValue.val().toLowerCase()) {
           //right answer
           state.letters[state.actual_letter].right = true;
+          state.letters[state.actual_letter].answered = true;
           //tate.letters[state.actual_letter].second_try = false;
           state.score = state.score + state.letters[state.actual_letter].score;
           this.score.html(state.score);
@@ -202,14 +203,14 @@ export default class EventManager{
           //wrong answer
           if (state.letters[state.actual_letter].wildcards['twotries']) {
             state.letters[state.actual_letter].right = undefined;
+            state.letters[state.actual_letter].answered = false;
             //remove the wildcard from this letter:
             state.letters[state.actual_letter].wildcards['twotries'] = false;
-            //state.letters[state.actual_letter].second_try = true;
           } else {
             state.letters[state.actual_letter].right = false;
+            state.letters[state.actual_letter].answered = true;
           }
         }
-        state.letters[state.actual_letter].answered = true;
         state.progress++;
         if (state.letters[state.actual_letter].right) {
           this.nextLetter();
