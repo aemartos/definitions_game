@@ -173,11 +173,14 @@
       .word_definition_box
         color: $background
         #two_tries_1_more, #two_tries_try_again
-          //position: absolute
+          position: absolute
+          top: 9em
+          right: 18em
           //display: none
           opacity: 0
-          -webkit-transition: all 350ms ease-in
-          transition: all 350ms ease-in
+          color: $secondarycolor
+          -webkit-transition: 2000ms fadeIn
+          transition: 2000ms fadeIn
         .title_word
           font-size: calc(3.8vw + 1em)
         .word_definition

@@ -206,6 +206,7 @@ export default class UIManager{
         case "twotries":
           $('.tip_type').addClass('hide');
           $('#two_tries_1_more').addClass('fadeIn');
+          setInterval(function(){$('#two_tries_1_more').removeClass('fadeIn');}, 5000)
           break;
         case "numberletters":
           $('.w_explanation').addClass("hide");
