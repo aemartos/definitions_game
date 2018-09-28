@@ -80,9 +80,9 @@ export default class EventManager{
     //add letters events
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
-    $(document).on("click", "#next_arrow", this.nextLetter);
-    $(document).on("click", ".owl-prev", this.prevLetter);
-    $(document).on("click", ".owl-next", this.nextLetter);
+    $(document).on("click", "#next_arrow", ()=>{this.nextLetter(state.actual_letter)});
+    $(document).on("click", ".owl-prev", ()=>{this.prevLetter(state.actual_letter)});
+    $(document).on("click", ".owl-next", ()=>{this.nextLetter(state.actual_letter)});
     $(document).on("keyup", this.keyup);
     $(document).on("keyup", "#main_input", this.checkLetter);
     $(document).on("click", ".lang", this.changeLocale);
@@ -125,9 +125,9 @@ export default class EventManager{
       if(event.keyCode === 39 || event.keyCode === 37) {
         if(!$("#main_input").is(":focus")){
           if(event.keyCode===39){
-            this.nextLetter(undefined, false);
+            this.nextLetter(state.actual_letter, false);
           } else {
-            this.prevLetter(undefined, false);
+            this.prevLetter(state.actual_letter, false);
           }
         }
       }
@@ -138,10 +138,7 @@ export default class EventManager{
     this.goToLetter(number);
   }
   nextLetter(number, event, with_focus){
-    if (!number || typeof number === 'object') {
-      number = state.actual_letter;
-    }
-    if (state.actual_letter === state.letters.length - 1) {
+    if (number === state.letters.length - 1) {
       number = -1;
     }
     if (!state.letters[number + 1].answered) {
@@ -153,17 +150,14 @@ export default class EventManager{
   }
 
   prevLetter(number, event, with_focus){
-    if (!number || typeof number === 'object') {
-      number = state.actual_letter;
-    }
-    if (state.actual_letter === 0) {
-      number = state.letters.length - 1;
+    if (number === 0) {
+      number = state.letters.length;
     }
     if (!state.letters[number - 1].answered) {
       this.goToLetter(number - 1, false);
     } else {
       number--;
-      this.nextLetter(number);
+      this.prevLetter(number);
     }
   }
 
@@ -213,7 +207,7 @@ export default class EventManager{
         }
         state.progress++;
         if (state.letters[state.actual_letter].right) {
-          this.nextLetter();
+          this.nextLetter(state.actual_letter);
         } else {
           this.goToLetter(state.actual_letter);
         }

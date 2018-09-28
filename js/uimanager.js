@@ -47,7 +47,6 @@ export default class UIManager{
   }
 
   render_type_app(state) {
-    console.log(state.type_app);
     this.typeApp.text(state.type_app);
   }
   accordion(item) {
