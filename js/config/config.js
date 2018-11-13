@@ -18,7 +18,7 @@ export function set_initial_state(){
 const INITIAL_STATE = {
   lang: "",
   type_app: "",
-  game_started: true,
+  game_started: false,
   game_ended: false,
   time: 3600,
   time_paused: false,

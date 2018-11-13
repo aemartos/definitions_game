@@ -94,6 +94,10 @@ export default class UIManager{
       this.game_controls.removeClass('hide');
       this.game_controls_mob.removeClass('hide');
       $("#main_input").focus();
+      //detect touch devices
+      if("ontouchstart" in document.documentElement) {
+        $('.next_box').addClass('hide');
+      }
     } else {
       this.initial_text.removeClass('hide');
       this.game.addClass('hide');
