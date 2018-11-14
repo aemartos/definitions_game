@@ -19,8 +19,6 @@
                 document.write('<meta name="viewport" content="width=device-width, height=' + window.innerHeight + ', initial-scale=1.0">');
                 window.addEventListener("orientationchange", function() {
                     let heightt = Math.abs(screen.orientation.angle) === 90 ? winWidth : winHeight;
-                    //alert("change" + heightt);
-                    //let heightt = window.innerHeight;
                     const metas = document.getElementsByTagName('meta');
                     for (let i = 0; i < metas.length; i++) {
                         if (metas[i].getAttribute('name') === 'viewport') {

@@ -154,9 +154,14 @@ export default class ModalManager{
     }
   }
   cancelModal(){
-    //unpause timer
-    $("#main_input").focus();
+    //detect touch devices
+    if("ontouchstart" in document.documentElement) {
+      $("#main_input").blur();
+    } else {
+      $("#main_input").focus();
+    };
 
+    //unpause timer
     state.time_paused = false;
     timeline([
       {
@@ -186,7 +191,6 @@ export default class ModalManager{
   }
   acceptModal(modalid){
     //unpause timer
-    //$("#main_input").focus();
     state.time_paused = false;
     timeline([
       {
