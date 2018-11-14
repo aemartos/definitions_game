@@ -11,169 +11,186 @@
         <link rel="shortcut icon" href="assets/images/logos/favicon_w.ico" type="image/x-icon">
     </head>
     <body>
+        <script type="text/javascript">
+            var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1; //&& ua.indexOf("mobile");
+            var winHeight = window.innerHeight>window.innerWidth ? window.innerHeight:window.innerWidth;
+            var winWidth = window.innerHeight>window.innerWidth ? window.innerWidth:window.innerHeight;
+            if(isAndroid) {
+                document.write('<meta name="viewport" content="width=device-width, height=' + window.innerHeight + ', initial-scale=1.0">');
+                window.addEventListener("orientationchange", function() {
+                    let heightt = Math.abs(screen.orientation.angle) === 90 ? winWidth : winHeight;
+                    //alert("change" + heightt);
+                    //let heightt = window.innerHeight;
+                    const metas = document.getElementsByTagName('meta');
+                    for (let i = 0; i < metas.length; i++) {
+                        if (metas[i].getAttribute('name') === 'viewport') {
+                            metas[i].setAttribute("content", "width=device-width, height=" + heightt + ", initial-scale=1.0");
+                        }
+                    }
+                });
+            }
+        </script>
 
-<body>
+
+        <%- include html/modalCredits -%>
+        <%- include html/modalInfo -%>
+        <%- include html/modalProgress -%>
+        <%- include html/modalReset -%>
+        <%- include html/modalStop -%>
+        <%- include html/modalFinal -%>
+
+        <div class="dark-opacity" id="dark-opacity" ></div>
 
 
-    <%- include html/modalCredits -%>
-    <%- include html/modalInfo -%>
-    <%- include html/modalProgress -%>
-    <%- include html/modalReset -%>
-    <%- include html/modalStop -%>
-    <%- include html/modalFinal -%>
+        <div id="container">
 
-    <div class="dark-opacity" id="dark-opacity" ></div>
-
-
-    <div id="container">
-
-        <div class="main_header">
-            <div class="app_logo">
-                <img class="definitions_logo" src="/assets/images/logos/wordwall_logo.svg"/>
-                <div class="type_text"></div>
-                <!-- <img class="type_logo" src="/assets/images/logos/internet.svg"/> -->
-            </div>
-            <div class="menu_right">
-                <div class="elab">
-                    <p class="text_elab" id="text_elab"></p>
-                    <img class="elab_logo" src="assets/images/logos/elab_logo_white.svg"/>
+            <div class="main_header">
+                <div class="app_logo">
+                    <img class="definitions_logo" src="/assets/images/logos/wordwall_logo.svg"/>
+                    <div class="type_text"></div>
+                    <!-- <img class="type_logo" src="/assets/images/logos/internet.svg"/> -->
                 </div>
-                <div class="language_menu accordion_menu">
-                    <div class="current_language" id="lang_arrow" href="">
-                        <span class="curr_lang" id="curr_lang">es</span>
-                        <span class="icon-arrow_up" id="l_arrow"></span>
+                <div class="menu_right">
+                    <div class="elab">
+                        <p class="text_elab" id="text_elab"></p>
+                        <img class="elab_logo" src="assets/images/logos/elab_logo_white.svg"/>
                     </div>
-                    <ul class="accordion other_languages closed" id="other_languages">
-                        <!-- <li class="lang">es</li> -->
-                    </ul>
+                    <div class="language_menu accordion_menu">
+                        <div class="current_language" id="lang_arrow" href="">
+                            <span class="curr_lang" id="curr_lang">es</span>
+                            <span class="icon-arrow_up" id="l_arrow"></span>
+                        </div>
+                        <ul class="accordion other_languages closed" id="other_languages">
+                            <!-- <li class="lang">es</li> -->
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+
+            <div class="control_box">
+                <div class="control_bar">
+
+                    <div class="control_text">
+                        <div class="start_game">
+                            <span class="start_game_text" id="start_game_text"></span>
+                            <img class="control control_start svg" id="start_button" src="assets/images/icons/start.svg"/>
+                        </div>
+                        <div class="credits" id="openCredits"></div>
+                    </div>
+
+                    <div class="controls_menu hide">
+                        <span class="control control_info" id="openInfo"><img class="svg" src="assets/images/icons/info.svg"/></span>
+                        <span class="control control_progress" id="openProgress"><img class="svg" src="assets/images/icons/progress.svg"/></span>
+                        <span class="control control_reset" id="openReset"><img class="svg" src="assets/images/icons/reset.svg"/></span>
+                        <span class="control control_stop" id="openStop"><img class="svg" src="assets/images/icons/stop.svg"/></span>
+                        <span class="control control_fullscreen" id="enterfullscreen"><img class="svg" src="assets/images/icons/full_screen.svg"/></span>
+                        <span class="control control_nofullscreen hide" id="exitfullscreen"><img class="svg" src="assets/images/icons/no_full_screen.svg"/></span>
+                    </div>
+
+
+                <div class="controls_menu_mob hide accordion_menu">
+                    <div class="control_main">
+                        <span class="control control_burger"><img class="svg" id="burger_button" src="assets/images/icons/burger.svg"/></span>
+                    </div>
+                    <div class="accordion controls_int closed">
+                        <span class="control control_info"><img class="svg" src="assets/images/icons/info_fill.svg"/></span>
+                        <span class="control control_progress"><img class="svg" src="assets/images/icons/progress_fill.svg"/></span>
+                        <span class="control control_reset"><img class="svg" src="assets/images/icons/reset_fill.svg"/></span>
+                        <span class="control control_stop"><img class="svg" src="assets/images/icons/stop_fill.svg"/></span>
+                        <!-- <span class="control control_fullscreen"><img class="svg" src="assets/images/icons/full_screen_fill.svg"/></span>
+                        <span class="control control_nofullscreen"><img class="svg" src="assets/images/icons/no_full_screen_fill.svg"/></span> -->
+                    </div>
+                </div>
+
+
+                    <div class="progress_score hide">
+                        <div class="time_elapsed">
+                            <div class="number_progress number_time" id="clock"><span class="minutes_box"></span>:<span class="seconds_box"></span></div>
+                            <div class="text_progress time_text" id="time_text"></div>
+                        </div>
+                        <div class="questions_answered">
+                            <div class="number_progress number_answered"></div>
+                            <div class="progress_bar"><div class="progress_fill"></div></div>
+                        </div>
+                        <div class="user_score">
+                            <div class="number_progress score_number">0</div>
+                            <div class="text_progress score_text" id="score_text"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="main_box">
+                <p class="main_text" id="main_text"></p>
+
+                <div class="main_game hide">
+                    <div class="word-wall">
+                        <div class="letter-wall owl-carousel owl-theme">
+
+                        </div>
+                    </div>
+
+                <div class="word-def">
+
+                    <div class="wildcards">
+                        <div class="w_wild w_tip" id="additionaltip">
+                            <div class="wild_icon">
+                                <span class="w_times w_t_tip"></span>
+                                <img class="svg wildcard" src="assets/images/icons/tip_w.svg"/>
+                            </div>
+                            <div class="tip_type tip_type_tip"><span class="triangle"></span><p id="tip_type_tip"></p></div>
+                            <div class="w_explanation tip_explanation hide"><span class="triangle"></span><p class="text_explanation" id="tip_exp"></p></div>
+                        </div>
+                        <div class="w_wild w_two_tries" id="twotries">
+                            <div class="wild_icon">
+                                <span class="w_times w_t_tries"></span>
+                                <img class="svg wildcard" src="assets/images/icons/two_tries_w.svg"/>
+                            </div>
+                            <div class="tip_type tip_type_two"><span class="triangle"></span><p id="tip_type_two"></p></div>
+                        </div>
+                        <div class="w_wild w_number" id="numberletters">
+                            <div class="wild_icon">
+                                <span class="w_times w_t_number"></span>
+                                <img class="svg wildcard" src="assets/images/icons/number_w.svg"/>
+                            </div>
+                            <div class="tip_type tip_type_number"><span class="triangle"></span><p id="tip_type_number"></p></div>
+                            <div class="w_explanation number_explanation hide"><span class="triangle"></span><p class="text_number" id="number_exp"></p></div>
+                        </div>
+                        <div class="w_wild w_letter" id="nextletter">
+                            <div class="wild_icon">
+                                <span class="w_times w_t_letter"></span>
+                                <img class="svg wildcard" src="assets/images/icons/letter_w.svg"/>
+                            </div>
+                            <div class="tip_type tip_type_next"><span class="triangle"></span><p id="tip_type_next"></p></div>
+                        </div>
+                    </div>
+
+                    <div class="word_definition_box">
+                        <div id="two_tries_1_more"></div>
+                        <div id="two_tries_try_again"></div>
+                        <div class="title_word"></div>
+                        <div class="word_definition"></div>
+                        <div class="enter_answer">
+                            <div class="answer_input">
+                                <input class="main_input" id="main_input" type="text" spellCheck="false" autoComplete="off">
+                                <div class="check_box" id="check_box"><img class="svg control control_check" src="assets/images/icons/check_fill.svg"/></div>
+                            </div>
+                            <div class="next_box"><img class="svg control control_next" id="next_arrow" src="assets/images/icons/right_arrow_fill.svg"/></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            </div>
+
         </div>
 
 
-        <div class="control_box">
-            <div class="control_bar">
-
-                <div class="control_text">
-                    <div class="start_game">
-                        <span class="start_game_text" id="start_game_text"></span>
-                        <img class="control control_start svg" id="start_button" src="assets/images/icons/start.svg"/>
-                    </div>
-                    <div class="credits" id="openCredits"></div>
-                </div>
-
-                <div class="controls_menu hide">
-                    <span class="control control_info" id="openInfo"><img class="svg" src="assets/images/icons/info.svg"/></span>
-                    <span class="control control_progress" id="openProgress"><img class="svg" src="assets/images/icons/progress.svg"/></span>
-                    <span class="control control_reset" id="openReset"><img class="svg" src="assets/images/icons/reset.svg"/></span>
-                    <span class="control control_stop" id="openStop"><img class="svg" src="assets/images/icons/stop.svg"/></span>
-                    <span class="control control_fullscreen" id="enterfullscreen"><img class="svg" src="assets/images/icons/full_screen.svg"/></span>
-                    <span class="control control_nofullscreen hide" id="exitfullscreen"><img class="svg" src="assets/images/icons/no_full_screen.svg"/></span>
-                </div>
-
-
-            <div class="controls_menu_mob hide accordion_menu">
-                <div class="control_main">
-                    <span class="control control_burger"><img class="svg" id="burger_button" src="assets/images/icons/burger.svg"/></span>
-                </div>
-                <div class="accordion controls_int closed">
-                    <span class="control control_info"><img class="svg" src="assets/images/icons/info_fill.svg"/></span>
-                    <span class="control control_progress"><img class="svg" src="assets/images/icons/progress_fill.svg"/></span>
-                    <span class="control control_reset"><img class="svg" src="assets/images/icons/reset_fill.svg"/></span>
-                    <span class="control control_stop"><img class="svg" src="assets/images/icons/stop_fill.svg"/></span>
-                    <!-- <span class="control control_fullscreen"><img class="svg" src="assets/images/icons/full_screen_fill.svg"/></span>
-                    <span class="control control_nofullscreen"><img class="svg" src="assets/images/icons/no_full_screen_fill.svg"/></span> -->
-                </div>
-            </div>
-
-
-                <div class="progress_score hide">
-                    <div class="time_elapsed">
-                        <div class="number_progress number_time" id="clock"><span class="minutes_box"></span>:<span class="seconds_box"></span></div>
-                        <div class="text_progress time_text" id="time_text"></div>
-                    </div>
-                    <div class="questions_answered">
-                        <div class="number_progress number_answered"></div>
-                        <div class="progress_bar"><div class="progress_fill"></div></div>
-                    </div>
-                    <div class="user_score">
-                        <div class="number_progress score_number">0</div>
-                        <div class="text_progress score_text" id="score_text"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="main_box">
-            <p class="main_text" id="main_text"></p>
-
-            <div class="main_game hide">
-                <div class="word-wall">
-                    <div class="letter-wall owl-carousel owl-theme">
-
-                    </div>
-                </div>
-
-            <div class="word-def">
-
-                <div class="wildcards">
-                    <div class="w_wild w_tip" id="additionaltip">
-                        <div class="wild_icon">
-                            <span class="w_times w_t_tip"></span>
-                            <img class="svg wildcard" src="assets/images/icons/tip_w.svg"/>
-                        </div>
-                        <div class="tip_type tip_type_tip"><span class="triangle"></span><p id="tip_type_tip"></p></div>
-                        <div class="w_explanation tip_explanation hide"><span class="triangle"></span><p class="text_explanation" id="tip_exp"></p></div>
-                    </div>
-                    <div class="w_wild w_two_tries" id="twotries">
-                        <div class="wild_icon">
-                            <span class="w_times w_t_tries"></span>
-                            <img class="svg wildcard" src="assets/images/icons/two_tries_w.svg"/>
-                        </div>
-                        <div class="tip_type tip_type_two"><span class="triangle"></span><p id="tip_type_two"></p></div>
-                    </div>
-                    <div class="w_wild w_number" id="numberletters">
-                        <div class="wild_icon">
-                            <span class="w_times w_t_number"></span>
-                            <img class="svg wildcard" src="assets/images/icons/number_w.svg"/>
-                        </div>
-                        <div class="tip_type tip_type_number"><span class="triangle"></span><p id="tip_type_number"></p></div>
-                        <div class="w_explanation number_explanation hide"><span class="triangle"></span><p class="text_number" id="number_exp"></p></div>
-                    </div>
-                    <div class="w_wild w_letter" id="nextletter">
-                        <div class="wild_icon">
-                            <span class="w_times w_t_letter"></span>
-                            <img class="svg wildcard" src="assets/images/icons/letter_w.svg"/>
-                        </div>
-                        <div class="tip_type tip_type_next"><span class="triangle"></span><p id="tip_type_next"></p></div>
-                    </div>
-                </div>
-
-                <div class="word_definition_box">
-                    <div id="two_tries_1_more"></div>
-                    <div id="two_tries_try_again"></div>
-                    <div class="title_word"></div>
-                    <div class="word_definition"></div>
-                    <div class="enter_answer">
-                        <div class="answer_input">
-                            <input class="main_input" id="main_input" type="text" spellCheck="false" autoComplete="off">
-                            <div class="check_box" id="check_box"><img class="svg control control_check" src="assets/images/icons/check_fill.svg"/></div>
-                        </div>
-                        <div class="next_box"><img class="svg control control_next" id="next_arrow" src="assets/images/icons/right_arrow_fill.svg"/></div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-        </div>
-
-    </div>
-
-
-</body>
+    </body>
 </html>
