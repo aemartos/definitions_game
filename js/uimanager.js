@@ -13,6 +13,7 @@ export default class UIManager{
       //variable used to see if we have rendered the letters or not
       this.is_first_render = true;
 
+      this.main_box = $('.main_box');
       this.letterWall = $('.letter-wall');
       this.explanation = $('.text_explanation');
       this.lettersNumber = $('.text_number');
@@ -28,9 +29,11 @@ export default class UIManager{
       this.progress = $(".number_answered");
       this.progress_fill = $('.progress_fill');
 
+      this.controlBox = $('.control_box');
       this.start_button = $('#start_button');
       this.game = $('.main_game');
-      this.initial_text = $('.main_text');
+      this.initial_text = $('#main_text');
+      this.finish_title = $('#finish_title');
       this.initial_controls = $('.control_text');
       this.game_controls = $('.controls_menu');
       this.game_controls_mob = $('.controls_menu_mob');
@@ -102,7 +105,9 @@ export default class UIManager{
         this.mainInput.focus();
       }
     } else {
-      this.initial_text.removeClass('hide');
+      if (!UI_CONFIG.finish_screen) {
+        this.initial_text.removeClass('hide');
+      }
       this.game.addClass('hide');
       this.initial_controls.removeClass('hide');
       this.game_controls.addClass('hide');
@@ -267,11 +272,21 @@ export default class UIManager{
     this.wild_letter.html(state.wildcards.nextletter);
 
   }
+  render_finishScreen(){
+    this.game.addClass("hide");
+    this.initial_text.addClass('hide');
+    this.finish_title.removeClass('hide');
+    this.controlBox.addClass('hide');
+    this.main_box.addClass('main_box_finished');
+  }
+
   //zones_to_rerender is an array with the zones of the app that we want to repaint,
   //if nothing is specified we rerender everything
   render(state, zones_to_rerender) {
     if(zones_to_rerender===undefined){
+      // zones_to_rerender = ["buttons", "score", "definitions", "wildcards", "lang", "type", "finishScreen"];
       zones_to_rerender = ["buttons", "score", "definitions", "wildcards", "lang", "type"];
+
     }
     for (let i = 0; i < zones_to_rerender.length; i++) {
         switch(zones_to_rerender[i]) {
@@ -293,6 +308,9 @@ export default class UIManager{
           case "type":
               this.render_type_app(state);
               break;
+          // case "finishScreen":
+          //     this.render_finishScreen(state);
+          //     break;
           default:
               console.log("Do not know how to RENDER " + zones_to_rerender[i]);
           }

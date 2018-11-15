@@ -7,6 +7,7 @@ export default class TranslatorManager{
   }
   update(){
     $("#main_text").html(this.trans.t("¿te atreves con este reto? tienes una hora para completar y superar nuestro muro de palabras, sobre uso seguro de internet y las TIC"));
+    $("#finish_title").html(this.trans.t("la prueba ha terminado. puedes cerrar esta ventana.</br> acertaste <span class='right-words'></span> palabras, tu puntuación es: <span class='test-average'></span>."));
     $("#text_elab").html(this.trans.t("una aplicación de"));
     $("#start_game_text").html(this.trans.t("empezar prueba"));
     $("#openCredits").html(this.trans.t("créditos"));

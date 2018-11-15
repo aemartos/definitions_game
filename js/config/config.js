@@ -25,6 +25,7 @@ const INITIAL_STATE = {
   progress: 0,
   success: 0,
   average: 0,
+  grade: 0,
   wildcards: {
     additionaltip: 4,
     twotries: 5,
@@ -60,6 +61,7 @@ const INITIAL_STATE = {
 export const UI_CONFIG = {
   with_reset_button: true,
   with_fullscreen: true,
+  finish_screen: true,
   name:"wordwall",
   type_logo:"assets/images/logos/internet.svg",
   survey: "https://docs.google.com/forms/d/10xa0gH9pLU9xAyxMz7ufmotky4mCROTxOLNzNs2VKkg/edit",

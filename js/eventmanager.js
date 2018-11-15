@@ -30,6 +30,7 @@ export default class EventManager{
     this.startGame = this.startGame.bind(this);
     this.resetGame = this.resetGame.bind(this);
     this.endGame = this.endGame.bind(this);
+    this.finalScreen = this.finalScreen.bind(this);
     this.checkLetter = this.checkLetter.bind(this);
     this.updateClock = this.updateClock.bind(this);
     this.add_ui_manager = this.add_ui_manager.bind(this);
@@ -50,8 +51,13 @@ export default class EventManager{
   init_ui(){
     this.start_button.on('click', this.startGame);
     this.reset_game.on('click', this.resetGame);
-    this.final_game.on('click', this.resetGame);
-    this.cross_final.on('click', this.resetGame);
+    if (UI_CONFIG.finish_screen) {
+      this.final_game.on('click', this.finalScreen);
+      this.cross_final.on('click', this.finalScreen);
+    } else {
+      this.final_game.on('click', this.resetGame);
+      this.cross_final.on('click', this.resetGame);
+    }
     this.end_game.on('click', this.endGame);
     this.check_letter.on('click', this.checkLetter);
     window.addEventListener('fullscreenchange', this.fullscreenChange);
@@ -109,6 +115,18 @@ export default class EventManager{
     state.time_paused = true;
     this.ui.render(state);
   }
+  finalScreen(){
+    //round to 2 decimals maximun (grade out to ten)
+    //state.grade = (Math.round((state.average*10)/100*100))/100;
+    state.grade = (Math.round(state.average*10))/100;
+    console.log(state.average, state.grade);
+    this.rightWords = $('.right-words');
+    this.testAverage = $('.test-average');
+    this.rightWords.text(state.success);
+    this.testAverage.text(state.grade);
+    this.ui.render_finishScreen();
+    //this.ui.render(finishScreen);
+  }
   updateClock(){
     if(!state.time_paused){
       state.time = state.time -1;
@@ -132,6 +150,7 @@ export default class EventManager{
     var number = parseInt($(event.currentTarget).attr("index"));
     this.goToLetter(number);
   }
+
   nextLetter(number, event, with_focus){
     if (number === state.letters.length - 1) {
       number = -1;

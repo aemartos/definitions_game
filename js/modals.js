@@ -1,6 +1,7 @@
 const { styler, timeline, listen, easing } = window.popmotion;
 import {state} from './config/config';
 import UIManager from './uimanager';
+import {UI_CONFIG} from './config/config';
 
 export default class ModalManager{
   constructor(eventmanager){
@@ -129,6 +130,11 @@ export default class ModalManager{
     state.time_paused = true;
     if(modalid==="modalFinal"){
       $("#main_input").blur();
+      if (UI_CONFIG.finish_screen && state.game_ended) {
+        //if the game has ended and there is final screen disable events
+        $(this.modalShade).css('pointer-events', 'none');
+        $('#container').css('pointer-events', 'none');
+      }
     }
     timeline([
       { track: 'shade', from: 0, to: 1, ease: easing.linear },
@@ -152,7 +158,7 @@ export default class ModalManager{
       this.final_score.html(state.score);
 
       state.average = (state.success/state.letters.length) * 100;
-      console.log(state.average);
+      //console.log(state.average);
       this.finalFeedback_bad.css('display', (state.average <= 33) ? 'block' : 'none');
       this.finalFeedback_normal.css('display', (state.average > 33 && state.average < 66) ? 'block' : 'none');
       this.finalFeedback_great.css('display', (state.average > 66) ? 'block' : 'none');
@@ -195,6 +201,11 @@ export default class ModalManager{
       complete: ()=> {
         this.hideContainers(this.openedmodal);
         if(this.openedmodal==="modalFinal"){
+          if (UI_CONFIG.finish_screen && state.game_ended) {
+            //if the game has ended and there is final screen enable events
+            $(this.modalShade).css('pointer-events', 'auto');
+            $('#container').css('pointer-events', 'auto');
+          }
           this.ev.resetGame();
         }
       }

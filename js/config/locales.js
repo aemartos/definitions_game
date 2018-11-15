@@ -25,6 +25,7 @@ export const LOCALES = {
     "instrucciones": "instructions",
     "la palabra contiene": "the word contains",
     "la primera palabra contiene": "first word contains",
+    "la prueba ha terminado. puedes cerrar esta ventana.</br> acertaste <span class='right-words'></span> palabras, tu puntuación es: <span class='test-average'></span>.": "the test has ended. you may close this window.</br> you have hit <span class='right-words'></span> words, your final score is: <span class='test-average'></span>.",
     "la segunda": "second one",
     "licencia": "license",
     "lo has hecho bastante bien, pero has fallado algunas. siempre se puede aprender algo más acerca de internet y las TIC": "you have done quite well, but you have failed some. you can always learn something else about the internet and ICT",
