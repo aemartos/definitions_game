@@ -97,6 +97,7 @@ export default class UIManager{
       if("ontouchstart" in document.documentElement) {
         this.mainInput.blur();
         $('.next_box').addClass('hide');
+        $('.answer_input').css({'width':'100%', 'margin': '0'});
       } else {
         this.mainInput.focus();
       }

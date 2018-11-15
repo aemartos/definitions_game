@@ -80,8 +80,8 @@ export default class EventManager{
     $(document).on("click", ".letter", this.letterClicked);
     $(document).on("click", ".w_wild", this.wildcardClicked);
     $(document).on("click", "#next_arrow", ()=>{this.nextLetter(state.actual_letter)});
-    $(document).on("click", ".owl-prev", ()=>{this.prevLetter(state.actual_letter)});
-    $(document).on("click", ".owl-next", ()=>{this.nextLetter(state.actual_letter)});
+    $(document).on("click", "button.owl-prev", ()=>{this.prevLetter(state.actual_letter)});
+    $(document).on("click", "button.owl-next", ()=>{this.nextLetter(state.actual_letter)});
     $(document).on("keyup", this.keyup);
     $(document).on("keyup", "#main_input", this.checkLetter);
     $(document).on("click", ".lang", this.changeLocale);
