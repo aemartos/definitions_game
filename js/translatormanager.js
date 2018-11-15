@@ -26,13 +26,15 @@ export default class TranslatorManager{
     $("#modalInfo .btn-red").html(this.trans.t("cerrar"));
     $("#modalProgress .modal-title-prin").html(this.trans.t("progreso de la prueba"));
     $("#modalProgress .modal-text-info").html(this.trans.t("palabras contestadas <span class='game-score'></span>"));
+    $("#modalProgress .modal-text-right").html(this.trans.t("palabras contestadas bien <span class='game-score-right'></span>"));
+    $("#modalProgress .modal-text-wrong").html(this.trans.t("palabras contestadas mal <span class='game-score-wrong'></span>"));
     $("#modalProgress .btn-red").html(this.trans.t("cerrar"));
     $("#modalReset .modal-title-prin").html(this.trans.t("reiniciar la prueba"));
     $("#modalReset .modal-text-info").html(this.trans.t("¿estás seguro de que quieres reiniciar la prueba? esta acción eliminará todo tu progreso."));
     $("#modalReset .btn-red").html(this.trans.t("cancelar"));
     $("#modalReset .btn-green").html(this.trans.t("aceptar"));
     $("#modalStop .modal-title-prin").html(this.trans.t("finalizar la prueba"));
-    $("#modalStop .modal-text-info").html(this.trans.t("¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes palabras sin contestar."));
+    $("#modalStop .modal-text-info").html(this.trans.t("¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes <span class='game-score'></span> palabras sin contestar."));
     $("#modalStop .btn-red").html(this.trans.t("cancelar"));
     $("#modalStop .btn-green").html(this.trans.t("aceptar"));
     $("#modalFinal .modal-title-end").html(this.trans.t("¡enhorabuena! terminaste"));

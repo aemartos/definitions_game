@@ -150,7 +150,15 @@ export default class ModalManager{
     }
     if(modalid==="modalProgress"){
       this.progress_modal_text = $('.game-score');
+      this.progress_modal_text_right = $('.game-score-right');
+      this.progress_modal_text_wrong = $('.game-score-wrong');
       this.progress_modal_text.html(state.progress + "/" + state.letters.length);
+      this.progress_modal_text_right.html(state.success);
+      this.progress_modal_text_wrong.html(state.progress - state.success);
+    }
+    if(modalid==="modalStop"){
+      this.progress_modal_text = $('.game-score');
+      this.progress_modal_text.html(state.letters.length - state.progress);
     }
   }
   cancelModal(){

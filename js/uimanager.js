@@ -213,6 +213,10 @@ export default class UIManager{
         } else {
           this.mainInput.removeAttr('disabled');
         }
+    } else {
+      $('.letter-wall .letter').each((index, elem) => {
+        $(elem).removeClass("active right wrong");
+      });
     }
   }
   render_wildcards(state){

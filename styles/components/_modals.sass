@@ -11,6 +11,15 @@
   z-index: 2
   +hand_cursor
 
+#modalProgress
+  p
+    &.modal-text-info
+      margin: 1em 0 .5em
+    &.modal-text-right
+      margin: .5em 0
+    &.modal-text-wrong
+      margin: .5em 0 1em
+
 .modal_position
   font-family: $HelveticaRegular
   left: 50%
@@ -25,7 +34,7 @@
   .modal
     opacity: 0
     user-select: none
-    +transform(translateY(100px)) 
+    +transform(translateY(100px))
     +transform(translateZ(0px))
     color: black
     width: 100%
@@ -55,7 +64,7 @@
       .close-modal-cross
         +flex
         justify-content: flex-end
-      .control 
+      .control
         path
           fill: black
           font-size: .8em
@@ -194,7 +203,7 @@
 
   .modal_position
     width: 70%
-      
+
 
 
 @media (max-width: $media2)
@@ -311,6 +320,3 @@
                 width: 6.5em
               &.crif_logo
                 width: 4em
-
-
-
