@@ -24,6 +24,7 @@ const INITIAL_STATE = {
   time_paused: false,
   progress: 0,
   success: 0,
+  average: 0,
   wildcards: {
     additionaltip: 4,
     twotries: 5,

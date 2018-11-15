@@ -38,7 +38,9 @@ export default class TranslatorManager{
     $("#modalStop .btn-red").html(this.trans.t("cancelar"));
     $("#modalStop .btn-green").html(this.trans.t("aceptar"));
     $("#modalFinal .modal-title-end").html(this.trans.t("¡enhorabuena! terminaste"));
-    $("#modalFinal .modal-text-info").html(this.trans.t("eres un crack, ¡a ti no hay quien te engañe! sabemos que no necesitas que te enseñemos uso seguro TIC e internet"));
+    $("#modalFinal .modal-text-info.answerGreat").html(this.trans.t("eres un crack, ¡has acertado casi todas! dominas muy bien el lenguaje de internet y las TIC, enhorabuena"));
+    $("#modalFinal .modal-text-info.answerNormal").html(this.trans.t("lo has hecho bastante bien, pero has fallado algunas. siempre se puede aprender algo más acerca de internet y las TIC"));
+    $("#modalFinal .modal-text-info.answerBad").html(this.trans.t("no has acertado muchas, ¡necesitas dar un repaso! es muy importante que aprendas uso seguro TIC e internet"));
     $("#modalFinal .score-time").html(this.trans.t("tiempo"));
     $("#modalFinal .score-right").html(this.trans.t("aciertos"));
     $("#modalFinal .score-points").html(this.trans.t("puntos"));
@@ -51,7 +53,7 @@ export default class TranslatorManager{
     $("#tip_type_number").html(this.trans.t("número de letras"));
     $("#tip_type_next").html(this.trans.t("siguiente letra"));
     $("#two_tries_1_more").html(this.trans.t("tienes 1 intento extra"));
-    $("#two_tries_try_again").html(this.trans.t("no es correto, prueba otra vez"));
+    $("#two_tries_try_again").html(this.trans.t("no es correcto, prueba otra vez"));
   }
   changeLocale(lang){
     this.trans.changeLocale(lang);

@@ -143,10 +143,19 @@ export default class ModalManager{
       this.final_time = $('#final_time');
       this.final_progress = $('#final_progress');
       this.final_score = $('#final_score');
+      this.finalFeedback_great = $('#modalFinal .modal-text-info.answerGreat');
+      this.finalFeedback_normal = $('#modalFinal .modal-text-info.answerNormal');
+      this.finalFeedback_bad = $('#modalFinal .modal-text-info.answerBad');
 
       this.final_time.html(this.ui.toHHMMSS(state.time));
       this.final_progress.html(state.success + "/" + state.letters.length);
       this.final_score.html(state.score);
+
+      state.average = (state.success/state.letters.length) * 100;
+      console.log(state.average);
+      this.finalFeedback_bad.css('display', (state.average <= 33) ? 'block' : 'none');
+      this.finalFeedback_normal.css('display', (state.average > 33 && state.average < 66) ? 'block' : 'none');
+      this.finalFeedback_great.css('display', (state.average > 66) ? 'block' : 'none');
     }
     if(modalid==="modalProgress"){
       this.progress_modal_text = $('.game-score');

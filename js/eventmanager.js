@@ -210,7 +210,6 @@ export default class EventManager{
         this.ui.render(state, ["score", "definitions", "wildcards"]);
         $('.tip_explanation').addClass('hide');
         if(state.progress===state.letters.length){
-          console.log("fin juego");
           state.game_ended = true;
           this.mm.openModal("modalFinal");
         }
