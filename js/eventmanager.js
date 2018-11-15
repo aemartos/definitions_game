@@ -121,8 +121,10 @@ export default class EventManager{
     state.grade = (Math.round(state.average*10))/100;
     console.log(state.average, state.grade);
     this.rightWords = $('.right-words');
+    this.totalWords = $('.total-words');
     this.testAverage = $('.test-average');
     this.rightWords.text(state.success);
+    this.totalWords.text(state.letters.length);
     this.testAverage.text(state.grade);
     this.ui.render_finishScreen();
     //this.ui.render(finishScreen);
