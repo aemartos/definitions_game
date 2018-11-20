@@ -7,6 +7,8 @@ export let state = {};
 export function set_initial_state(){
     state = JSON.parse(JSON.stringify(INITIAL_STATE));
     state.type_app = INTERNET_DEFINITIONS.type_app;
+    var lang = state.lang!=="" ? state.lang:navigator.language.substring(0,2);
+    state.lang = lang;
     INTERNET_DEFINITIONS.letters.forEach((elem, index) => {
       elem.right = undefined;
       elem.answered = undefined;

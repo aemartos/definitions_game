@@ -48,16 +48,12 @@ export default class EventManager{
   add_modal_manager(modalmanager){
     this.mm = modalmanager;
   }
+
   init_ui(){
     this.start_button.on('click', this.startGame);
     this.reset_game.on('click', this.resetGame);
-    if (UI_CONFIG.finish_screen) {
-      this.final_game.on('click', this.finalScreen);
-      this.cross_final.on('click', this.finalScreen);
-    } else {
-      this.final_game.on('click', this.resetGame);
-      this.cross_final.on('click', this.resetGame);
-    }
+    this.final_game.on('click', this.resetGame);
+    this.cross_final.on('click', this.resetGame);
     this.end_game.on('click', this.endGame);
     this.check_letter.on('click', this.checkLetter);
     window.addEventListener('fullscreenchange', this.fullscreenChange);
@@ -94,10 +90,13 @@ export default class EventManager{
   }
 
   changeLocale(event){
+    console.log("changeLocale")
     this.tm.changeLocale($(event.currentTarget).html());
     state.lang = $(event.currentTarget).html();
     this.ui.accordion($(event.currentTarget));
-    this.ui.render(state, ["lang"]);
+    console.log(state.game_ended, 22)
+    this.ui.render(state, ["lang", "finishScreen"]);
+    console.log(state.average);
   }
   startGame(){
     state.game_started = true;
@@ -106,28 +105,30 @@ export default class EventManager{
     this.ui.render(state);
   }
   resetGame(){
-  	set_initial_state();
+    set_initial_state();
     this.ui.render(state);
+    $('#main_text').removeClass('hide');
     clearTimeout(this.timeinterval);
   }
   endGame(){
+    set_initial_state();
     state.game_ended = true;
     state.time_paused = true;
-    this.ui.render(state);
+    if (UI_CONFIG.finish_screen && state.game_ended) {
+      this.final_game.unbind('click');
+      this.cross_final.unbind('click');
+      this.end_game.unbind('click');
+      this.final_game.on('click', this.finalScreen);
+      this.cross_final.on('click', this.finalScreen);
+    } //else {
+    //   this.ui.render(state);
+    // }
   }
   finalScreen(){
     //round to 2 decimals maximun (grade out to ten)
     //state.grade = (Math.round((state.average*10)/100*100))/100;
     state.grade = (Math.round(state.average*10))/100;
-    console.log(state.average, state.grade);
-    this.rightWords = $('.right-words');
-    this.totalWords = $('.total-words');
-    this.testAverage = $('.test-average');
-    this.rightWords.text(state.success);
-    this.totalWords.text(state.letters.length);
-    this.testAverage.text(state.grade);
-    this.ui.render_finishScreen();
-    //this.ui.render(finishScreen);
+    this.ui.render(state, ["finishScreen"]);
   }
   updateClock(){
     if(!state.time_paused){
@@ -223,7 +224,7 @@ export default class EventManager{
           }
         }
         state.progress++;
-        if (state.letters[state.actual_letter].right) {
+        if (state.letters[state.actual_letter].right && state.progress < state.letters.length) {
           this.nextLetter(state.actual_letter);
         } else {
           this.goToLetter(state.actual_letter);
@@ -232,6 +233,9 @@ export default class EventManager{
         $('.tip_explanation').addClass('hide');
         if(state.progress===state.letters.length){
           state.game_ended = true;
+          if (UI_CONFIG.finish_screen) {
+            this.endGame();
+          }
           this.mm.openModal("modalFinal");
         }
       }

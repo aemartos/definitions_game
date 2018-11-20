@@ -22,9 +22,9 @@ $(document).ready(function(){
 
   set_initial_state();
   //create translator manager and call update for the first time
-  var lang = state.lang!=="" ? state.lang:navigator.language.substring(0,2);
-  state.lang = lang;
-  var trans = new Translator(lang);
+  // var lang = state.lang!=="" ? state.lang:navigator.language.substring(0,2);
+  // state.lang = lang;
+  var trans = new Translator(state.lang);
   var tm = new TranslatorManager(trans);
   tm.update();
 

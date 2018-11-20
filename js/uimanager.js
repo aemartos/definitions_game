@@ -120,7 +120,7 @@ export default class UIManager{
       this.game_score.removeClass('hide');
       this.clock.html(this.toHHMMSS(state.time));
       this.progress.html( state.progress + "/" + state.letters.length);
-      var fill = (state.progress)*105/state.letters.length;
+      var fill = (state.progress)*103/state.letters.length;
       this.progress_fill.css("width", fill + "%");
     } else {
       this.game_score.addClass('hide');
@@ -272,12 +272,20 @@ export default class UIManager{
     this.wild_letter.html(state.wildcards.nextletter);
 
   }
-  render_finishScreen(){
-    this.game.addClass("hide");
-    this.initial_text.addClass('hide');
-    this.finish_title.removeClass('hide');
-    this.controlBox.addClass('hide');
-    this.main_box.addClass('main_box_finished');
+  render_finishScreen(state){
+    if (UI_CONFIG.finish_screen && state.game_ended) {
+      this.rightWords = $('.right-words');
+      this.totalWords = $('.total-words');
+      this.testAverage = $('.test-average');
+      this.rightWords.text(state.success);
+      this.totalWords.text(state.letters.length);
+      this.testAverage.text(state.grade);
+      this.game.addClass("hide");
+      this.initial_text.addClass('hide');
+      this.finish_title.removeClass('hide');
+      this.controlBox.addClass('hide');
+      this.main_box.addClass('main_box_finished');
+    }
   }
 
   //zones_to_rerender is an array with the zones of the app that we want to repaint,
@@ -308,9 +316,9 @@ export default class UIManager{
           case "type":
               this.render_type_app(state);
               break;
-          // case "finishScreen":
-          //     this.render_finishScreen(state);
-          //     break;
+          case "finishScreen":
+              this.render_finishScreen(state);
+              break;
           default:
               console.log("Do not know how to RENDER " + zones_to_rerender[i]);
           }

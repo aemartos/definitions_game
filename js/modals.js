@@ -201,12 +201,14 @@ export default class ModalManager{
       complete: ()=> {
         this.hideContainers(this.openedmodal);
         if(this.openedmodal==="modalFinal"){
-          if (UI_CONFIG.finish_screen && state.game_ended) {
+          if (UI_CONFIG.finish_screen) {
             //if the game has ended and there is final screen enable events
             $(this.modalShade).css('pointer-events', 'auto');
             $('#container').css('pointer-events', 'auto');
+            this.ev.endGame();
+          } else {
+            this.ev.resetGame();
           }
-          this.ev.resetGame();
         }
       }
 
