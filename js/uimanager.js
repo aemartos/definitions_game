@@ -169,6 +169,9 @@ export default class UIManager{
           } else if(letter_prev.right===false){
             $(".letter"+state.previous_letter).addClass("wrong");
           }
+          if(UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
+            handleOrientationChange(undefined, true);
+          }
         }
 
         var number_letters = this.count_answer_letters(letter_now.answer);

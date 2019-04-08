@@ -158,7 +158,10 @@ export default class EventManager{
     if (number === state.letters.length - 1) {
       number = -1;
     }
+    //if we are showing the carousel (mediaquery matches) or it is unanswered we go to the next letter
     if (!state.letters[number + 1].answered) {
+      this.goToLetter(number + 1, false);
+    } else if (UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
       this.goToLetter(number + 1, false);
     } else {
       number++;
@@ -172,6 +175,8 @@ export default class EventManager{
     }
     if (!state.letters[number - 1].answered) {
       this.goToLetter(number - 1, false);
+    } else if (UI_CONFIG.mediaquery1.matches || UI_CONFIG.mediaquery2.matches) {
+      this.goToLetter(number -1, false);
     } else {
       number--;
       this.prevLetter(number);

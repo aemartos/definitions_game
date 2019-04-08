@@ -1,4 +1,4 @@
-import {INTERNET_DEFINITIONS} from './definitions';
+import {INTERNET_DEFINITIONS_2} from './definitions';
 
 export let state = {};
 
@@ -6,10 +6,10 @@ export let state = {};
 //this has to be here because when you export a variable it is read-only it can´t be reasigned
 export function set_initial_state(){
     state = JSON.parse(JSON.stringify(INITIAL_STATE));
-    state.type_app = INTERNET_DEFINITIONS.type_app;
+    state.type_app = INTERNET_DEFINITIONS_2.type_app;
     var lang = state.lang!=="" ? state.lang:navigator.language.substring(0,2);
     state.lang = lang;
-    INTERNET_DEFINITIONS.letters.forEach((elem, index) => {
+    INTERNET_DEFINITIONS_2.letters.forEach((elem, index) => {
       elem.right = undefined;
       elem.answered = undefined;
       elem.second_try = false;
